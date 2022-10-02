@@ -1,0 +1,17 @@
+[
+    {
+    "wort" : "Apfel",
+    "id" : "Apf1",
+    "Artikel" : "der Apfel",
+    "plural" : "die ÄPfel"
+    "erklärung" : "Es is ein Frucht, der auf Englicsh Apple bedutet."
+}
+    
+    {
+    "wort" : "Ampel",
+    "id" : "Amp1",
+    "Artikel" : "der Apfe",
+    "plural" : "die ÄPfel"
+    "erklärung" : "Es is ein Frucht, der auf Englicsh Apple bedutet."
+}
+]

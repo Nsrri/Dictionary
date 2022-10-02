@@ -8,10 +8,10 @@
 import SwiftUI
 
 @main
-struct Dictionary_DeApp: App {
+struct Worterbuch: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ContentView( searchText: "`hi")
         }
     }
 }
