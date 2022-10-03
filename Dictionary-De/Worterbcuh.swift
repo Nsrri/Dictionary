@@ -11,7 +11,7 @@ import SwiftUI
 struct Worterbuch: App {
     var body: some Scene {
         WindowGroup {
-            ContentView( searchText: "`hi")
+            HomePage()
         }
     }
 }
