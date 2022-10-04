@@ -11,10 +11,13 @@ import UIKit
 struct HomePage: View {
     var Wort = Bundle.main.decode([Module].self, from: "words.json")
     var body: some View {
+        VStack{
+            ForEach(Wort) { x in
+                Text(x.article)
+            }
+        }
        
-                    ForEach(Wort) { x in
-                        Text(x.article)
-                    }
+                    
         }
 
     }
