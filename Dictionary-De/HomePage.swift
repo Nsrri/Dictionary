@@ -9,7 +9,7 @@ import SwiftUI
 import UIKit
 
 struct HomePage: View {
-    var Wort = Bundle.main.decode([Module].self, from: "Worter.json")
+    var Wort = Bundle.main.decode([Module].self, from: "words.json")
     var body: some View {
        
                     ForEach(Wort) { x in

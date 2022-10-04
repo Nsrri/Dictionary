@@ -11,9 +11,9 @@
 		502750562868C4A200D91944 /* HomePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 502750552868C4A200D91944 /* HomePage.swift */; };
 		502750582868C4A300D91944 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 502750572868C4A300D91944 /* Assets.xcassets */; };
 		5027505B2868C4A300D91944 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5027505A2868C4A300D91944 /* Preview Assets.xcassets */; };
-		502750622868C82600D91944 /* Worter.JSON in Sources */ = {isa = PBXBuildFile; fileRef = 502750612868C82600D91944 /* Worter.JSON */; };
 		502750642868D24500D91944 /* Module.swift in Sources */ = {isa = PBXBuildFile; fileRef = 502750632868D24500D91944 /* Module.swift */; };
 		502750662868D71500D91944 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 502750652868D71500D91944 /* Helper.swift */; };
+		562AF67D28ECC46500E4C088 /* words.json in Resources */ = {isa = PBXBuildFile; fileRef = 562AF67C28ECC46500E4C088 /* words.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,9 +22,9 @@
 		502750552868C4A200D91944 /* HomePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePage.swift; sourceTree = "<group>"; };
 		502750572868C4A300D91944 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5027505A2868C4A300D91944 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		502750612868C82600D91944 /* Worter.JSON */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Worter.JSON; sourceTree = "<group>"; };
 		502750632868D24500D91944 /* Module.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Module.swift; sourceTree = "<group>"; };
 		502750652868D71500D91944 /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
+		562AF67C28ECC46500E4C088 /* words.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = words.json; path = ../../../../../Desktop/words.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,9 +59,7 @@
 			children = (
 				502750632868D24500D91944 /* Module.swift */,
 				502750532868C4A200D91944 /* Worterbcuh.swift */,
-				502750652868D71500D91944 /* Helper.swift */,
 				502750552868C4A200D91944 /* HomePage.swift */,
-				502750612868C82600D91944 /* Worter.JSON */,
 				502750572868C4A300D91944 /* Assets.xcassets */,
 				502750592868C4A300D91944 /* Preview Content */,
 			);
@@ -72,6 +70,8 @@
 			isa = PBXGroup;
 			children = (
 				5027505A2868C4A300D91944 /* Preview Assets.xcassets */,
+				502750652868D71500D91944 /* Helper.swift */,
+				562AF67C28ECC46500E4C088 /* words.json */,
 			);
 			path = "Preview Content";
 			sourceTree = "<group>";
@@ -134,6 +134,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				562AF67D28ECC46500E4C088 /* words.json in Resources */,
 				5027505B2868C4A300D91944 /* Preview Assets.xcassets in Resources */,
 				502750582868C4A300D91944 /* Assets.xcassets in Resources */,
 			);
@@ -149,7 +150,6 @@
 				502750562868C4A200D91944 /* HomePage.swift in Sources */,
 				502750542868C4A200D91944 /* Worterbcuh.swift in Sources */,
 				502750662868D71500D91944 /* Helper.swift in Sources */,
-				502750622868C82600D91944 /* Worter.JSON in Sources */,
 				502750642868D24500D91944 /* Module.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
