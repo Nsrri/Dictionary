@@ -17,6 +17,7 @@
 		563D094828EDB8AE00F336D6 /* Favorites.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563D094728EDB8AE00F336D6 /* Favorites.swift */; };
 		563D094A28EDB8F800F336D6 /* Add.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563D094928EDB8F800F336D6 /* Add.swift */; };
 		563D094C28EDBE0300F336D6 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563D094B28EDBE0300F336D6 /* Home.swift */; };
+		5693B02028F19655001189D7 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5693B01F28F19655001189D7 /* SearchView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +32,7 @@
 		563D094728EDB8AE00F336D6 /* Favorites.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Favorites.swift; sourceTree = "<group>"; };
 		563D094928EDB8F800F336D6 /* Add.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Add.swift; sourceTree = "<group>"; };
 		563D094B28EDBE0300F336D6 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
+		5693B01F28F19655001189D7 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +73,7 @@
 				563D094928EDB8F800F336D6 /* Add.swift */,
 				502750572868C4A300D91944 /* Assets.xcassets */,
 				502750592868C4A300D91944 /* Preview Content */,
+				5693B01F28F19655001189D7 /* SearchView.swift */,
 			);
 			path = "Dictionary-De";
 			sourceTree = "<group>";
@@ -160,6 +163,7 @@
 				502750542868C4A200D91944 /* Worterbcuh.swift in Sources */,
 				502750662868D71500D91944 /* Helper.swift in Sources */,
 				563D094A28EDB8F800F336D6 /* Add.swift in Sources */,
+				5693B02028F19655001189D7 /* SearchView.swift in Sources */,
 				563D094828EDB8AE00F336D6 /* Favorites.swift in Sources */,
 				502750642868D24500D91944 /* Module.swift in Sources */,
 				563D094C28EDBE0300F336D6 /* Home.swift in Sources */,

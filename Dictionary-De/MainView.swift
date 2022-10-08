@@ -21,7 +21,7 @@ struct MainView: View {
             TabView{
                 Home()
                     .tabItem {
-                        Label("Home", systemImage: "Home")
+                        Label("Home", systemImage: "house")
                     }
                 Favorites()
                     .tabItem {
