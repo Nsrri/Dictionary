@@ -71,9 +71,9 @@
 				563D094728EDB8AE00F336D6 /* Favorites.swift */,
 				563D094B28EDBE0300F336D6 /* Home.swift */,
 				563D094928EDB8F800F336D6 /* Add.swift */,
+				5693B01F28F19655001189D7 /* SearchView.swift */,
 				502750572868C4A300D91944 /* Assets.xcassets */,
 				502750592868C4A300D91944 /* Preview Content */,
-				5693B01F28F19655001189D7 /* SearchView.swift */,
 			);
 			path = "Dictionary-De";
 			sourceTree = "<group>";

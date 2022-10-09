@@ -8,9 +8,8 @@
 import SwiftUI
 
 struct Home: View {
-    @State private var searchText = " "
     var body: some View {
-        VStack{
+        VStack(alignment: .center){
             VStack{
                 Image("AppLogo")
                     .resizable()
@@ -22,16 +21,8 @@ struct Home: View {
                 
             }.frame(alignment: .center)
             Spacer()
-//            TextField(text: "Search for...", label: )
-            
-            
-            
-            
         }
     }
-    
-    
-    
 }
 
 struct Home_Previews: PreviewProvider {

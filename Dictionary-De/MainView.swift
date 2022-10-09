@@ -10,6 +10,7 @@ import UIKit
 
 struct MainView: View {
     var Wort = Bundle.main.decode([Module].self, from: "words.json")
+    @State var searchText: String = ""
     var body: some View {
 
         GeometryReader{ geometry in
@@ -22,6 +23,11 @@ struct MainView: View {
                 Home()
                     .tabItem {
                         Label("Home", systemImage: "house")
+                    }
+        
+                SearchView()
+                    .tabItem{
+                        Label("Search", systemImage: "magnifyingglass")
                     }
                 Favorites()
                     .tabItem {
