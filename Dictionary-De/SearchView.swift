@@ -15,12 +15,8 @@ struct SearchView: View {
     
     @State private var searchText = ""
     @State private var isSearching: Bool = false
-    @State private var cancelButton: Bool = false
-    @FocusState private var textFieldIsFocused: Bool
-
-
+    
     var body: some View {
-        
         NavigationView{
             VStack(alignment: .leading){
                 HStack(alignment: .center, spacing: 0){
@@ -29,8 +25,18 @@ struct SearchView: View {
                             .foregroundColor(Color("LightGray"))
                         HStack{
                             Image(systemName: "magnifyingglass")
-                            TextField("Search for...", text: $searchText)
-                                .foregroundColor(.black)
+                            TextField("Search for...", text: $searchText){ startedEditing in
+                                if startedEditing {
+                                    withAnimation {
+                                        isSearching = true
+                                    }
+                                }
+                            } onCommit: {
+                                withAnimation {
+                                    isSearching = false
+                                }
+                            }
+                            .foregroundColor(.black)
                             if !searchText.isEmpty{
                                 Button {
                                     self.searchText = ""
@@ -49,21 +55,31 @@ struct SearchView: View {
                     .frame(height: 40)
                     .cornerRadius(13)
                     .padding()
-                    .onTapGesture(count: 1) {
-                        UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+                    if isSearching {
+                        Button("Cancel") {
+                            searchText = ""
+                            withAnimation{
+                                isSearching = false
+                                UIApplication.shared.dismissKeyboard()
+                            }
+                            
+                        }.padding([.trailing], 6)
                     }
+                }
+                .onTapGesture(count: 1) {
+                    UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
                 }
                 List{
-                    ForEach(searchResults, id: \.self){ word in
-                        NavigationLink(destination: Text(word)){
-                            Text(word)
+                    ForEach(searchResults.filter({ (word: String) -> Bool in
+                        
+                        return word.hasPrefix(searchText) || searchText == "" }), id: \.self) {
+                            word in
+                            NavigationLink(destination: Text(word)){
+                                Text(word)
+                            }
                         }
-                        
-                        
-                    }
+                    
                 }
-                
-                
                 
             } .navigationTitle("Words")
         }
@@ -78,7 +94,6 @@ struct SearchView: View {
         }
     }
 }
-
 
 struct SearchView_Previews: PreviewProvider {
     static var previews: some View {
