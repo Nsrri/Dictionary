@@ -10,7 +10,7 @@ import UIKit
 
 struct SearchView: View {
     //    let data: [Module]
-    let Data = Bundle.main.decode([WordsInformations].self, from:"word.json")
+    let Data = Bundle.main.decode([WordsInformations].self, from:"words.json")
     let exampleData = ["Apfel", "Ampel", "Banane", "Birne"]
     @State var searchText: String = ""
     @State var isSearching: Bool = false
