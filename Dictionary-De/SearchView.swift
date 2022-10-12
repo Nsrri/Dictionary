@@ -10,51 +10,16 @@ import UIKit
 
 struct SearchView: View {
     //    let data: [Module]
-    let Data = Bundle.main.decode([Module].self, from:"words.json")
+    let Data = Bundle.main.decode([WordsInformations].self, from:"word.json")
     let exampleData = ["Apfel", "Ampel", "Banane", "Birne"]
-    
-    @State private var searchText = ""
-    @State private var isSearching: Bool = false
+    @State var searchText: String = ""
+    @State var isSearching: Bool = false
     
     var body: some View {
         NavigationView{
             VStack(alignment: .leading){
                 HStack(alignment: .center, spacing: 0){
-                    ZStack{
-                        Rectangle()
-                            .foregroundColor(Color("LightGray"))
-                        HStack{
-                            Image(systemName: "magnifyingglass")
-                            TextField("Search for...", text: $searchText){ startedEditing in
-                                if startedEditing {
-                                    withAnimation {
-                                        isSearching = true
-                                    }
-                                }
-                            } onCommit: {
-                                withAnimation {
-                                    isSearching = false
-                                }
-                            }
-                            .foregroundColor(.black)
-                            if !searchText.isEmpty{
-                                Button {
-                                    self.searchText = ""
-                                    self.isSearching = true
-                                } label: {
-                                    Image(systemName: "xmark.circle.fill")
-                                }
-                                .foregroundColor(.secondary)
-                                .padding(.trailing, 4)
-                                
-                            }
-                        }
-                        .foregroundColor(.gray)
-                        .padding(.leading, 13)
-                    }
-                    .frame(height: 40)
-                    .cornerRadius(13)
-                    .padding()
+                    SearchBar(searchText: $searchText, isSearching: $isSearching)
                     if isSearching {
                         Button("Cancel") {
                             searchText = ""
@@ -78,7 +43,6 @@ struct SearchView: View {
                                 Text(word)
                             }
                         }
-                    
                 }
                 
             } .navigationTitle("Words")
@@ -109,3 +73,48 @@ extension UIApplication{
 }
 
 
+
+
+
+struct SearchBar: View {
+    @Binding  var searchText: String
+    @Binding  var isSearching: Bool
+    var body: some View {
+        ZStack{
+            Rectangle()
+                .foregroundColor(Color("LightGray"))
+            HStack{
+                Image(systemName: "magnifyingglass")
+                TextField("Search for...", text: $searchText){ startedEditing in
+                    if startedEditing {
+                        withAnimation {
+                            isSearching = true
+                        }
+                    }
+                } onCommit: {
+                    withAnimation {
+                        isSearching = false
+                    }
+                }
+                .foregroundColor(.black)
+                if !searchText.isEmpty{
+                    Button {
+                        self.searchText = ""
+                        self.isSearching = true
+                    } label: {
+                        Image(systemName: "xmark.circle.fill")
+                    }
+                    .foregroundColor(.secondary)
+                    .padding(.trailing, 4)
+                    
+                }
+            }
+            .foregroundColor(.gray)
+            .padding(.leading, 13)
+        }
+        .frame(height: 40)
+        .cornerRadius(13)
+        .padding()
+        
+    }
+}

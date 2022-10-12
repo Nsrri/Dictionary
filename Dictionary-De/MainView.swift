@@ -9,7 +9,7 @@ import SwiftUI
 import UIKit
 
 struct MainView: View {
-    var Wort = Bundle.main.decode([Module].self, from: "words.json")
+    var Wort = Bundle.main.decode([WordsInformations].self, from: "words.json")
     @State var searchText: String = ""
     var body: some View {
 
