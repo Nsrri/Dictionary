@@ -9,11 +9,17 @@ import SwiftUI
 import UIKit
 
 struct SearchView: View {
-    //    let data: [Module]
-    let Data = Bundle.main.decode([WordsInformations].self, from:"words.json")
-    let exampleData = ["Apfel", "Ampel", "Banane", "Birne"]
+    let Data = Bundle.main.decode([verbsInformations].self, from:"words.json")
     @State var searchText: String = ""
     @State var isSearching: Bool = false
+    
+    var AllVerbs: [String]{
+        var result = [String]()
+        for data in Data {
+            result.append(data.verb)
+        }
+        return result
+    }
     
     var body: some View {
         NavigationView{
@@ -35,12 +41,12 @@ struct SearchView: View {
                     UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
                 }
                 List{
-                    ForEach(searchResults.filter({ (word: String) -> Bool in
+                    ForEach(AllVerbs.filter({ (verb: String) -> Bool in
                         
-                        return word.hasPrefix(searchText) || searchText == "" }), id: \.self) {
-                            word in
-                            NavigationLink(destination: Text(word)){
-                                Text(word)
+                        return verb.hasPrefix(searchText) || searchText == "" }), id: \.self) {
+                            verb in
+                            NavigationLink(destination: Text(verb)){
+                                Text(verb)
                             }
                         }
                 }
@@ -50,13 +56,6 @@ struct SearchView: View {
         
     }
     
-    var searchResults: [String]{
-        if searchText.isEmpty{
-            return exampleData
-        } else{
-            return exampleData.filter{$0.contains(searchText)}
-        }
-    }
 }
 
 struct SearchView_Previews: PreviewProvider {

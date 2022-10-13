@@ -9,14 +9,14 @@ import SwiftUI
 import UIKit
 
 struct MainView: View {
-    var Wort = Bundle.main.decode([WordsInformations].self, from: "words.json")
+    var Wort = Bundle.main.decode([verbsInformations].self, from: "words.json")
     @State var searchText: String = ""
     var body: some View {
 
         GeometryReader{ geometry in
             VStack{
                         ForEach(Wort) { x in
-                            Text(x.article)
+                            Text(x.verb)
                         }
             }
             TabView{
