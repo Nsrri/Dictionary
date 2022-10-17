@@ -23,7 +23,8 @@ struct SearchView: View {
     
     var body: some View {
         NavigationView{
-            VStack(alignment: .leading){
+            GeometryReader{ geometry in
+                VStack(alignment: .center, spacing: geometry.size.height * 0.4){
                 HStack(alignment: .center, spacing: 0){
                     SearchBar(searchText: $searchText, isSearching: $isSearching)
                     if isSearching {
@@ -40,23 +41,34 @@ struct SearchView: View {
                 .onTapGesture(count: 1) {
                     UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
                 }
-                List{
-                    ForEach(AllVerbs.filter({ (verb: String) -> Bool in
-                        
-                        return verb.hasPrefix(searchText) || searchText == "" }), id: \.self) {
-                            verb in
-                            NavigationLink(destination: Text(verb)){
-                                Text(verb)
+             
+                if(!searchText.isEmpty){
+                    List(){
+                        ForEach(Data, id: \.id){ data in
+                            if(data.verb.hasPrefix(searchText)) {
+                                
+                                NavigationLink(destination: DynamicVerbsView(verb: data.verb, tenses: data.tenses, pasts: data.pasts, explanation: data.explanation, examples: data.examples)){
+                                    Text(data.verb)
+                                    
+                                }
                             }
                         }
+                    }.listStyle(.plain)
+                } else{
+                    Image(systemName: "magnifyingglass")
+                        .resizable()
+                        .frame(width: 30.0, height: 30.0)
+                        .foregroundColor(.secondary)
                 }
-                
-            } .navigationTitle("Words")
+            }
+            
+        } .navigationTitle("Words")
         }
-        
     }
     
 }
+
+
 
 struct SearchView_Previews: PreviewProvider {
     static var previews: some View {
