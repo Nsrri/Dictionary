@@ -13,6 +13,9 @@ struct DynamicVerbsView: View {
     var pasts: [String]
     var explanation: String
     var examples: [String]
+    
+
+    
     public init (verb: String,
                  tenses: [String],
                  pasts: [String],
@@ -26,9 +29,11 @@ struct DynamicVerbsView: View {
         
     }
     var body: some View {
+        VStack{
+         
+
         
         List{
-            
             Section("Das Verb"){
                 Text(verb)
             }
@@ -52,6 +57,7 @@ struct DynamicVerbsView: View {
             }
             
         }.listStyle(.plain)
+        }
     }
 }
 

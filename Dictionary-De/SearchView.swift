@@ -12,6 +12,7 @@ struct SearchView: View {
     let Data = Bundle.main.decode([verbsInformations].self, from:"words.json")
     @State var searchText: String = ""
     @State var isSearching: Bool = false
+    @State var isFavorite: Bool = false
     
     var AllVerbs: [String]{
         var result = [String]()
@@ -47,10 +48,20 @@ struct SearchView: View {
                         ForEach(Data, id: \.id){ data in
                             if(data.verb.hasPrefix(searchText)) {
                                 
-                                NavigationLink(destination: DynamicVerbsView(verb: data.verb, tenses: data.tenses, pasts: data.pasts, explanation: data.explanation, examples: data.examples)){
+                                NavigationLink(destination: DynamicVerbsView(verb: data.verb, tenses: data.tenses, pasts: data.pasts, explanation: data.explanation, examples: data.examples)
+                                    .navigationTitle(data.verb)
+                                    .toolbar(content: {
+                                        Button {
+                                            isFavorite = !isFavorite
+                                        } label: {
+                                            !isFavorite ?   Image(systemName: "star") :   Image(systemName: "star.fill")
+                                          
+                                        }
+                                    })
+                                    .navigationBarTitleDisplayMode(.inline)){
                                     Text(data.verb)
-                                    
                                 }
+                               
                             }
                         }
                     }.listStyle(.plain)
@@ -65,6 +76,7 @@ struct SearchView: View {
             }
             
         } .navigationTitle("Verbs")
+
         }
     }
     
