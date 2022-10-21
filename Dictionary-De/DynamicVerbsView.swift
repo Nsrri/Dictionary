@@ -10,12 +10,12 @@ import SwiftUI
 struct DynamicVerbsView: View {
     var verb: String
     var tenses: [String]
-    var pasts: String
+    var pasts: [String]
     var explanation: String
     var examples: [String]
     public init (verb: String,
                  tenses: [String],
-                 pasts: String,
+                 pasts: [String],
                  explanation: String,
                  examples: [String]){
         self.verb = verb
@@ -26,29 +26,35 @@ struct DynamicVerbsView: View {
         
     }
     var body: some View {
-        VStack(alignment: .leading, spacing: 2){
-            Text(verb)
-            Divider()
-            HStack(alignment: .center, spacing: 2){
+        
+        List{
+            
+            Section("Das Verb"){
+                Text(verb)
+            }
+            Section("Zeiten"){
                 ForEach(tenses, id: \.self){ tense in
                     Text("*\(tense)")
                 }
             }
-            Divider()
-            Text(pasts)
-            Divider()
-            Text(explanation).background(Color.gray)
-            Divider()
-            HStack(alignment: .center, spacing: 2){
+            Section("Die vergangenheit Formen"){
+                ForEach(pasts, id: \.self){ past in
+                    Text(past)
+                }
+            }
+            Section("Die Erzählung"){
+                Text(explanation).background(Color.gray)
+            }
+            Section("Die Beispiels"){
                 ForEach(examples, id: \.self){ example in
                     Text("-\(example)" + "\n")
                 }
             }
-
             
-        }
+        }.listStyle(.plain)
     }
 }
+
 //
 //struct DynamicVerbsView_Previews: PreviewProvider {
 //    static var previews: some View {

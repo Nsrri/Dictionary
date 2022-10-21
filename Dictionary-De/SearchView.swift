@@ -24,7 +24,7 @@ struct SearchView: View {
     var body: some View {
         NavigationView{
             GeometryReader{ geometry in
-                VStack(alignment: .center, spacing: geometry.size.height * 0.4){
+                VStack(alignment: .center){
                 HStack(alignment: .center, spacing: 0){
                     SearchBar(searchText: $searchText, isSearching: $isSearching)
                     if isSearching {
@@ -55,14 +55,16 @@ struct SearchView: View {
                         }
                     }.listStyle(.plain)
                 } else{
+                    Spacer()
                     Image(systemName: "magnifyingglass")
                         .resizable()
                         .frame(width: 30.0, height: 30.0)
                         .foregroundColor(.secondary)
+                    Spacer()
                 }
             }
             
-        } .navigationTitle("Words")
+        } .navigationTitle("Verbs")
         }
     }
     
