@@ -14,6 +14,7 @@
 		502750642868D24500D91944 /* verbsInformations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 502750632868D24500D91944 /* verbsInformations.swift */; };
 		502750662868D71500D91944 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 502750652868D71500D91944 /* Helper.swift */; };
 		506CF42128F70CEB002F7D9B /* words.json in Resources */ = {isa = PBXBuildFile; fileRef = 506CF42028F70CEB002F7D9B /* words.json */; };
+		5606035F29100B0400FDBC60 /* Worterbuch.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5606035D29100B0400FDBC60 /* Worterbuch.xcdatamodeld */; };
 		56338D5128F88C3000E29692 /* DynamicVerbsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56338D5028F88C3000E29692 /* DynamicVerbsView.swift */; };
 		563D094828EDB8AE00F336D6 /* Favorites.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563D094728EDB8AE00F336D6 /* Favorites.swift */; };
 		563D094A28EDB8F800F336D6 /* Add.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563D094928EDB8F800F336D6 /* Add.swift */; };
@@ -30,6 +31,7 @@
 		502750632868D24500D91944 /* verbsInformations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = verbsInformations.swift; sourceTree = "<group>"; };
 		502750652868D71500D91944 /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 		506CF42028F70CEB002F7D9B /* words.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = words.json; sourceTree = "<group>"; };
+		5606035E29100B0400FDBC60 /* Worterbuch.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Worterbuch.xcdatamodel; sourceTree = "<group>"; };
 		56338D5028F88C3000E29692 /* DynamicVerbsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicVerbsView.swift; sourceTree = "<group>"; };
 		563D094728EDB8AE00F336D6 /* Favorites.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Favorites.swift; sourceTree = "<group>"; };
 		563D094928EDB8F800F336D6 /* Add.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Add.swift; sourceTree = "<group>"; };
@@ -77,6 +79,7 @@
 				502750572868C4A300D91944 /* Assets.xcassets */,
 				502750592868C4A300D91944 /* Preview Content */,
 				56338D5028F88C3000E29692 /* DynamicVerbsView.swift */,
+				5606035D29100B0400FDBC60 /* Worterbuch.xcdatamodeld */,
 			);
 			path = "Dictionary-De";
 			sourceTree = "<group>";
@@ -162,6 +165,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5606035F29100B0400FDBC60 /* Worterbuch.xcdatamodeld in Sources */,
 				502750562868C4A200D91944 /* MainView.swift in Sources */,
 				502750542868C4A200D91944 /* Worterbcuh.swift in Sources */,
 				502750662868D71500D91944 /* Helper.swift in Sources */,
@@ -375,6 +379,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		5606035D29100B0400FDBC60 /* Worterbuch.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				5606035E29100B0400FDBC60 /* Worterbuch.xcdatamodel */,
+			);
+			currentVersion = 5606035E29100B0400FDBC60 /* Worterbuch.xcdatamodel */;
+			path = Worterbuch.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 502750482868C4A200D91944 /* Project object */;
 }
