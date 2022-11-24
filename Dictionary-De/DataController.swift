@@ -10,9 +10,11 @@ import Foundation
 
 // create  CoreData stack as a class singelton
 
-class DataController: ObservableObject {
+class DataController: NSObject,ObservableObject {
     
-    init() {}
+    override init() {
+        super.init()
+    }
     
     //Returns the current Persistent Container for CoreData
     class func getContext () -> NSManagedObjectContext {
@@ -62,7 +64,7 @@ class DataController: ObservableObject {
         }
     }
     // GET / Fetch / Requests
-    class func getAllShows() -> Array<Verbs> {
+    class func getAllVerbs() -> Array<Verbs> {
         let all = NSFetchRequest<Verbs>(entityName: "Verbs")
         var allVerbs = [Verbs]()
         
@@ -77,9 +79,9 @@ class DataController: ObservableObject {
     }
     
     // Get show by UUID
-    class func getShowWith(uuid: UUID) -> Verbs? {
+    class func getVerbWith(uuid: String) -> Verbs? {
         let requested = NSFetchRequest<Verbs>(entityName: "Verbs")
-        requested.predicate = NSPredicate(format: "uuid == %@", uuid as CVarArg)
+        requested.predicate = NSPredicate(format: "uuid == %@", uuid)
         
         do {
             let fetched = try DataController.getContext().fetch(requested)
@@ -97,11 +99,11 @@ class DataController: ObservableObject {
         return nil
     }
     
-    class func deleteShow(with uuid: UUID) -> Bool {
+    class func deleteVerb(with uuid: String) -> Bool {
         let success: Bool = true
         
         let requested = NSFetchRequest<Verbs>(entityName: "Verbs")
-        requested.predicate = NSPredicate(format: "uuid == %@", uuid as CVarArg)
+        requested.predicate = NSPredicate(format: "uuid == %@", uuid)
         
         
         do {

@@ -14,7 +14,8 @@ struct Worterbuch: App {
     var body: some Scene {
         WindowGroup {
             MainView()
-//                .environment(\.managedObjectContext, dataController.container.viewContext)
+                .environmentObject(dataController)
+               
         }
     }
 }

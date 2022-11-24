@@ -10,7 +10,11 @@ import UIKit
 
 struct SearchView: View {
     let Data = Bundle.main.decode([verbsInformations].self, from:"words.json")
-//    @FetchRequest(sortDescriptors: []) var verbs: FetchedResults<Verbs>
+    
+    @EnvironmentObject var dataController : DataController
+    @Environment(\.managedObjectContext) private var viewContext
+    @FetchRequest(sortDescriptors: []) private var verbs: FetchedResults<Verbs>
+
     
     @State var searchText: String = ""
     @State var isSearching: Bool = false
