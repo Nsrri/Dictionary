@@ -29,11 +29,11 @@ struct MainView: View {
                     .tabItem{
                         Label("Search", systemImage: "magnifyingglass")
                     }
-                Favorites()
+                FavoritesView()
                     .tabItem {
                         Label("Favorites", systemImage: "star")
                     }
-                Add()
+                AddView()
                     .tabItem {
                         Label("Add words", systemImage: "plus")
                     }

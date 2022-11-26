@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		502750542868C4A200D91944 /* Worterbcuh.swift in Sources */ = {isa = PBXBuildFile; fileRef = 502750532868C4A200D91944 /* Worterbcuh.swift */; };
+		502750542868C4A200D91944 /* WorterbuchApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 502750532868C4A200D91944 /* WorterbuchApp.swift */; };
 		502750562868C4A200D91944 /* MainVew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 502750552868C4A200D91944 /* MainVew.swift */; };
 		502750582868C4A300D91944 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 502750572868C4A300D91944 /* Assets.xcassets */; };
 		5027505B2868C4A300D91944 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5027505A2868C4A300D91944 /* Preview Assets.xcassets */; };
@@ -16,17 +16,18 @@
 		506CF42128F70CEB002F7D9B /* words.json in Resources */ = {isa = PBXBuildFile; fileRef = 506CF42028F70CEB002F7D9B /* words.json */; };
 		5606035F29100B0400FDBC60 /* Worterbuch.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5606035D29100B0400FDBC60 /* Worterbuch.xcdatamodeld */; };
 		561704F929100CAB004DE71A /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 561704F829100CAB004DE71A /* DataController.swift */; };
+		5620CACC29326394002287F2 /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5620CACB29326394002287F2 /* SearchBar.swift */; };
 		56338D5128F88C3000E29692 /* DynamicVerbsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56338D5028F88C3000E29692 /* DynamicVerbsView.swift */; };
-		563D094828EDB8AE00F336D6 /* Favorites.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563D094728EDB8AE00F336D6 /* Favorites.swift */; };
-		563D094A28EDB8F800F336D6 /* Add.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563D094928EDB8F800F336D6 /* Add.swift */; };
-		563D094C28EDBE0300F336D6 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563D094B28EDBE0300F336D6 /* Home.swift */; };
+		563D094828EDB8AE00F336D6 /* FavoritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563D094728EDB8AE00F336D6 /* FavoritesView.swift */; };
+		563D094A28EDB8F800F336D6 /* AddView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563D094928EDB8F800F336D6 /* AddView.swift */; };
+		563D094C28EDBE0300F336D6 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563D094B28EDBE0300F336D6 /* HomeView.swift */; };
 		564AA9B52913F08900613503 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564AA9B42913F08900613503 /* ViewController.swift */; };
 		5693B02028F19655001189D7 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5693B01F28F19655001189D7 /* SearchView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		502750502868C4A200D91944 /* Worterbuch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Worterbuch.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		502750532868C4A200D91944 /* Worterbcuh.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Worterbcuh.swift; sourceTree = "<group>"; };
+		502750532868C4A200D91944 /* WorterbuchApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorterbuchApp.swift; sourceTree = "<group>"; };
 		502750552868C4A200D91944 /* MainVew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVew.swift; sourceTree = "<group>"; };
 		502750572868C4A300D91944 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5027505A2868C4A300D91944 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -35,10 +36,11 @@
 		506CF42028F70CEB002F7D9B /* words.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = words.json; sourceTree = "<group>"; };
 		5606035E29100B0400FDBC60 /* Worterbuch.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Worterbuch.xcdatamodel; sourceTree = "<group>"; };
 		561704F829100CAB004DE71A /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
+		5620CACB29326394002287F2 /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
 		56338D5028F88C3000E29692 /* DynamicVerbsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicVerbsView.swift; sourceTree = "<group>"; };
-		563D094728EDB8AE00F336D6 /* Favorites.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Favorites.swift; sourceTree = "<group>"; };
-		563D094928EDB8F800F336D6 /* Add.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Add.swift; sourceTree = "<group>"; };
-		563D094B28EDBE0300F336D6 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
+		563D094728EDB8AE00F336D6 /* FavoritesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesView.swift; sourceTree = "<group>"; };
+		563D094928EDB8F800F336D6 /* AddView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddView.swift; sourceTree = "<group>"; };
+		563D094B28EDBE0300F336D6 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		564AA9B42913F08900613503 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		5693B01F28F19655001189D7 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -57,7 +59,7 @@
 		502750472868C4A200D91944 = {
 			isa = PBXGroup;
 			children = (
-				502750522868C4A200D91944 /* Dictionary-De */,
+				502750522868C4A200D91944 /* Dictionary */,
 				502750512868C4A200D91944 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -70,34 +72,67 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		502750522868C4A200D91944 /* Dictionary-De */ = {
+		502750522868C4A200D91944 /* Dictionary */ = {
 			isa = PBXGroup;
 			children = (
-				502750632868D24500D91944 /* verbsInformations.swift */,
-				502750532868C4A200D91944 /* Worterbcuh.swift */,
-				502750552868C4A200D91944 /* MainVew.swift */,
-				563D094728EDB8AE00F336D6 /* Favorites.swift */,
-				563D094B28EDBE0300F336D6 /* Home.swift */,
-				563D094928EDB8F800F336D6 /* Add.swift */,
-				5693B01F28F19655001189D7 /* SearchView.swift */,
+				5620CACF293265AD002287F2 /* Views */,
+				5620CACD2932642D002287F2 /* CoreDataStack */,
+				5620CACA29326367002287F2 /* Search */,
+				502750532868C4A200D91944 /* WorterbuchApp.swift */,
 				502750572868C4A300D91944 /* Assets.xcassets */,
 				502750592868C4A300D91944 /* Preview Content */,
-				56338D5028F88C3000E29692 /* DynamicVerbsView.swift */,
-				5606035D29100B0400FDBC60 /* Worterbuch.xcdatamodeld */,
-				561704F829100CAB004DE71A /* DataController.swift */,
-				564AA9B42913F08900613503 /* ViewController.swift */,
 			);
-			path = "Dictionary-De";
+			path = Dictionary;
 			sourceTree = "<group>";
 		};
 		502750592868C4A300D91944 /* Preview Content */ = {
 			isa = PBXGroup;
 			children = (
+				5620CACE29326458002287F2 /* JSON */,
 				5027505A2868C4A300D91944 /* Preview Assets.xcassets */,
-				502750652868D71500D91944 /* Helper.swift */,
-				506CF42028F70CEB002F7D9B /* words.json */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		5620CACA29326367002287F2 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				5693B01F28F19655001189D7 /* SearchView.swift */,
+				5620CACB29326394002287F2 /* SearchBar.swift */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
+		5620CACD2932642D002287F2 /* CoreDataStack */ = {
+			isa = PBXGroup;
+			children = (
+				564AA9B42913F08900613503 /* ViewController.swift */,
+				561704F829100CAB004DE71A /* DataController.swift */,
+				5606035D29100B0400FDBC60 /* Worterbuch.xcdatamodeld */,
+			);
+			path = CoreDataStack;
+			sourceTree = "<group>";
+		};
+		5620CACE29326458002287F2 /* JSON */ = {
+			isa = PBXGroup;
+			children = (
+				506CF42028F70CEB002F7D9B /* words.json */,
+				502750652868D71500D91944 /* Helper.swift */,
+				502750632868D24500D91944 /* verbsInformations.swift */,
+			);
+			path = JSON;
+			sourceTree = "<group>";
+		};
+		5620CACF293265AD002287F2 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				563D094B28EDBE0300F336D6 /* HomeView.swift */,
+				563D094928EDB8F800F336D6 /* AddView.swift */,
+				56338D5028F88C3000E29692 /* DynamicVerbsView.swift */,
+				502750552868C4A200D91944 /* MainVew.swift */,
+				563D094728EDB8AE00F336D6 /* FavoritesView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -171,18 +206,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5620CACC29326394002287F2 /* SearchBar.swift in Sources */,
 				5606035F29100B0400FDBC60 /* Worterbuch.xcdatamodeld in Sources */,
 				502750562868C4A200D91944 /* MainVew.swift in Sources */,
-				502750542868C4A200D91944 /* Worterbcuh.swift in Sources */,
+				502750542868C4A200D91944 /* WorterbuchApp.swift in Sources */,
 				502750662868D71500D91944 /* Helper.swift in Sources */,
-				563D094A28EDB8F800F336D6 /* Add.swift in Sources */,
+				563D094A28EDB8F800F336D6 /* AddView.swift in Sources */,
 				561704F929100CAB004DE71A /* DataController.swift in Sources */,
 				564AA9B52913F08900613503 /* ViewController.swift in Sources */,
 				5693B02028F19655001189D7 /* SearchView.swift in Sources */,
 				56338D5128F88C3000E29692 /* DynamicVerbsView.swift in Sources */,
-				563D094828EDB8AE00F336D6 /* Favorites.swift in Sources */,
+				563D094828EDB8AE00F336D6 /* FavoritesView.swift in Sources */,
 				502750642868D24500D91944 /* verbsInformations.swift in Sources */,
-				563D094C28EDBE0300F336D6 /* Home.swift in Sources */,
+				563D094C28EDBE0300F336D6 /* HomeView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -311,7 +347,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"Dictionary-De/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"Dictionary/Preview Content\"";
 				DEVELOPMENT_TEAM = W2FL22WPNW;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -342,7 +378,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"Dictionary-De/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"Dictionary/Preview Content\"";
 				DEVELOPMENT_TEAM = W2FL22WPNW;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;

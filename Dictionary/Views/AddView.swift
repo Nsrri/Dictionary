@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct Add: View {
+struct AddView: View {
     var body: some View {
         Text("From here you can add new words to our app")
     }
@@ -15,6 +15,6 @@ struct Add: View {
 
 struct Add_Previews: PreviewProvider {
     static var previews: some View {
-        Add()
+        AddView()
     }
 }
