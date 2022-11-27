@@ -8,13 +8,18 @@
 import SwiftUI
 
 struct FavoritesView: View {
+    @ObservedObject var favoritesItems = Favorites()
     var body: some View {
-        Text("Here is going to have the words which you searched and liked them.")
+        List(favoritesItems.favoriteItems, id: \.self) {
+            item in
+            Text(item.verb)
+        }
+        
     }
 }
 
-struct Favorites_Previews: PreviewProvider {
-    static var previews: some View {
-        FavoritesView()
-    }
-}
+//struct Favorites_Previews: PreviewProvider {
+//    static var previews: some View {
+//        FavoritesView()
+//    }
+//}

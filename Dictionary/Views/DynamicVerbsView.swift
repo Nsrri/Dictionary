@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct DynamicVerbsView: View {
+struct DynamicVerbsView: View, Hashable {
     var verb: String
     var tenses: [String]
     var pasts: [String]

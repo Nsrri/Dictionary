@@ -22,6 +22,7 @@
 		563D094A28EDB8F800F336D6 /* AddView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563D094928EDB8F800F336D6 /* AddView.swift */; };
 		563D094C28EDBE0300F336D6 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563D094B28EDBE0300F336D6 /* HomeView.swift */; };
 		564AA9B52913F08900613503 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564AA9B42913F08900613503 /* ViewController.swift */; };
+		567B66092933C40F002B48FD /* Favorites.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567B66082933C40F002B48FD /* Favorites.swift */; };
 		5693B02028F19655001189D7 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5693B01F28F19655001189D7 /* SearchView.swift */; };
 /* End PBXBuildFile section */
 
@@ -42,6 +43,7 @@
 		563D094928EDB8F800F336D6 /* AddView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddView.swift; sourceTree = "<group>"; };
 		563D094B28EDBE0300F336D6 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		564AA9B42913F08900613503 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		567B66082933C40F002B48FD /* Favorites.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Favorites.swift; sourceTree = "<group>"; };
 		5693B01F28F19655001189D7 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -81,6 +83,7 @@
 				502750532868C4A200D91944 /* WorterbuchApp.swift */,
 				502750572868C4A300D91944 /* Assets.xcassets */,
 				502750592868C4A300D91944 /* Preview Content */,
+				567B66082933C40F002B48FD /* Favorites.swift */,
 			);
 			path = Dictionary;
 			sourceTree = "<group>";
@@ -217,6 +220,7 @@
 				5693B02028F19655001189D7 /* SearchView.swift in Sources */,
 				56338D5128F88C3000E29692 /* DynamicVerbsView.swift in Sources */,
 				563D094828EDB8AE00F336D6 /* FavoritesView.swift in Sources */,
+				567B66092933C40F002B48FD /* Favorites.swift in Sources */,
 				502750642868D24500D91944 /* verbsInformations.swift in Sources */,
 				563D094C28EDBE0300F336D6 /* HomeView.swift in Sources */,
 			);
