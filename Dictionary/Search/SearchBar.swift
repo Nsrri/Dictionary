@@ -12,41 +12,65 @@ struct SearchBar: View {
     @Binding  var searchText: String
     @Binding  var isSearching: Bool
     var body: some View {
-        ZStack{
-            Rectangle()
-                .foregroundColor(Color("LightGray"))
-            HStack{
-                Image(systemName: "magnifyingglass")
-                TextField("Search for...", text: $searchText){ startedEditing in
-                    if startedEditing {
+        HStack(alignment: .center, spacing: 0){
+            
+            ZStack{
+                Rectangle()
+                    .foregroundColor(Color("LightGray"))
+                HStack{
+                    Image(systemName: "magnifyingglass")
+                    TextField("Search for...", text: $searchText){ startedEditing in
+                        if startedEditing {
+                            withAnimation {
+                                isSearching = true
+                            }
+                        }
+                    } onCommit: {
                         withAnimation {
-                            isSearching = true
+                            isSearching = false
                         }
                     }
-                } onCommit: {
-                    withAnimation {
-                        isSearching = false
+                    .foregroundColor(.black)
+                    if !searchText.isEmpty{
+                        Button {
+                            self.searchText = ""
+                            self.isSearching = true
+                        } label: {
+                            Image(systemName: "xmark.circle.fill")
+                        }
+                        .foregroundColor(.secondary)
+                        .padding(.trailing, 4)
+                        
                     }
                 }
-                .foregroundColor(.black)
-                if !searchText.isEmpty{
-                    Button {
-                        self.searchText = ""
-                        self.isSearching = true
-                    } label: {
-                        Image(systemName: "xmark.circle.fill")
-                    }
-                    .foregroundColor(.secondary)
-                    .padding(.trailing, 4)
-                    
-                }
+                .foregroundColor(.gray)
+                .padding(.leading, 13)
             }
-            .foregroundColor(.gray)
-            .padding(.leading, 13)
+            .frame(height: 40)
+            .cornerRadius(13)
+            .padding()
+            
+            if isSearching {
+                Button("Cancel") {
+                    searchText = ""
+                    withAnimation{
+                        isSearching = false
+                        UIApplication.shared.dismissKeyboard()
+                    }
+                    
+                }.padding([.trailing], 6)
+            }
         }
-        .frame(height: 40)
-        .cornerRadius(13)
-        .padding()
+        .onTapGesture(count: 1) {
+            UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+        }
+    }
         
+    }
+
+
+extension UIApplication{
+    func dismissKeyboard(){
+        sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
     }
 }

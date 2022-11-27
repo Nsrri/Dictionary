@@ -19,7 +19,7 @@ struct SearchView: View {
     @State var searchText: String = ""
     @State var isSearching: Bool = false
     @State var isFavorite: Bool = false
-    
+
     var AllVerbs: [String]{
         var result = [String]()
         for data in Data {
@@ -32,23 +32,7 @@ struct SearchView: View {
         NavigationView{
             GeometryReader{ geometry in
                 VStack(alignment: .center){
-                HStack(alignment: .center, spacing: 0){
                     SearchBar(searchText: $searchText, isSearching: $isSearching)
-                    if isSearching {
-                        Button("Cancel") {
-                            searchText = ""
-                            withAnimation{
-                                isSearching = false
-                                UIApplication.shared.dismissKeyboard()
-                            }
-                            
-                        }.padding([.trailing], 6)
-                    }
-                }
-                .onTapGesture(count: 1) {
-                    UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
-                }
-             
                 if(!searchText.isEmpty){
                     List(){
                         ForEach(Data, id: \.id){ data in
@@ -89,19 +73,14 @@ struct SearchView: View {
 }
 
 
+//
+//struct SearchView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        SearchView()
+//    }
+//}
 
-struct SearchView_Previews: PreviewProvider {
-    static var previews: some View {
-        SearchView()
-    }
-}
 
-
-extension UIApplication{
-    func dismissKeyboard(){
-        sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
-    }
-}
 
 
 
