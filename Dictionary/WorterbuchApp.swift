@@ -9,12 +9,12 @@ import SwiftUI
 
 @main
 struct Worterbuch: App {
-//    @StateObject private var dataController = DataController()
+    @StateObject private var dataController = DataController()
     
     var body: some Scene {
         WindowGroup {
-            MainView()
-//                .environmentObject(dataController)
+            ContentView()
+                .environmentObject(dataController)
                
         }
     }

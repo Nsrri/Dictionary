@@ -9,20 +9,13 @@ import SwiftUI
 import UIKit
 
 struct SearchView: View {
-    let Data = Bundle.main.decode([verbsInformations].self, from:"words.json")
-    
-    @EnvironmentObject var dataController : DataController
-    @Environment(\.managedObjectContext) private var viewContext
-    @FetchRequest(sortDescriptors: []) private var verbs: FetchedResults<Verbs>
+    let Data = Bundle.main.decode([verbsInformationsModel].self, from:"Verbs.json")
     
     
     @State var searchText: String = ""
     @State var isSearching: Bool = false
     @State var isFavorite: Bool = false
-    
-    @ObservedObject var favorites = Favorites()
-    
-    
+
     var AllVerbs: [String]{
         var result = [String]()
         for data in Data {
@@ -36,56 +29,43 @@ struct SearchView: View {
             GeometryReader{ geometry in
                 VStack(alignment: .center){
                     SearchBar(searchText: $searchText, isSearching: $isSearching)
-                    if(!searchText.isEmpty){
-                        List(){
-                            ForEach(Data, id: \.id){ data in
-                                if(data.verb.hasPrefix(searchText)) {
-                                    
-                                    NavigationLink(destination: DynamicVerbsView(verb: data.verb, tenses: data.tenses, pasts: data.pasts, explanation: data.explanation, examples: data.examples)
-                                        .navigationTitle(data.verb)
-                                        .toolbar(content: {
-                                            Button {
-                                                if self.favorites.contains(data){
-                                                    self.favorites.remove(data)
-                                                    print("Removed from favorites")
-                                                    print(favorites.favoriteItems.contains(data))
-                                                    
-                                                } else{
-                                                    self.favorites.add(data)
-                                                    print("Added to favorites")
-                                                    print(favorites.favoriteItems)
-                                                }
-                                                
-                                            } label: {
-                                                !favorites.contains(data) ?   Image(systemName: "star") :   Image(systemName: "star.fill")
-                                                
-                                            }
-                                        })
-                                            .navigationBarTitleDisplayMode(.inline)){
-                                                Text(data.verb)
-                                            }
-                                    
+                if(!searchText.isEmpty){
+                    List(){
+                        ForEach(Data, id: \.id){ data in
+                            if(data.verb.hasPrefix(searchText)) {
+                                
+                                NavigationLink(destination: DynamicVerbsView(verb: data.verb, tenses: data.tenses, pasts: data.pasts, explanation: data.explanation, examples: data.examples)
+                                    .navigationTitle(data.verb)
+                                    .toolbar(content: {
+                                        Button {
+                                            isFavorite = !isFavorite
+                                        } label: {
+                                            !isFavorite ?   Image(systemName: "star") :   Image(systemName: "star.fill")
+                                          
+                                        }
+                                    })
+                                    .navigationBarTitleDisplayMode(.inline)){
+                                    Text(data.verb)
                                 }
+                               
                             }
-                        }.listStyle(.plain)
-                    } else{
-                        ForEach(favorites.favoriteItems, id: \.self){ item in
-                            Text(item.verb)
-                            //                    Spacer()
-                            //                    Image(systemName: "magnifyingglass")
-                            //                        .resizable()
-                            //                        .frame(width: 30.0, height: 30.0)
-                            //                        .foregroundColor(.secondary)
-                            //                    Spacer()
                         }
-                    }
-                    
-                } .navigationTitle("Verbs")
-                
+                    }.listStyle(.plain)
+                } else{
+                    Spacer()
+                    Image(systemName: "magnifyingglass")
+                        .resizable()
+                        .frame(width: 30.0, height: 30.0)
+                        .foregroundColor(.secondary)
+                    Spacer()
+                }
             }
+            
+        } .navigationTitle("Verbs")
+
         }
-        
     }
+    
 }
 
 

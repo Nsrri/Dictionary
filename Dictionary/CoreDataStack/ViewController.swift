@@ -13,7 +13,7 @@ class ViewController: UIViewController {
     // Properties
     var verbs:[Verbs]?
 
-    var newVerbs:[verbsInformations]? {
+    var newVerbs:[verbsInformationsModel]? {
         didSet {
             // Remove all Previous Records
             DataController.deleteAllVerbs()
@@ -141,7 +141,7 @@ class ViewController: UIViewController {
                 return }
 
             do {
-                self.newVerbs = try JSONDecoder().decode([verbsInformations].self, from: dataResponse)
+                self.newVerbs = try JSONDecoder().decode([verbsInformationsModel].self, from: dataResponse)
             } catch {
                 print(error)
             }
@@ -154,7 +154,7 @@ class ViewController: UIViewController {
 
 
 
-    func addNewShowsToCoreData(_ verbs: [verbsInformations]) {
+    func addNewShowsToCoreData(_ verbs: [verbsInformationsModel]) {
 
         for verb in verbs {
             let entity = NSEntityDescription.entity(forEntityName: "Verbs", in: DataController.getContext())
