@@ -3,8 +3,8 @@
     {
     "verb" : "einschlafen",
     "id" : "bc8303d1-dddf-4a1f-8d49-6736136197b1",
-    "tenses" : ["ich schlafe ein", "du Schläfst ein"],
-    "pasts" : ["ist eingeschlafen", "schlief ein"],
+    "conjunctions" : ["ich schlafe ein", "du Schläfst ein"],
+    "tenses" : ["ist eingeschlafen", "schlief ein"],
     "explanation" : "man benutzt einschlafen, wenn man sehr müde ist und unabsichtlich shläft man.",
     "examples": ["Meine Frau ist wütend, da ich letzte Nacht eingeschlafen bin.",  "da ich letzte Nacht eingeschlafen bin."]
 },
@@ -12,8 +12,8 @@
     {
     "verb" : "verschlafen",
     "id" : "7ff2c7e7-cfe3-489b-a3d0-c5b862c5e0fe",
-    "tenses" : ["ich verschlafe", "du verschläfst"],
-    "pasts" : ["hat verschlafen", "verschlief"],
+    "conjunctions" : ["ich verschlafe", "du verschläfst"],
+    "tenses" : ["hat verschlafen", "verschlief"],
     "explanation" : "Nicht rechtzeitig aufwachen.",
     "examples": ["ich bin zu spät zur Arbeit gekommen, weil ich verschlafen habe.", "weil ich verschlafen habe."]
  }

@@ -9,21 +9,21 @@ import SwiftUI
 
 struct DynamicVerbsView: View {
     var verb: String
+    var conjunctions: [String]
     var tenses: [String]
-    var pasts: [String]
     var explanation: String
     var examples: [String]
     
 
     
     public init (verb: String,
+                 conjunctions: [String],
                  tenses: [String],
-                 pasts: [String],
                  explanation: String,
                  examples: [String]){
         self.verb = verb
+        self.conjunctions = conjunctions
         self.tenses = tenses
-        self.pasts = pasts
         self.explanation = explanation
         self.examples = examples
         
@@ -38,13 +38,13 @@ struct DynamicVerbsView: View {
                 Text(verb)
             }
             Section("Zeiten"){
-                ForEach(tenses, id: \.self){ tense in
-                    Text("*\(tense)")
+                ForEach(conjunctions, id: \.self){ conjunction in
+                    Text("*\(conjunction)")
                 }
             }
             Section("Die vergangenheit Formen"){
-                ForEach(pasts, id: \.self){ past in
-                    Text(past)
+                ForEach(tenses, id: \.self){ tense in
+                    Text(tense)
                 }
             }
             Section("Die Erzählung"){
@@ -61,9 +61,3 @@ struct DynamicVerbsView: View {
     }
 }
 
-//
-//struct DynamicVerbsView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        DynamicVerbsView()
-//    }
-//}

@@ -34,7 +34,7 @@ struct SearchView: View {
                         ForEach(Data, id: \.id){ data in
                             if(data.verb.hasPrefix(searchText)) {
                                 
-                                NavigationLink(destination: DynamicVerbsView(verb: data.verb, tenses: data.tenses, pasts: data.pasts, explanation: data.explanation, examples: data.examples)
+                                NavigationLink(destination: DynamicVerbsView(verb: data.verb, conjunctions: data.conjunctions, tenses: data.tenses, explanation: data.explanation, examples: data.examples)
                                     .navigationTitle(data.verb)
                                     .toolbar(content: {
                                         Button {
