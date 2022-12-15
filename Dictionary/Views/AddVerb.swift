@@ -10,8 +10,10 @@ import SwiftUI
 
 struct AddVerb: View {
     @Environment(\.managedObjectContext) private var moc
+    @FetchRequest(sortDescriptors: []) var verbs: FetchedResults<Verbs>
     @Environment(\.dismiss) var dismiss
-    
+   
+    @State var showEror: Bool = false
     
     @State var verb: String = ""
     @State var conjunctions: [String] = []
@@ -22,6 +24,13 @@ struct AddVerb: View {
     @State var examples: [String] = []
     @State var example: String = ""
     
+    func checkRepetetiveVerbs(verb: String) -> Bool {
+        var result: Bool = false
+        for existedVerb in verbs{
+            result =  existedVerb.verb == verb
+        }
+       return result
+    }
     
     var body: some View {
         NavigationView{
@@ -80,23 +89,30 @@ struct AddVerb: View {
                 }
                 Section{
                     Button {
-                        let newVerb = Verbs(context: moc)
-                        newVerb.id = UUID()
-                        newVerb.verb = verb
-                        newVerb.conjunctions = conjunctions
-                        newVerb.tenses = tenses
-                        newVerb.explanation = explanation
-                        newVerb.examples = examples
-                        
-                        try? moc.save()
-                        dismiss()
+                        if checkRepetetiveVerbs(verb: verb){
+                            let newVerb = Verbs(context: moc)
+                            newVerb.id = UUID()
+                            newVerb.verb = verb
+                            newVerb.conjunctions = conjunctions
+                            newVerb.tenses = tenses
+                            newVerb.explanation = explanation
+                            newVerb.examples = examples
+                            
+                            try? moc.save()
+                            dismiss()
+                        } else{
+                            showEror = true
+                        }
                     } label: {
                         Text("Hinzufügen")
                     }
+                        
                 }
 
                 
             }.navigationTitle("Neues Verb")
+            
         }
+    AddErrorPopUp(showPopUp: $showEror)
     }
 }

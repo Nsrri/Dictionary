@@ -14,14 +14,13 @@
 		502750642868D24500D91944 /* verbsInformationsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 502750632868D24500D91944 /* verbsInformationsModel.swift */; };
 		502750662868D71500D91944 /* Bundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 502750652868D71500D91944 /* Bundle.swift */; };
 		506CF42128F70CEB002F7D9B /* Verbs.json in Resources */ = {isa = PBXBuildFile; fileRef = 506CF42028F70CEB002F7D9B /* Verbs.json */; };
-		5606035F29100B0400FDBC60 /* Worterbuch.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5606035D29100B0400FDBC60 /* Worterbuch.xcdatamodeld */; };
+		56068E0E2944B53F009000EF /* newVerbs.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 56068E0C2944B53F009000EF /* newVerbs.xcdatamodeld */; };
 		561704F929100CAB004DE71A /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 561704F829100CAB004DE71A /* DataController.swift */; };
 		5620CACC29326394002287F2 /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5620CACB29326394002287F2 /* SearchBar.swift */; };
 		56338D5128F88C3000E29692 /* DynamicVerbsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56338D5028F88C3000E29692 /* DynamicVerbsView.swift */; };
 		563D094828EDB8AE00F336D6 /* FavoriteVerbs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563D094728EDB8AE00F336D6 /* FavoriteVerbs.swift */; };
 		563D094A28EDB8F800F336D6 /* AddVerb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563D094928EDB8F800F336D6 /* AddVerb.swift */; };
 		563D094C28EDBE0300F336D6 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563D094B28EDBE0300F336D6 /* Home.swift */; };
-		564AA9B52913F08900613503 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564AA9B42913F08900613503 /* ViewController.swift */; };
 		5693B02028F19655001189D7 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5693B01F28F19655001189D7 /* SearchView.swift */; };
 /* End PBXBuildFile section */
 
@@ -34,14 +33,13 @@
 		502750632868D24500D91944 /* verbsInformationsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = verbsInformationsModel.swift; sourceTree = "<group>"; };
 		502750652868D71500D91944 /* Bundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bundle.swift; sourceTree = "<group>"; };
 		506CF42028F70CEB002F7D9B /* Verbs.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Verbs.json; sourceTree = "<group>"; };
-		5606035E29100B0400FDBC60 /* Worterbuch.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Worterbuch.xcdatamodel; sourceTree = "<group>"; };
+		56068E0D2944B53F009000EF /* newVerbs.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = newVerbs.xcdatamodel; sourceTree = "<group>"; };
 		561704F829100CAB004DE71A /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
 		5620CACB29326394002287F2 /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
 		56338D5028F88C3000E29692 /* DynamicVerbsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicVerbsView.swift; sourceTree = "<group>"; };
 		563D094728EDB8AE00F336D6 /* FavoriteVerbs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteVerbs.swift; sourceTree = "<group>"; };
 		563D094928EDB8F800F336D6 /* AddVerb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddVerb.swift; sourceTree = "<group>"; };
 		563D094B28EDBE0300F336D6 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
-		564AA9B42913F08900613503 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		5693B01F28F19655001189D7 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -106,9 +104,8 @@
 		5620CACD2932642D002287F2 /* CoreDataStack */ = {
 			isa = PBXGroup;
 			children = (
-				564AA9B42913F08900613503 /* ViewController.swift */,
 				561704F829100CAB004DE71A /* DataController.swift */,
-				5606035D29100B0400FDBC60 /* Worterbuch.xcdatamodeld */,
+				56068E0C2944B53F009000EF /* newVerbs.xcdatamodeld */,
 			);
 			path = CoreDataStack;
 			sourceTree = "<group>";
@@ -207,13 +204,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				5620CACC29326394002287F2 /* SearchBar.swift in Sources */,
-				5606035F29100B0400FDBC60 /* Worterbuch.xcdatamodeld in Sources */,
 				502750562868C4A200D91944 /* ContentView.swift in Sources */,
 				502750542868C4A200D91944 /* WorterbuchApp.swift in Sources */,
 				502750662868D71500D91944 /* Bundle.swift in Sources */,
+				56068E0E2944B53F009000EF /* newVerbs.xcdatamodeld in Sources */,
 				563D094A28EDB8F800F336D6 /* AddVerb.swift in Sources */,
 				561704F929100CAB004DE71A /* DataController.swift in Sources */,
-				564AA9B52913F08900613503 /* ViewController.swift in Sources */,
 				5693B02028F19655001189D7 /* SearchView.swift in Sources */,
 				56338D5128F88C3000E29692 /* DynamicVerbsView.swift in Sources */,
 				563D094828EDB8AE00F336D6 /* FavoriteVerbs.swift in Sources */,
@@ -425,13 +421,13 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		5606035D29100B0400FDBC60 /* Worterbuch.xcdatamodeld */ = {
+		56068E0C2944B53F009000EF /* newVerbs.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				5606035E29100B0400FDBC60 /* Worterbuch.xcdatamodel */,
+				56068E0D2944B53F009000EF /* newVerbs.xcdatamodel */,
 			);
-			currentVersion = 5606035E29100B0400FDBC60 /* Worterbuch.xcdatamodel */;
-			path = Worterbuch.xcdatamodeld;
+			currentVersion = 56068E0D2944B53F009000EF /* newVerbs.xcdatamodel */;
+			path = newVerbs.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};

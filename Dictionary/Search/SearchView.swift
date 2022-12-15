@@ -10,7 +10,10 @@ import UIKit
 
 struct SearchView: View {
     let Data = Bundle.main.decode([verbsInformationsModel].self, from:"Verbs.json")
+    @Environment(\.managedObjectContext) private var moc
+    @FetchRequest(sortDescriptors: []) var verbs: FetchedResults<Verbs>
     
+
     
     @State var searchText: String = ""
     @State var isSearching: Bool = false
@@ -38,7 +41,7 @@ struct SearchView: View {
                                     .navigationTitle(data.verb)
                                     .toolbar(content: {
                                         Button {
-                                            isFavorite = !isFavorite
+                                            isFavorite.toggle()
                                         } label: {
                                             !isFavorite ?   Image(systemName: "star") :   Image(systemName: "star.fill")
                                           

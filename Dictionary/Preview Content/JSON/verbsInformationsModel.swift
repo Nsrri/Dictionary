@@ -2,7 +2,7 @@
 import Foundation
 import SwiftUI
 
-struct verbsInformationsModel : Codable, Identifiable  {
+struct verbsInformationsModel : Codable, Identifiable, Hashable  {
     let verb: String
     let conjunctions: [String]
     let tenses: [String]

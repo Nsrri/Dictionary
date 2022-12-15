@@ -14,11 +14,6 @@ struct ContentView: View {
     var body: some View {
 
         GeometryReader{ geometry in
-            VStack{
-                        ForEach(verb) { x in
-                            Text(x.verb)
-                        }
-            }
             TabView{
                 Home()
                     .tabItem {
