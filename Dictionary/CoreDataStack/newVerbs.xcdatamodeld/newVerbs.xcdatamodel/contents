@@ -4,6 +4,7 @@
         <attribute name="conjunctions" optional="YES" attributeType="Transformable" customClassName="[String]"/>
         <attribute name="examples" optional="YES" attributeType="Transformable" customClassName="[String]"/>
         <attribute name="explanation" optional="YES" attributeType="String"/>
+        <attribute name="favorite" attributeType="Boolean" usesScalarValueType="YES" customClassName="Bool"/>
         <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
         <attribute name="tenses" optional="YES" attributeType="Transformable" customClassName="[String]"/>
         <attribute name="verb" optional="YES" attributeType="String"/>

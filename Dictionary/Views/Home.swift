@@ -3,14 +3,13 @@
 //  Worterbuch
 //
 //  Created by NasrinJafari(Personal) on 05.10.22.
-//
 
 import SwiftUI
 
 struct Home: View {
     @Environment(\.managedObjectContext) var moc
+    @ObservedObject var dataController = DataController()
     @FetchRequest(sortDescriptors: []) var verbs: FetchedResults<Verbs>
-    let Data = Bundle.main.decode([verbsInformationsModel].self, from:"Verbs.json")
     
     var body: some View {
         VStack(alignment: .center){
@@ -33,8 +32,6 @@ struct Home: View {
                            Text("\(tense)")
                         }
                     }
-                    
-                    
                 }
 
             }

@@ -9,12 +9,14 @@
 import SwiftUI
 
 struct AddVerb: View {
-    @Environment(\.managedObjectContext) private var moc
+    
+    @ObservedObject var dataController = DataController()
     @FetchRequest(sortDescriptors: []) var verbs: FetchedResults<Verbs>
+    
+    @Environment(\.managedObjectContext) private var moc
     @Environment(\.dismiss) var dismiss
    
     @State var showEror: Bool = false
-    
     @State var verb: String = ""
     @State var conjunctions: [String] = []
     @State var conjunction: String = ""
@@ -23,6 +25,7 @@ struct AddVerb: View {
     @State var explanation: String = ""
     @State var examples: [String] = []
     @State var example: String = ""
+    @State var isFavorite: Bool = false
     
     func checkRepetetiveVerbs(verb: String) -> Bool {
         var result: Bool = false
@@ -87,32 +90,38 @@ struct AddVerb: View {
 
                     }
                 }
-                Section{
-                    Button {
-                        if checkRepetetiveVerbs(verb: verb){
-                            let newVerb = Verbs(context: moc)
-                            newVerb.id = UUID()
-                            newVerb.verb = verb
-                            newVerb.conjunctions = conjunctions
-                            newVerb.tenses = tenses
-                            newVerb.explanation = explanation
-                            newVerb.examples = examples
-                            
-                            try? moc.save()
-                            dismiss()
-                        } else{
-                            showEror = true
+           
+                    HStack{
+                        Spacer()
+                        Button {
+                            if dataController.itemExists(verb){
+                                showEror = true
+                                
+                            } else{
+                                let newVerb = Verbs(context: moc)
+                                newVerb.id = UUID()
+                                newVerb.verb = verb
+                                newVerb.conjunctions = conjunctions
+                                newVerb.tenses = tenses
+                                newVerb.explanation = explanation
+                                newVerb.examples = examples
+                                newVerb.favorite = isFavorite
+                                dataController.saveContext()
+                                dismiss()
+                            }
+                        } label: {
+                            Text("Hinzufügen")
+                        } .disabled(verb.isEmpty)
+                        .alert("Das verb gibt schon", isPresented: $showEror) {
+                            Button("OK", role: .cancel) { }
+                               
                         }
-                    } label: {
-                        Text("Hinzufügen")
+                        Spacer()
                     }
                         
-                }
-
                 
             }.navigationTitle("Neues Verb")
             
         }
-    AddErrorPopUp(showPopUp: $showEror)
     }
 }

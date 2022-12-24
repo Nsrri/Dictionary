@@ -8,31 +8,32 @@
 import SwiftUI
 
 struct DynamicVerbsView: View {
+    
     var verb: String
     var conjunctions: [String]
     var tenses: [String]
     var explanation: String
     var examples: [String]
-    
+    var id: UUID = UUID()
 
-    
+  
     public init (verb: String,
                  conjunctions: [String],
                  tenses: [String],
                  explanation: String,
-                 examples: [String]){
+                 examples: [String],
+                 id: UUID = UUID()
+    )
+    {
         self.verb = verb
         self.conjunctions = conjunctions
         self.tenses = tenses
         self.explanation = explanation
         self.examples = examples
-        
+        self.id = id
     }
     var body: some View {
         VStack{
-         
-
-        
         List{
             Section("Das Verb"){
                 Text(verb)
@@ -61,3 +62,15 @@ struct DynamicVerbsView: View {
     }
 }
 
+
+  
+struct verbInfos {
+    var verb: String
+    var conjunctions: [String]
+    var tenses: [String]
+    var explanation: String
+    var examples: [String]
+    var uuid = UUID()
+    @State var isFavorite: Bool
+    
+}
