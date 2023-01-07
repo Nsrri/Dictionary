@@ -9,10 +9,9 @@ import SwiftUI
 import UIKit
 
 struct ContentView: View {
-    var verb = Bundle.main.decode([verbsInformationsModel].self, from: "Verbs.json")
     @State var searchText: String = ""
+    
     var body: some View {
-
         GeometryReader{ geometry in
             TabView{
                 Home()
@@ -33,7 +32,6 @@ struct ContentView: View {
                         Label("Add words", systemImage: "plus")
                     }
             }
-  
         }
        
                     

@@ -7,8 +7,9 @@
 import Foundation
 import CoreData
 
+
 class DataController: ObservableObject {
-    let LocalData = Bundle.main.decode([verbsInformationsModel].self, from:"Verbs.json")
+    let LocalJsonData = Bundle.main.decode([verbsInformationsModel].self, from:"Verbs.json")
     init(){}
     
 //Step1: get the access to the data model via persistentContainer
@@ -26,36 +27,29 @@ class DataController: ObservableObject {
         return container
     }()
     
-    func preloadData(){
-        let preloadedDataKey = "didPreloadData"
-        let userDefaults = UserDefaults.standard
-        if userDefaults.bool(forKey: preloadedDataKey) == false{
-            guard let urlPath = Bundle.main.url(forResource: "Verbs", withExtension: "json") else{
-                return
-            }
-            let backgroundContext = DataController.persistentContainer.newBackgroundContext()
-            self.getContext().automaticallyMergesChangesFromParent = true
-            backgroundContext.perform{
-                if let arrayVerbs = NSArray(contentsOf: urlPath) as? [verbsInformationsModel] {
-                        for verbModel in arrayVerbs{
-                            let newVerb = Verbs(context: backgroundContext)
-                            newVerb.verb = verbModel.verb
-                            newVerb.id = verbModel.id
-                            newVerb.explanation = verbModel.explanation
-                            newVerb.tenses = verbModel.tenses
-                            newVerb.conjunctions = verbModel.conjunctions
-                            newVerb.examples = verbModel.examples
-                            newVerb.favorite = false
-                    }
-                        self.saveContext()
-                        userDefaults.set(true, forKey: preloadedDataKey)
-                }
-           
-            }
-            }
-          
-        
-    }
+    
+       func preloadData(){
+           let deafaults = UserDefaults.standard
+           if deafaults.bool(forKey: "First Launch") == true{
+               print("second+")
+               deafaults.set(true, forKey: "First Launch")
+           } else{
+               getContext().automaticallyMergesChangesFromParent = true
+               for verb in LocalJsonData {
+                   let newVerb = Verbs(context: getContext())
+                   newVerb.id = UUID()
+                   newVerb.verb = verb.verb
+                   newVerb.conjunctions = verb.conjunctions
+                   newVerb.tenses = verb.tenses
+                   newVerb.explanation = verb.explanation
+                   newVerb.examples = verb.examples
+                   newVerb.favorite = false
+                   self.saveContext()
+                   
+               }
+               deafaults.set(true, forKey: "First Launch")
+           }
+       }
     
 //Step2: get access to the managedObjectContext
     func getContext() -> NSManagedObjectContext{
@@ -87,7 +81,6 @@ class DataController: ObservableObject {
     }
   
     func getAllVerbs() -> Array<Verbs> {
-
         let all = NSFetchRequest<Verbs>(entityName: "Verbs")
         var allVerbs = [Verbs]()
         

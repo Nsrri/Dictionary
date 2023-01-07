@@ -14,8 +14,6 @@ struct SearchView: View {
      var listOFFavorites : [Verbs] {
         dataController.getVerbsWith(favorite: true)
     }
-
-
     @State var searchText: String = ""
     @State var isSearching: Bool = false
     @State var saveToFavorites: Bool = false
@@ -62,7 +60,10 @@ struct SearchView: View {
                     Spacer()
                 }
             }
-            
+
+                
+                
+                
         } .navigationTitle("Verbs")
 
         }
