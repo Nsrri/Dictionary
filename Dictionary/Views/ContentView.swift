@@ -8,17 +8,11 @@
 import SwiftUI
 import UIKit
 
-struct MainView: View {
-    var Wort = Bundle.main.decode([verbsInformations].self, from: "words.json")
+struct ContentView: View {
     @State var searchText: String = ""
+    
     var body: some View {
-
         GeometryReader{ geometry in
-            VStack{
-                        ForEach(Wort) { x in
-                            Text(x.verb)
-                        }
-            }
             TabView{
                 Home()
                     .tabItem {
@@ -29,16 +23,15 @@ struct MainView: View {
                     .tabItem{
                         Label("Search", systemImage: "magnifyingglass")
                     }
-                FavoritesView()
+                FavoriteVerbsView()
                     .tabItem {
                         Label("Favorites", systemImage: "star")
                     }
-                AddView()
+                AddVerb()
                     .tabItem {
                         Label("Add words", systemImage: "plus")
                     }
             }
-  
         }
        
                     

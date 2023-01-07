@@ -4,137 +4,155 @@
 //
 //  Created by NasrinJafari(Personal) on 31.10.22.
 //
-
-import CoreData
 import Foundation
+import CoreData
 
-// create  CoreData stack as a class singelton
 
-class DataController: NSObject,ObservableObject {
+class DataController: ObservableObject {
+    let LocalJsonData = Bundle.main.decode([verbsInformationsModel].self, from:"Verbs.json")
+    init(){}
     
-    override init() {
-        super.init()
-    }
-    
-    //Returns the current Persistent Container for CoreData
-    class func getContext () -> NSManagedObjectContext {
-        return DataController.persistentContainer.viewContext
-    }
-    
-    
+//Step1: get the access to the data model via persistentContainer
     static var persistentContainer: NSPersistentContainer = {
-        //The container that holds both data model entities
-        let container = NSPersistentContainer(name: "Worterbuch")
+        let container = NSPersistentContainer(name: "newVerbs")
         
         container.loadPersistentStores(completionHandler: { (storeDescription, error) in
             if let error = error as NSError? {
-                // Replace this implementation with code to handle the error appropriately.
-                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
                 
-                /*
-                 Typical reasons for an error here include:
-                 * The parent directory does not exist, cannot be created, or disallows writing.
-                 * The persistent store is not accessible, due to permissions or data protection when the device is locked.
-                 * The device is out of space.
-                 * The store could not be migrated to the current model version.
-                 Check the error message to determine what the actual problem was.
-                 */
-                
-                //TODO: - Add Error Handling for Core Data
+        //ToDO: Add error Handling for CoreData
                 
                 fatalError("Unresolved error \(error), \(error.userInfo)")
             }
-            
-            
         })
         return container
     }()
     
-    // Mark: - to save the data
-    class func saveContext() {
+    
+       func preloadData(){
+           let deafaults = UserDefaults.standard
+           if deafaults.bool(forKey: "First Launch") == true{
+               print("second+")
+               deafaults.set(true, forKey: "First Launch")
+           } else{
+               getContext().automaticallyMergesChangesFromParent = true
+               for verb in LocalJsonData {
+                   let newVerb = Verbs(context: getContext())
+                   newVerb.id = UUID()
+                   newVerb.verb = verb.verb
+                   newVerb.conjunctions = verb.conjunctions
+                   newVerb.tenses = verb.tenses
+                   newVerb.explanation = verb.explanation
+                   newVerb.examples = verb.examples
+                   newVerb.favorite = false
+                   self.saveContext()
+                   
+               }
+               deafaults.set(true, forKey: "First Launch")
+           }
+       }
+    
+//Step2: get access to the managedObjectContext
+    func getContext() -> NSManagedObjectContext{
+        return DataController.persistentContainer.viewContext
+    
+    }
+    
+     func itemExists(_ item: String) -> Bool {
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Verbs")
+        fetchRequest.predicate = NSPredicate(format: "verb == %@", item)
+        return ((try? getContext().count(for: fetchRequest)) ?? 0) > 0
+    }
+    
+    
+    func saveContext(){
+   
         let context = self.getContext()
-        if context.hasChanges {
-            do {
+        if context.hasChanges{
+            do{
                 try context.save()
-                print("Save Data to context")
-            } catch {
-                let nserror =  error as NSError
+                print("Data saved to Context")
+                context.automaticallyMergesChangesFromParent = true
+
+            }catch{
+                let nserror = error as NSError
                 fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
             }
         }
     }
-    // GET / Fetch / Requests
-    class func getAllVerbs() -> Array<Verbs> {
+  
+    func getAllVerbs() -> Array<Verbs> {
         let all = NSFetchRequest<Verbs>(entityName: "Verbs")
         var allVerbs = [Verbs]()
         
-        do {
-            let fetched = try DataController.getContext().fetch(all)
+        do{
+            let fetched = try getContext().fetch(all)
             allVerbs = fetched
+            getContext().automaticallyMergesChangesFromParent = true
         } catch {
             let nserror = error as NSError
+          //TODO: Handle Error
             print(nserror.description)
         }
         return allVerbs
     }
     
-    // Get show by UUID
-    class func getVerbWith(uuid: String) -> Verbs? {
-        let requested = NSFetchRequest<Verbs>(entityName: "Verbs")
-        requested.predicate = NSPredicate(format: "uuid == %@", uuid)
+    func getVerbsWith(favorite: Bool) -> Array<Verbs>{
+   
+        let all = NSFetchRequest<Verbs>(entityName: "Verbs")
+        all.predicate = NSPredicate(format: "favorite == %@", NSNumber(value: true))
+        var allFavorites = [Verbs]()
         
-        do {
-            let fetched = try DataController.getContext().fetch(requested)
+        do{
+            let fetched = try getContext().fetch(all)
+            allFavorites = fetched
+            getContext().automaticallyMergesChangesFromParent = true
             
             if (fetched.count > 1) {
-                
+                //TODO: handle duplicate records
             } else{
-                return fetched.first
+                return allFavorites
             }
-        }
-        catch {
+        } catch{
             let nserror = error as NSError
+            //TODO: Handle error
             print(nserror.description)
         }
-        return nil
+
+        return allFavorites
     }
     
-    class func deleteVerb(with uuid: String) -> Bool {
-        let success: Bool = true
+    func deleteVerb(uuid: UUID) {
+  
         
         let requested = NSFetchRequest<Verbs>(entityName: "Verbs")
-        requested.predicate = NSPredicate(format: "uuid == %@", uuid)
+        requested.predicate = NSPredicate(format: "id == %@", uuid.uuidString)
         
-        
-        do {
-            let fetched = try DataController.getContext().fetch(requested)
-            for verb in fetched {
-                DataController.getContext().delete(verb)
+        do{
+            let fetched = try getContext().fetch(requested)
+            for verb in fetched{
+                getContext().delete(verb)
             }
-            return success
-        } catch {
+            getContext().automaticallyMergesChangesFromParent = true
+        }catch {
             let nserror = error as NSError
-            //TODO: Handle Error
+            //TODO
             print(nserror.description)
+            
         }
-        
-        return !success
     }
     
-    
-    // Delete ALL SHOWS From CoreData
-    class func deleteAllVerbs() {
-        do {
+    func deleteAllVerbs() {
+
+        do{
             let deleteFetch = NSFetchRequest<NSFetchRequestResult>(entityName: "Verbs")
-            let deleteALL = NSBatchDeleteRequest(fetchRequest: deleteFetch)
+            let deleteAll = NSBatchDeleteRequest(fetchRequest: deleteFetch)
+            getContext().automaticallyMergesChangesFromParent = true
             
-            try DataController.getContext().execute(deleteALL)
-            DataController.saveContext()
-        } catch {
-            print ("There is an error in deleting records")
+            try getContext().execute(deleteAll)
+            saveContext()
+        }catch{
+            print("There is an error in deleting records")
         }
     }
 }
-
-
 

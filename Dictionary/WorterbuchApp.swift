@@ -9,13 +9,15 @@ import SwiftUI
 
 @main
 struct Worterbuch: App {
-    @StateObject private var dataController = DataController()
-    
+    @StateObject var dataController = DataController()
+    init(){
+        dataController.preloadData()
+    }
     var body: some Scene {
         WindowGroup {
-            MainView()
-                .environmentObject(dataController)
-               
+            ContentView()
+                .environment(\.managedObjectContext, dataController.getContext())
         }
     }
 }
+
