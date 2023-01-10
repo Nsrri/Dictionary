@@ -24,7 +24,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		502750502868C4A200D91944 /* Worterbuch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Worterbuch.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		502750502868C4A200D91944 /* Dictionary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Dictionary.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		502750532868C4A200D91944 /* WorterbuchApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorterbuchApp.swift; sourceTree = "<group>"; };
 		502750552868C4A200D91944 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		502750632868D24500D91944 /* verbsInformationsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = verbsInformationsModel.swift; sourceTree = "<group>"; };
@@ -64,7 +64,7 @@
 		502750512868C4A200D91944 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				502750502868C4A200D91944 /* Worterbuch.app */,
+				502750502868C4A200D91944 /* Dictionary.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -132,9 +132,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		5027504F2868C4A200D91944 /* Worterbuch */ = {
+		5027504F2868C4A200D91944 /* Dictionary */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 5027505E2868C4A300D91944 /* Build configuration list for PBXNativeTarget "Worterbuch" */;
+			buildConfigurationList = 5027505E2868C4A300D91944 /* Build configuration list for PBXNativeTarget "Dictionary" */;
 			buildPhases = (
 				5027504C2868C4A200D91944 /* Sources */,
 				5027504D2868C4A200D91944 /* Frameworks */,
@@ -144,9 +144,9 @@
 			);
 			dependencies = (
 			);
-			name = Worterbuch;
+			name = Dictionary;
 			productName = "Dictionary-De";
-			productReference = 502750502868C4A200D91944 /* Worterbuch.app */;
+			productReference = 502750502868C4A200D91944 /* Dictionary.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -164,7 +164,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 5027504B2868C4A200D91944 /* Build configuration list for PBXProject "Worterbuch" */;
+			buildConfigurationList = 5027504B2868C4A200D91944 /* Build configuration list for PBXProject "Dictionary" */;
 			compatibilityVersion = "Xcode 13.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -177,7 +177,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				5027504F2868C4A200D91944 /* Worterbuch */,
+				5027504F2868C4A200D91944 /* Dictionary */,
 			);
 		};
 /* End PBXProject section */
@@ -353,7 +353,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "NS.Deutsch-Deutscg.Dictionary";
+				PRODUCT_BUNDLE_IDENTIFIER = "NS.Deutsch-Deutsch.Dictionary";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -384,7 +384,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "NS.Deutsch-Deutscg.Dictionary";
+				PRODUCT_BUNDLE_IDENTIFIER = "NS.Deutsch-Deutsch.Dictionary";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -396,7 +396,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		5027504B2868C4A200D91944 /* Build configuration list for PBXProject "Worterbuch" */ = {
+		5027504B2868C4A200D91944 /* Build configuration list for PBXProject "Dictionary" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				5027505C2868C4A300D91944 /* Debug */,
@@ -405,7 +405,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		5027505E2868C4A300D91944 /* Build configuration list for PBXNativeTarget "Worterbuch" */ = {
+		5027505E2868C4A300D91944 /* Build configuration list for PBXNativeTarget "Dictionary" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				5027505F2868C4A300D91944 /* Debug */,
