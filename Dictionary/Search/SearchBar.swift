@@ -17,10 +17,11 @@ struct SearchBar: View {
             ZStack{
                 Rectangle()
                     .foregroundColor(Color("LightGray"))
-                    .border(Color.secondary)
+                    .border(Color("Graye5"))
+                    .background(Color("Graye5"))
                 HStack{
                     Image(systemName: "magnifyingglass")
-                    TextField("Search for...", text: $searchText){ startedEditing in
+                    TextField("Search", text: $searchText){ startedEditing in
                         if startedEditing {
                             withAnimation {
                                 isSearching = true
@@ -35,7 +36,7 @@ struct SearchBar: View {
                     if !searchText.isEmpty{
                         Button {
                             self.searchText = ""
-                            self.isSearching = true
+                            self.isSearching = false
                         } label: {
                             Image(systemName: "xmark.circle.fill")
                         }
@@ -48,7 +49,7 @@ struct SearchBar: View {
                 .padding(.leading, 13)
             }
             .frame(height: 40)
-            .cornerRadius(13)
+            .cornerRadius(11)
             .padding()
             
             if isSearching {
