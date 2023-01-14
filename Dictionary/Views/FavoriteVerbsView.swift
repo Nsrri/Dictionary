@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+@available(iOS 16.0, *)
 struct FavoriteVerbsView: View {
     @ObservedObject var dataConrtoller = DataController()
     @Environment(\.managedObjectContext) var moc
@@ -36,6 +37,8 @@ struct FavoriteVerbsView: View {
                         }
                     }.onDelete(perform: deleteItem)
                 }.listStyle(.plain)
+                    .background(Color("Lemon"))
+                        .scrollContentBackground(.hidden)
             }
         }
     }

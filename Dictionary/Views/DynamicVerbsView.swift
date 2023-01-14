@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+@available(iOS 16.0, *)
 struct DynamicVerbsView: View {
     
     var verb: String
@@ -33,32 +34,39 @@ struct DynamicVerbsView: View {
         self.id = id
     }
     var body: some View {
-        VStack{
-        List{
-            Section("Das Verb"){
-                Text(verb)
+        GeometryReader{ geometry in
+            VStack{
+                List{
+                    Section("Das Verb"){
+                        Text(verb)
+                    }
+                    Section("Zeiten"){
+                        ForEach(conjunctions, id: \.self){ conjunction in
+                            Text("*\(conjunction)")
+                        }
+                    }
+                    Section("Die vergangenheit Formen"){
+                        ForEach(tenses, id: \.self){ tense in
+                            Text(tense)
+                        }
+                    }
+                    Section("Die Erzählung"){
+                        Text(explanation).background(Color.gray)
+                    }
+                    Section("Die Beispiels"){
+                        ForEach(examples, id: \.self){ example in
+                            Text("-\(example)" + "\n")
+                        }
+                    }
+                    
+                } .background(Color("Lemon"))
+                    .scrollContentBackground(.hidden)
+                .listStyle(.plain)
+                  
+
             }
-            Section("Zeiten"){
-                ForEach(conjunctions, id: \.self){ conjunction in
-                    Text("*\(conjunction)")
-                }
-            }
-            Section("Die vergangenheit Formen"){
-                ForEach(tenses, id: \.self){ tense in
-                    Text(tense)
-                }
-            }
-            Section("Die Erzählung"){
-                Text(explanation).background(Color.gray)
-            }
-            Section("Die Beispiels"){
-                ForEach(examples, id: \.self){ example in
-                    Text("-\(example)" + "\n")
-                }
-            }
-            
-        }.listStyle(.plain)
         }
+        
     }
 }
 

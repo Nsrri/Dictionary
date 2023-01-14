@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+@available(iOS 16.0, *)
 struct SearchView: View {
     @ObservedObject var dataController = DataController()
     @FetchRequest(sortDescriptors: []) var verbs: FetchedResults<Verbs>
@@ -47,7 +48,10 @@ struct SearchView: View {
                                             }
                                 }
                             }
-                        }.listStyle(.plain)
+                        }.background(Color("Lemon"))
+                            .scrollContentBackground(.hidden)
+                        .listStyle(.plain)
+                        
                     } else if(!isSearching){
                         Spacer()
                         Image(systemName: "magnifyingglass")
@@ -58,12 +62,14 @@ struct SearchView: View {
                     }
                 }
             } .navigationTitle("Verbs")
+                .background(Color("Lemon"))
             
         }
     }
     
 }
 
+@available(iOS 16.0, *)
 extension SearchView{
     var listOFFavorites : [Verbs] {
         dataController.getVerbsWith(favorite: true)

@@ -12,32 +12,32 @@ struct Home: View {
     @FetchRequest(sortDescriptors: []) var verbs: FetchedResults<Verbs>
     
     var body: some View {
-        VStack(alignment: .center){
-            VStack{
-                Image("AppLogo")
-                    .resizable()
-                    .frame(width: 250, height: 200, alignment: .center)
-                Text("Wörterbuch").bold()
-                Text("by Nasrin")
-                    .padding(3)
-                    .background(Color.gray)
-                Text("\(verbs.count)")
-                ForEach(verbs, id:\.id){ verb in
-                    VStack{
-                        Text("\(verb.verb!)")
-                    
-                        Text("\(verb.explanation!)")
-                      
-                        ForEach(verb.tenses!, id:\.self){ tense in
-                           Text("\(tense)")
+        GeometryReader { geometry in
+            VStack(alignment: .center){
+                VStack{
+                    //Image("AppLogo")
+                    //.resizable()
+                    // .frame(width: 250, height: 200, alignment: .center)
+                    Text("Wörterbuch").bold()
+                    Text("by Nasrin")
+                        .padding(3)
+                        .background(Color.gray)
+                    Text("\(verbs.count)")
+                    ForEach(verbs, id:\.id){ verb in
+                        VStack{
+                            Text("\(verb.verb!)")
+                            
+                            Text("\(verb.explanation!)")
+                            
+                            ForEach(verb.tenses!, id:\.self){ tense in
+                                Text("\(tense)")
+                            }
                         }
                     }
+                    
                 }
-
-            }
-            .frame(alignment: .center)
-            Spacer()
-          
+            }.frame(width: geometry.size.width, height: geometry.size.height)
+                .background(Color("Lemon"))
             
         }
     }

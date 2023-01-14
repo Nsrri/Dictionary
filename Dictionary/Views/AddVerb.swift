@@ -8,6 +8,7 @@
 
 import SwiftUI
 
+@available(iOS 16.0, *)
 struct AddVerb: View {
     
     @ObservedObject var dataController = DataController()
@@ -36,92 +37,98 @@ struct AddVerb: View {
     }
     
     var body: some View {
-        NavigationView{
-            Form{
-                Section(header: Text("Das Verb")){
-                    TextField("Trage Hier das Verb ein", text: $verb)
-                }
-                Section(header: Text("Die Konjuntion")){
-                    HStack{
-                        TextField("Trage das konjugierte Verb ein", text: $conjunction)
-                        Button {
-                            conjunctions.append(conjunction)
-                            conjunction = ""
-                            withAnimation{
-                                UIApplication.shared.dismissKeyboard()
+            NavigationView {
+                GeometryReader { geometry in
+                        Form {
+                            Section(header: Text("Das Verb")){
+                                TextField("Trage Hier das Verb ein", text: $verb)
                             }
-                        } label: {
-                            Image(systemName: "plus")
-                        }
-
-                    }
-                }
-                Section(header: Text("Die Zeiten")){
-                    HStack{
-                        TextField("Trage die Zeit des Verbes ein", text: $tense)
-                        Button {
-                            tenses.append(tense)
-                            tense = ""
-                            withAnimation{
-                                UIApplication.shared.dismissKeyboard()
+                            Section(header: Text("Die Konjuntion")){
+                                HStack{
+                                    TextField("Trage das konjugierte Verb ein", text: $conjunction)
+                                    Button {
+                                        conjunctions.append(conjunction)
+                                        conjunction = ""
+                                        withAnimation{
+                                            UIApplication.shared.dismissKeyboard()
+                                        }
+                                    } label: {
+                                        Image(systemName: "plus")
+                                    }
+                                    
+                                }
                             }
-                        } label: {
-                            Image(systemName: "plus")
-                        }
-
-                    }
-                }
-                Section(header: Text("Die Erklärung")){
-                    TextField("Die Erklärung", text: $explanation)
-                }
-                
-                Section(header: Text("Die Beispiels")){
-                    HStack{
-                        TextField("Trage das Beispiel des Verbes ein", text: $example)
-                        Button {
-                            examples.append(example)
-                            example = ""
-                            withAnimation{
-                                UIApplication.shared.dismissKeyboard()
+                            Section(header: Text("Die Zeiten")){
+                                HStack{
+                                    TextField("Trage die Zeit des Verbes ein", text: $tense)
+                                    Button {
+                                        tenses.append(tense)
+                                        tense = ""
+                                        withAnimation{
+                                            UIApplication.shared.dismissKeyboard()
+                                        }
+                                    } label: {
+                                        Image(systemName: "plus")
+                                    }
+                                    
+                                }
                             }
-                        } label: {
-                            Image(systemName: "plus")
-                        }
-
-                    }
-                }
-           
-                    HStack{
-                        Spacer()
-                        Button {
-                            if dataController.itemExists(verb){
-                                showEror = true
-                                
-                            } else{
-                                let newVerb = Verbs(context: moc)
-                                newVerb.id = UUID()
-                                newVerb.verb = verb
-                                newVerb.conjunctions = conjunctions
-                                newVerb.tenses = tenses
-                                newVerb.explanation = explanation
-                                newVerb.examples = examples
-                                newVerb.favorite = isFavorite
-                                dataController.saveContext()
-                                dismiss()
+                            Section(header: Text("Die Erklärung")){
+                                TextField("Die Erklärung", text: $explanation)
                             }
-                        } label: {
-                            Text("Hinzufügen")
-                        } .disabled(verb.isEmpty)
-                        .alert("Das verb gibt schon", isPresented: $showEror) {
-                            Button("OK", role: .cancel) { }
-                               
-                        }
-                        Spacer()
+                            
+                            Section(header: Text("Die Beispiels")){
+                                HStack{
+                                    TextField("Trage das Beispiel des Verbes ein", text: $example)
+                                    Button {
+                                        examples.append(example)
+                                        example = ""
+                                        withAnimation{
+                                            UIApplication.shared.dismissKeyboard()
+                                        }
+                                    } label: {
+                                        Image(systemName: "plus")
+                                    }
+                                    
+                                }
+                            }
+                            
+                            HStack{
+                                Spacer()
+                                Button {
+                                    if dataController.itemExists(verb){
+                                        showEror = true
+                                        
+                                    } else{
+                                        let newVerb = Verbs(context: moc)
+                                        newVerb.id = UUID()
+                                        newVerb.verb = verb
+                                        newVerb.conjunctions = conjunctions
+                                        newVerb.tenses = tenses
+                                        newVerb.explanation = explanation
+                                        newVerb.examples = examples
+                                        newVerb.favorite = isFavorite
+                                        dataController.saveContext()
+                                        dismiss()
+                                    }
+                                } label: {
+                                    Text("Hinzufügen")
+                                } .disabled(verb.isEmpty)
+                                    .alert("Das verb gibt schon", isPresented: $showEror) {
+                                        Button("OK", role: .cancel) { }
+                                        
+                                    }
+                                Spacer()
+                            }
+                            
+                            
+                        }.scrollContentBackground(.hidden)
+                    .navigationTitle("Neues Verb")
+                        .background(Color("Lemon"))
                     }
-                        
-                
-            }.navigationTitle("Neues Verb")
+                 
             
         }
+
     }
 }
