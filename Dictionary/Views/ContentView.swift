@@ -19,26 +19,22 @@ struct ContentView: View {
     var body: some View {
         GeometryReader{ geometry in
             TabView{
-                Home()
+                HomeView()
                     .tabItem {
                         Label("Home", systemImage: "house")
-//                            .foregroundColor(Color("Celadon"))
                     }
         
                 SearchView()
                     .tabItem{
                         Label("Search", systemImage: "magnifyingglass")
-//                            .foregroundColor(Color("Celadon"))
                     }
                 FavoriteVerbsView()
                     .tabItem {
                         Label("Favorites", systemImage: "star")
-//                            .foregroundColor(Color("Celadon"))
                     }
-                AddVerb()
+                AddVerbView()
                     .tabItem {
                         Label("Add words", systemImage: "plus")
-//                            .foregroundColor(Color("Celadon"))
                     }
             }
          

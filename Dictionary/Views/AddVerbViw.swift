@@ -9,7 +9,7 @@
 import SwiftUI
 
 @available(iOS 16.0, *)
-struct AddVerb: View {
+struct AddVerbView: View {
     
     @ObservedObject var dataController = DataController()
     @FetchRequest(sortDescriptors: []) var verbs: FetchedResults<Verbs>
