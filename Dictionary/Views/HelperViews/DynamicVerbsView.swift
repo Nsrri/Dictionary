@@ -35,35 +35,41 @@ struct DynamicVerbsView: View {
     }
     var body: some View {
         GeometryReader{ geometry in
-            VStack{
-                List{
-                    Section("Das Verb"){
-                        Text(verb)
-                    }
-                    Section("Zeiten"){
-                        ForEach(conjunctions, id: \.self){ conjunction in
-                            Text("*\(conjunction)")
+            NavigationView {
+                    List{
+                        Section("Das Verb"){
+                            Text(verb)
+                                .listRowBackground(Color("Lemon"))
                         }
-                    }
-                    Section("Die vergangenheit Formen"){
-                        ForEach(tenses, id: \.self){ tense in
-                            Text(tense)
+                        Section("Zeiten"){
+                            ForEach(conjunctions, id: \.self){ conjunction in
+                                Text("*\(conjunction)")
+                                    .listRowBackground(Color("Lemon"))
+                            }
                         }
-                    }
-                    Section("Die Erzählung"){
-                        Text(explanation).background(Color.gray)
-                    }
-                    Section("Die Beispiels"){
-                        ForEach(examples, id: \.self){ example in
-                            Text("-\(example)" + "\n")
+                        Section("Die vergangenheit Formen"){
+                            ForEach(tenses, id: \.self){ tense in
+                                Text(tense)
+                                    .listRowBackground(Color("Lemon"))
+                            }
                         }
+                        Section("Die Erzählung"){
+                            Text(explanation).background(Color.gray)
+                                .listRowBackground(Color("Lemon"))
+                        }
+                        Section("Die Beispiels"){
+                            ForEach(examples, id: \.self){ example in
+                                Text("-\(example)" + "\n")
+                                    .listRowBackground(Color("Lemon"))
+                            }
+                        }
+                        
                     }
+                    .background(Color("Lemon"))
+                        .scrollContentBackground(.hidden)
+                        .listStyle(.plain)
                     
-                } .background(Color("Lemon"))
-                    .scrollContentBackground(.hidden)
-                .listStyle(.plain)
-                  
-
+                    
             }
         }
         

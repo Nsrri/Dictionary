@@ -24,21 +24,23 @@ struct FavoriteVerbsView: View {
     }
     
     var body: some View {
-        NavigationView{
-            VStack{
-                List{
-                    ForEach(verbs, id: \.id) {  fav in
-                        if fav.favorite{
-                            NavigationLink(destination: DynamicVerbsView(verb: fav.verb!, conjunctions: fav.conjunctions!, tenses: fav.tenses!, explanation: fav.explanation!, examples: fav.examples!)
-                                .navigationTitle(fav.verb!)
-                                .navigationBarTitleDisplayMode(.inline)){
-                                    Text(fav .verb!)
-                                }
-                        }
-                    }.onDelete(perform: deleteItem)
-                }.listStyle(.plain)
-                    .background(Color("Lemon"))
+        GeometryReader { geometry in
+            NavigationView{
+                    List{
+                        ForEach(verbs, id: \.id) {  fav in
+                            if fav.favorite{
+                                NavigationLink(destination:
+                                                DynamicVerbsView(verb: fav.verb!, conjunctions: fav.conjunctions!, tenses: fav.tenses!, explanation: fav.explanation!, examples: fav.examples!)
+                                    .navigationBarTitleDisplayMode(.inline)){
+                                        Text(fav .verb!)
+                                    }
+                            }
+                        }.onDelete(perform: deleteItem)
+                    }
+                        .background(Color("Lemon"))
                         .scrollContentBackground(.hidden)
+                        .navigationTitle(Text("Favourites"))
+                        .listStyle(.automatic)
             }
         }
     }

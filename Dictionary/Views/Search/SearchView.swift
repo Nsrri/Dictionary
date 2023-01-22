@@ -19,10 +19,10 @@ struct SearchView: View {
     var body: some View {
         NavigationView{
             GeometryReader{ geometry in
-                VStack(alignment: .center){
+                VStack(alignment: .center, spacing: 0){
                     SearchBar(searchText: $searchText, isSearching: $isSearching)
                     if isAbleToSearch(){
-                        List(){
+                        List{
                             ForEach(verbs, id: \.id) { data in
                                 if(data.verb!.lowercased().hasPrefix(searchText.lowercased())) {
                                     NavigationLink(
@@ -45,12 +45,14 @@ struct SearchView: View {
                                             })
                                             .navigationBarTitleDisplayMode(.inline)){
                                                 Text(data.verb!)
+                        
                                             }
                                 }
                             }
+                         
                         }.background(Color("Lemon"))
                             .scrollContentBackground(.hidden)
-                        .listStyle(.plain)
+                            .listStyle(.automatic)
                         
                     } else if(!isSearching){
                         Spacer()
@@ -61,7 +63,7 @@ struct SearchView: View {
                         Spacer()
                     }
                 }
-            } .navigationTitle("Verbs")
+            } .navigationTitle("Verben")
                 .background(Color("Lemon"))
             
         }
