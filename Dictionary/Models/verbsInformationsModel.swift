@@ -11,3 +11,12 @@ struct verbsInformationsModel : Codable, Identifiable, Hashable  {
     let id: UUID
 }
 
+struct Verb : Codable {
+    var _id: String
+    var verb: String
+    var tenses: [String]
+    var conjunctions: [String]
+    var explanation: String
+    var examples: [String]
+    var favorite: Bool
+}
