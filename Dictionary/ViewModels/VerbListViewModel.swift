@@ -26,6 +26,20 @@ class VerbListViewModel: ObservableObject {
             
         }
     }
+    
+    func populateFavoriteVerbs() async {
+        
+        do {
+            let verbs = try await WebService().getAllVerbs(url: Constants.Urls.allFavoriteVerbs)
+            DispatchQueue.main.async {
+                self.verbs = verbs.map(VerbViewModel.init)
+            }
+             
+        } catch {
+            print(error)
+            
+        }
+    }
 }
 
 struct VerbViewModel: Identifiable {

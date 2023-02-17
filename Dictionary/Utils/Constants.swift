@@ -11,6 +11,9 @@ struct Constants {
     
     struct Urls {
         
-        static let allVerbs = URL(string: "http://172.20.10.4:8081/fetch")!
+        static let allVerbs = URL(string: "http://172.20.10.4:8081/search")!
+        static let allFavoriteVerbs = URL(string: "http://172.20.10.4:8081/search/:favorite")!
     }
 }
+
+

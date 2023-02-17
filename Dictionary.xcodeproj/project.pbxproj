@@ -11,6 +11,9 @@
 		502750562868C4A200D91944 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 502750552868C4A200D91944 /* ContentView.swift */; };
 		502750642868D24500D91944 /* verbsInformationsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 502750632868D24500D91944 /* verbsInformationsModel.swift */; };
 		502750662868D71500D91944 /* Bundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 502750652868D71500D91944 /* Bundle.swift */; };
+		502DD2582998DC4C006A9274 /* VerbListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 502DD2572998DC4B006A9274 /* VerbListView.swift */; };
+		502DD25A2998DD08006A9274 /* VerbCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 502DD2592998DD08006A9274 /* VerbCellView.swift */; };
+		502DD25C2998FC30006A9274 /* SaveButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 502DD25B2998FC30006A9274 /* SaveButtonView.swift */; };
 		503732292995760B00BF74E8 /* VerbListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 503732282995760B00BF74E8 /* VerbListViewModel.swift */; };
 		5037322C2995778400BF74E8 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5037322B2995778400BF74E8 /* Constants.swift */; };
 		506CF42128F70CEB002F7D9B /* Verbs.json in Resources */ = {isa = PBXBuildFile; fileRef = 506CF42028F70CEB002F7D9B /* Verbs.json */; };
@@ -37,6 +40,9 @@
 		502750552868C4A200D91944 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		502750632868D24500D91944 /* verbsInformationsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = verbsInformationsModel.swift; sourceTree = "<group>"; };
 		502750652868D71500D91944 /* Bundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bundle.swift; sourceTree = "<group>"; };
+		502DD2572998DC4B006A9274 /* VerbListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerbListView.swift; sourceTree = "<group>"; };
+		502DD2592998DD08006A9274 /* VerbCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerbCellView.swift; sourceTree = "<group>"; };
+		502DD25B2998FC30006A9274 /* SaveButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveButtonView.swift; sourceTree = "<group>"; };
 		503732282995760B00BF74E8 /* VerbListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerbListViewModel.swift; sourceTree = "<group>"; };
 		5037322B2995778400BF74E8 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		506CF42028F70CEB002F7D9B /* Verbs.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Verbs.json; sourceTree = "<group>"; };
@@ -112,7 +118,6 @@
 		502A74392973201800D45D13 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				56338D5028F88C3000E29692 /* DynamicVerbsView.swift */,
 				508A421A297488D7006AC1F3 /* PercentageCalculation.swift */,
 				503732282995760B00BF74E8 /* VerbListViewModel.swift */,
 			);
@@ -184,11 +189,15 @@
 		5620CACF293265AD002287F2 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				508A420D2973EA06006AC1F3 /* RingViews */,
 				5620CACA29326367002287F2 /* Search */,
+				508A420D2973EA06006AC1F3 /* RingViews */,
+				56338D5028F88C3000E29692 /* DynamicVerbsView.swift */,
 				563D094728EDB8AE00F336D6 /* FavoriteVerbsView.swift */,
 				563D094B28EDBE0300F336D6 /* HomeView.swift */,
 				563D094928EDB8F800F336D6 /* AddVerbViw.swift */,
+				502DD2572998DC4B006A9274 /* VerbListView.swift */,
+				502DD2592998DD08006A9274 /* VerbCellView.swift */,
+				502DD25B2998FC30006A9274 /* SaveButtonView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -268,15 +277,18 @@
 				508A42112973F153006AC1F3 /* RingShape.swift in Sources */,
 				502750562868C4A200D91944 /* ContentView.swift in Sources */,
 				502750542868C4A200D91944 /* WorterbuchApp.swift in Sources */,
+				502DD2582998DC4C006A9274 /* VerbListView.swift in Sources */,
 				508A42152973F67B006AC1F3 /* RingTipShape.swift in Sources */,
 				508A42132973F605006AC1F3 /* RingView.swift in Sources */,
 				502750662868D71500D91944 /* Bundle.swift in Sources */,
 				5080006729903C6E00E90AAB /* WebService.swift in Sources */,
+				502DD25C2998FC30006A9274 /* SaveButtonView.swift in Sources */,
 				56068E0E2944B53F009000EF /* newVerbs.xcdatamodeld in Sources */,
 				508A420F2973EA34006AC1F3 /* RingBackgroundShape.swift in Sources */,
 				563D094A28EDB8F800F336D6 /* AddVerbViw.swift in Sources */,
 				561704F929100CAB004DE71A /* DataController.swift in Sources */,
 				5693B02028F19655001189D7 /* SearchView.swift in Sources */,
+				502DD25A2998DD08006A9274 /* VerbCellView.swift in Sources */,
 				508A421B297488D7006AC1F3 /* PercentageCalculation.swift in Sources */,
 				5037322C2995778400BF74E8 /* Constants.swift in Sources */,
 				56338D5128F88C3000E29692 /* DynamicVerbsView.swift in Sources */,

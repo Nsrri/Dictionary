@@ -7,6 +7,8 @@
 
 import SwiftUI
 
+
+// should get deleted and replaced in the views
 @available(iOS 16.0, *)
 struct DynamicVerbsView: View {
     

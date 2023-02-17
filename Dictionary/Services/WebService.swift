@@ -17,7 +17,6 @@ enum NetworkError: Error {
 class WebService: ObservableObject {
     
     func getAllVerbs(url: URL) async throws -> [Verb]{
-        
         let (data, response) = try await URLSession.shared.data(from: url)
         
         guard let httpResponse = response as? HTTPURLResponse,
@@ -25,7 +24,6 @@ class WebService: ObservableObject {
             throw NetworkError.invalidRequest
         }
        
-        print(response)
         let verbs = try? JSONDecoder().decode([Verb].self, from: data)
         return verbs ?? []
     }

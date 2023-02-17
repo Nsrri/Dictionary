@@ -12,7 +12,6 @@ struct HomeView: View {
     @FetchRequest(sortDescriptors: []) var verbs: FetchedResults<Verbs>
     
     
-    @StateObject var vm = VerbListViewModel()
      var verbsCount: Int {
        return verbs.count
     }
@@ -35,11 +34,6 @@ struct HomeView: View {
                 }
                 Spacer()
                 
-                List(vm.verbs){ verb in
-                    Text(verb.verb)
-                }.task {
-                    await vm.populateVerbs()
-                }
             }.frame(width: geometry.size.width, height: geometry.size.height)
                 .background(Color("Lemon"))
             
