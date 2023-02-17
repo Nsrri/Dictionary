@@ -7,26 +7,38 @@
 
 import SwiftUI
 
+@available(iOS 16.0, *)
 struct SearchView: View {
+    
     @ObservedObject var dataController = DataController()
     @FetchRequest(sortDescriptors: []) var verbs: FetchedResults<Verbs>
     @State var searchText: String = ""
     @State var isSearching: Bool = false
-    @State var saveToFavorites: Bool = false
+    @State var saveToFavorites: Bool = true
+    @StateObject var vm = VerbListViewModel()
     
     
     var body: some View {
         NavigationView{
             GeometryReader{ geometry in
-                VStack(alignment: .center){
-                    SearchBar(searchText: $searchText, isSearching: $isSearching)
-                    if isAbleToSearch(){
-                        List(){
+                VStack(alignment: .center, spacing: 0) {
+                    SearchBar(
+                        searchText: $searchText,
+                        isSearching: $isSearching
+                    )
+                    if isAbleToSearch() {
+                        List{
                             ForEach(verbs, id: \.id) { data in
                                 if(data.verb!.lowercased().hasPrefix(searchText.lowercased())) {
                                     NavigationLink(
                                         destination:
-                                            DynamicVerbsView(verb: data.verb!, conjunctions: data.conjunctions!, tenses: data.tenses!, explanation: data.explanation!, examples: data.examples!)
+                                            DynamicVerbsView(
+                                                verb: data.verb!,
+                                                conjunctions: data.conjunctions!,
+                                                tenses: data.tenses!,
+                                                explanation: data.explanation!,
+                                                examples: data.examples!
+                                            )
                                             .navigationTitle(data.verb!)
                                             .toolbar(content: {
                                                 Button {
@@ -39,31 +51,40 @@ struct SearchView: View {
                                                     }
                                                     dataController.saveContext()
                                                 }label: {
-                                                    listOFFavorites.contains(data) ?  Image(systemName: "star.fill") : Image(systemName: "star")
+                                                    listOFFavorites.contains(data) ?
+                                                    Image(systemName: "star.fill") :
+                                                    Image(systemName: "star")
                                                 }
                                             })
                                             .navigationBarTitleDisplayMode(.inline)){
                                                 Text(data.verb!)
+                                                
                                             }
                                 }
                             }
-                        }.listStyle(.plain)
-                    } else if(!isSearching){
-                        Spacer()
-                        Image(systemName: "magnifyingglass")
-                            .resizable()
-                            .frame(width: 30.0, height: 30.0)
-                            .foregroundColor(.secondary)
-                        Spacer()
+                            
+                        }.background(Color("Lemon"))
+                            .scrollContentBackground(.hidden)
+                            .listStyle(.automatic)
+                        
                     }
+                    Divider()
+                    
+                    
+                    VerbListView(verbs: vm.verbs)
+                        .task {
+                            await vm.populateVerbs()
+                        }
                 }
-            } .navigationTitle("Verbs")
+            } .navigationTitle("Verben")
+                .background(Color("Lemon"))
             
         }
     }
     
 }
 
+@available(iOS 16.0, *)
 extension SearchView{
     var listOFFavorites : [Verbs] {
         dataController.getVerbsWith(favorite: true)

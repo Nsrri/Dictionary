@@ -7,6 +7,9 @@
 
 import SwiftUI
 
+
+// should get deleted and replaced in the views
+@available(iOS 16.0, *)
 struct DynamicVerbsView: View {
     
     var verb: String
@@ -33,32 +36,45 @@ struct DynamicVerbsView: View {
         self.id = id
     }
     var body: some View {
-        VStack{
-        List{
-            Section("Das Verb"){
-                Text(verb)
+        GeometryReader{ geometry in
+            NavigationView {
+                    List{
+                        Section("Das Verb"){
+                            Text(verb)
+                                .listRowBackground(Color("Lemon"))
+                        }
+                        Section("Zeiten"){
+                            ForEach(conjunctions, id: \.self){ conjunction in
+                                Text("*\(conjunction)")
+                                    .listRowBackground(Color("Lemon"))
+                            }
+                        }
+                        Section("Die vergangenheit Formen"){
+                            ForEach(tenses, id: \.self){ tense in
+                                Text(tense)
+                                    .listRowBackground(Color("Lemon"))
+                            }
+                        }
+                        Section("Die Erzählung"){
+                            Text(explanation).background(Color.gray)
+                                .listRowBackground(Color("Lemon"))
+                        }
+                        Section("Die Beispiels"){
+                            ForEach(examples, id: \.self){ example in
+                                Text("-\(example)" + "\n")
+                                    .listRowBackground(Color("Lemon"))
+                            }
+                        }
+                        
+                    }
+                    .background(Color("Lemon"))
+                        .scrollContentBackground(.hidden)
+                        .listStyle(.plain)
+                    
+                    
             }
-            Section("Zeiten"){
-                ForEach(conjunctions, id: \.self){ conjunction in
-                    Text("*\(conjunction)")
-                }
-            }
-            Section("Die vergangenheit Formen"){
-                ForEach(tenses, id: \.self){ tense in
-                    Text(tense)
-                }
-            }
-            Section("Die Erzählung"){
-                Text(explanation).background(Color.gray)
-            }
-            Section("Die Beispiels"){
-                ForEach(examples, id: \.self){ example in
-                    Text("-\(example)" + "\n")
-                }
-            }
-            
-        }.listStyle(.plain)
         }
+        
     }
 }
 

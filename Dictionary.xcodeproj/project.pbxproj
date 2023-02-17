@@ -11,14 +11,25 @@
 		502750562868C4A200D91944 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 502750552868C4A200D91944 /* ContentView.swift */; };
 		502750642868D24500D91944 /* verbsInformationsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 502750632868D24500D91944 /* verbsInformationsModel.swift */; };
 		502750662868D71500D91944 /* Bundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 502750652868D71500D91944 /* Bundle.swift */; };
+		502DD2582998DC4C006A9274 /* VerbListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 502DD2572998DC4B006A9274 /* VerbListView.swift */; };
+		502DD25A2998DD08006A9274 /* VerbCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 502DD2592998DD08006A9274 /* VerbCellView.swift */; };
+		502DD25C2998FC30006A9274 /* SaveButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 502DD25B2998FC30006A9274 /* SaveButtonView.swift */; };
+		503732292995760B00BF74E8 /* VerbListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 503732282995760B00BF74E8 /* VerbListViewModel.swift */; };
+		5037322C2995778400BF74E8 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5037322B2995778400BF74E8 /* Constants.swift */; };
 		506CF42128F70CEB002F7D9B /* Verbs.json in Resources */ = {isa = PBXBuildFile; fileRef = 506CF42028F70CEB002F7D9B /* Verbs.json */; };
+		5080006729903C6E00E90AAB /* WebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5080006629903C6E00E90AAB /* WebService.swift */; };
+		508A420F2973EA34006AC1F3 /* RingBackgroundShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 508A420E2973EA34006AC1F3 /* RingBackgroundShape.swift */; };
+		508A42112973F153006AC1F3 /* RingShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 508A42102973F153006AC1F3 /* RingShape.swift */; };
+		508A42132973F605006AC1F3 /* RingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 508A42122973F605006AC1F3 /* RingView.swift */; };
+		508A42152973F67B006AC1F3 /* RingTipShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 508A42142973F67B006AC1F3 /* RingTipShape.swift */; };
+		508A421B297488D7006AC1F3 /* PercentageCalculation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 508A421A297488D7006AC1F3 /* PercentageCalculation.swift */; };
 		56068E0E2944B53F009000EF /* newVerbs.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 56068E0C2944B53F009000EF /* newVerbs.xcdatamodeld */; };
 		561704F929100CAB004DE71A /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 561704F829100CAB004DE71A /* DataController.swift */; };
 		5620CACC29326394002287F2 /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5620CACB29326394002287F2 /* SearchBar.swift */; };
 		56338D5128F88C3000E29692 /* DynamicVerbsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56338D5028F88C3000E29692 /* DynamicVerbsView.swift */; };
 		563D094828EDB8AE00F336D6 /* FavoriteVerbsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563D094728EDB8AE00F336D6 /* FavoriteVerbsView.swift */; };
-		563D094A28EDB8F800F336D6 /* AddVerb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563D094928EDB8F800F336D6 /* AddVerb.swift */; };
-		563D094C28EDBE0300F336D6 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563D094B28EDBE0300F336D6 /* Home.swift */; };
+		563D094A28EDB8F800F336D6 /* AddVerbViw.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563D094928EDB8F800F336D6 /* AddVerbViw.swift */; };
+		563D094C28EDBE0300F336D6 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563D094B28EDBE0300F336D6 /* HomeView.swift */; };
 		5681B034295621F900B7259C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5681B033295621F900B7259C /* Assets.xcassets */; };
 		5693B02028F19655001189D7 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5693B01F28F19655001189D7 /* SearchView.swift */; };
 /* End PBXBuildFile section */
@@ -29,14 +40,25 @@
 		502750552868C4A200D91944 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		502750632868D24500D91944 /* verbsInformationsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = verbsInformationsModel.swift; sourceTree = "<group>"; };
 		502750652868D71500D91944 /* Bundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bundle.swift; sourceTree = "<group>"; };
+		502DD2572998DC4B006A9274 /* VerbListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerbListView.swift; sourceTree = "<group>"; };
+		502DD2592998DD08006A9274 /* VerbCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerbCellView.swift; sourceTree = "<group>"; };
+		502DD25B2998FC30006A9274 /* SaveButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveButtonView.swift; sourceTree = "<group>"; };
+		503732282995760B00BF74E8 /* VerbListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerbListViewModel.swift; sourceTree = "<group>"; };
+		5037322B2995778400BF74E8 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		506CF42028F70CEB002F7D9B /* Verbs.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Verbs.json; sourceTree = "<group>"; };
+		5080006629903C6E00E90AAB /* WebService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebService.swift; sourceTree = "<group>"; };
+		508A420E2973EA34006AC1F3 /* RingBackgroundShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RingBackgroundShape.swift; sourceTree = "<group>"; };
+		508A42102973F153006AC1F3 /* RingShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RingShape.swift; sourceTree = "<group>"; };
+		508A42122973F605006AC1F3 /* RingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RingView.swift; sourceTree = "<group>"; };
+		508A42142973F67B006AC1F3 /* RingTipShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RingTipShape.swift; sourceTree = "<group>"; };
+		508A421A297488D7006AC1F3 /* PercentageCalculation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PercentageCalculation.swift; sourceTree = "<group>"; };
 		56068E0D2944B53F009000EF /* newVerbs.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = newVerbs.xcdatamodel; sourceTree = "<group>"; };
 		561704F829100CAB004DE71A /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
 		5620CACB29326394002287F2 /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
 		56338D5028F88C3000E29692 /* DynamicVerbsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicVerbsView.swift; sourceTree = "<group>"; };
 		563D094728EDB8AE00F336D6 /* FavoriteVerbsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteVerbsView.swift; sourceTree = "<group>"; };
-		563D094928EDB8F800F336D6 /* AddVerb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddVerb.swift; sourceTree = "<group>"; };
-		563D094B28EDBE0300F336D6 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
+		563D094928EDB8F800F336D6 /* AddVerbViw.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddVerbViw.swift; sourceTree = "<group>"; };
+		563D094B28EDBE0300F336D6 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		5681B033295621F900B7259C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5693B01F28F19655001189D7 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -72,10 +94,14 @@
 		502750522868C4A200D91944 /* Dictionary */ = {
 			isa = PBXGroup;
 			children = (
+				5037322A2995776600BF74E8 /* Utils */,
+				502A74392973201800D45D13 /* ViewModels */,
 				502750532868C4A200D91944 /* WorterbuchApp.swift */,
+				502750552868C4A200D91944 /* ContentView.swift */,
 				5620CACF293265AD002287F2 /* Views */,
-				5620CACA29326367002287F2 /* Search */,
+				507D46C32994407000D41473 /* Models */,
 				5620CACD2932642D002287F2 /* CoreDataStack */,
+				5080006529903C2200E90AAB /* Services */,
 				502750592868C4A300D91944 /* Preview Content */,
 			);
 			path = Dictionary;
@@ -87,6 +113,50 @@
 				5620CACE29326458002287F2 /* JSON */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		502A74392973201800D45D13 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				508A421A297488D7006AC1F3 /* PercentageCalculation.swift */,
+				503732282995760B00BF74E8 /* VerbListViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		5037322A2995776600BF74E8 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				5037322B2995778400BF74E8 /* Constants.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		507D46C32994407000D41473 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				502750632868D24500D91944 /* verbsInformationsModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		5080006529903C2200E90AAB /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				5080006629903C6E00E90AAB /* WebService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		508A420D2973EA06006AC1F3 /* RingViews */ = {
+			isa = PBXGroup;
+			children = (
+				508A420E2973EA34006AC1F3 /* RingBackgroundShape.swift */,
+				508A42102973F153006AC1F3 /* RingShape.swift */,
+				508A42122973F605006AC1F3 /* RingView.swift */,
+				508A42142973F67B006AC1F3 /* RingTipShape.swift */,
+			);
+			path = RingViews;
 			sourceTree = "<group>";
 		};
 		5620CACA29326367002287F2 /* Search */ = {
@@ -112,7 +182,6 @@
 			children = (
 				506CF42028F70CEB002F7D9B /* Verbs.json */,
 				502750652868D71500D91944 /* Bundle.swift */,
-				502750632868D24500D91944 /* verbsInformationsModel.swift */,
 			);
 			path = JSON;
 			sourceTree = "<group>";
@@ -120,11 +189,15 @@
 		5620CACF293265AD002287F2 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				563D094728EDB8AE00F336D6 /* FavoriteVerbsView.swift */,
-				563D094B28EDBE0300F336D6 /* Home.swift */,
-				563D094928EDB8F800F336D6 /* AddVerb.swift */,
+				5620CACA29326367002287F2 /* Search */,
+				508A420D2973EA06006AC1F3 /* RingViews */,
 				56338D5028F88C3000E29692 /* DynamicVerbsView.swift */,
-				502750552868C4A200D91944 /* ContentView.swift */,
+				563D094728EDB8AE00F336D6 /* FavoriteVerbsView.swift */,
+				563D094B28EDBE0300F336D6 /* HomeView.swift */,
+				563D094928EDB8F800F336D6 /* AddVerbViw.swift */,
+				502DD2572998DC4B006A9274 /* VerbListView.swift */,
+				502DD2592998DD08006A9274 /* VerbCellView.swift */,
+				502DD25B2998FC30006A9274 /* SaveButtonView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -199,18 +272,29 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				503732292995760B00BF74E8 /* VerbListViewModel.swift in Sources */,
 				5620CACC29326394002287F2 /* SearchBar.swift in Sources */,
+				508A42112973F153006AC1F3 /* RingShape.swift in Sources */,
 				502750562868C4A200D91944 /* ContentView.swift in Sources */,
 				502750542868C4A200D91944 /* WorterbuchApp.swift in Sources */,
+				502DD2582998DC4C006A9274 /* VerbListView.swift in Sources */,
+				508A42152973F67B006AC1F3 /* RingTipShape.swift in Sources */,
+				508A42132973F605006AC1F3 /* RingView.swift in Sources */,
 				502750662868D71500D91944 /* Bundle.swift in Sources */,
+				5080006729903C6E00E90AAB /* WebService.swift in Sources */,
+				502DD25C2998FC30006A9274 /* SaveButtonView.swift in Sources */,
 				56068E0E2944B53F009000EF /* newVerbs.xcdatamodeld in Sources */,
-				563D094A28EDB8F800F336D6 /* AddVerb.swift in Sources */,
+				508A420F2973EA34006AC1F3 /* RingBackgroundShape.swift in Sources */,
+				563D094A28EDB8F800F336D6 /* AddVerbViw.swift in Sources */,
 				561704F929100CAB004DE71A /* DataController.swift in Sources */,
 				5693B02028F19655001189D7 /* SearchView.swift in Sources */,
+				502DD25A2998DD08006A9274 /* VerbCellView.swift in Sources */,
+				508A421B297488D7006AC1F3 /* PercentageCalculation.swift in Sources */,
+				5037322C2995778400BF74E8 /* Constants.swift in Sources */,
 				56338D5128F88C3000E29692 /* DynamicVerbsView.swift in Sources */,
 				563D094828EDB8AE00F336D6 /* FavoriteVerbsView.swift in Sources */,
 				502750642868D24500D91944 /* verbsInformationsModel.swift in Sources */,
-				563D094C28EDBE0300F336D6 /* Home.swift in Sources */,
+				563D094C28EDBE0300F336D6 /* HomeView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -340,7 +424,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Dictionary/Preview Content\"";
-				DEVELOPMENT_TEAM = W2FL22WPNW;
+				DEVELOPMENT_TEAM = 2BWN7YL3ZA;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -353,7 +437,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "NS.Deutsch-Deutsch.Dictionary";
+				PRODUCT_BUNDLE_IDENTIFIER = "NS.Deutsch-German.Dictionary";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -371,7 +455,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Dictionary/Preview Content\"";
-				DEVELOPMENT_TEAM = W2FL22WPNW;
+				DEVELOPMENT_TEAM = 2BWN7YL3ZA;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -384,7 +468,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "NS.Deutsch-Deutsch.Dictionary";
+				PRODUCT_BUNDLE_IDENTIFIER = "NS.Deutsch-German.Dictionary";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;

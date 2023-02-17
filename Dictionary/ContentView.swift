@@ -8,13 +8,18 @@
 import SwiftUI
 import UIKit
 
+@available(iOS 16.0, *)
 struct ContentView: View {
     @State var searchText: String = ""
+    
+    init() {
+        UITabBar.appearance().unselectedItemTintColor = UIColor(named: "Khaki")
+    }
     
     var body: some View {
         GeometryReader{ geometry in
             TabView{
-                Home()
+                HomeView()
                     .tabItem {
                         Label("Home", systemImage: "house")
                     }
@@ -27,11 +32,12 @@ struct ContentView: View {
                     .tabItem {
                         Label("Favorites", systemImage: "star")
                     }
-                AddVerb()
+                AddVerbView()
                     .tabItem {
                         Label("Add words", systemImage: "plus")
                     }
             }
+         
         }
        
                     
