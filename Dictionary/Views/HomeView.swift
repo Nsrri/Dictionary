@@ -10,6 +10,7 @@ struct HomeView: View {
     @Environment(\.managedObjectContext) var moc
     @ObservedObject var dataController = DataController()
     @FetchRequest(sortDescriptors: []) var verbs: FetchedResults<Verbs>
+//    @EnvironmentObject var verbViewModel: VerbListViewModel
     
     
      var verbsCount: Int {

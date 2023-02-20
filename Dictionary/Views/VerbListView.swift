@@ -13,12 +13,11 @@ struct VerbListView: View {
     let verbs: [VerbViewModel]
                 
     var body: some View {
-        List(verbs) { verb in
-            VerbCellView(verb: verb)
-        }.background(Color("Lemon"))
-            .scrollContentBackground(.hidden)
-            .listStyle(.automatic)
-        
+            List(verbs) { verb in
+                VerbCellView(verb: verb)
+            }.background(Color("Lemon"))
+                .scrollContentBackground(.hidden)
+                .listStyle(.automatic)
     }
 }
 

@@ -9,7 +9,7 @@ import Foundation
 import SwiftUI
 
 
-class VerbListViewModel: ObservableObject {
+final class VerbListViewModel: ObservableObject {
     
     @Published var verbs: [VerbViewModel] = []
     

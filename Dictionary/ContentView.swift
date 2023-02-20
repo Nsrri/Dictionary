@@ -10,7 +10,6 @@ import UIKit
 
 @available(iOS 16.0, *)
 struct ContentView: View {
-    @State var searchText: String = ""
     
     init() {
         UITabBar.appearance().unselectedItemTintColor = UIColor(named: "Khaki")
@@ -23,7 +22,7 @@ struct ContentView: View {
                     .tabItem {
                         Label("Home", systemImage: "house")
                     }
-        
+                
                 SearchView()
                     .tabItem{
                         Label("Search", systemImage: "magnifyingglass")
@@ -37,11 +36,11 @@ struct ContentView: View {
                         Label("Add words", systemImage: "plus")
                     }
             }
-         
+            
         }
-       
-                    
-        }
-
+        
+        
     }
+    
+}
 

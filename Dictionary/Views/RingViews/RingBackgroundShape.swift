@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 
-struct RingBackgroundShape: Shape{
+struct RingBackgroundShape: Shape {
     
     var thickness: CGFloat
     

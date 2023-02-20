@@ -26,30 +26,31 @@ struct FavoriteVerbsView: View {
     }
     
     var body: some View {
-        GeometryReader { geometry in
-            NavigationView{
-//                    List{
-//                        ForEach(verbs, id: \.id) {  fav in
-//                            if fav.favorite{
-//                                NavigationLink(destination:
-//                                                DynamicVerbsView(verb: fav.verb!, conjunctions: fav.conjunctions!, tenses: fav.tenses!, explanation: fav.explanation!, examples: fav.examples!)
-//                                    .navigationBarTitleDisplayMode(.inline)){
-//                                        Text(fav .verb!)
-//                                    }
-//                            }
-//                        }.onDelete(perform: deleteItem)
-//                    }
-//                        .background(Color("Lemon"))
-//                        .scrollContentBackground(.hidden)
-//                        .navigationTitle(Text("Favourites"))
-//                        .listStyle(.automatic)
+        NavigationView {
+            VStack {
+                List{
+                    ForEach(verbs, id: \.id) {  fav in
+                        if fav.favorite{
+                            NavigationLink(destination:
+                                            DynamicVerbsView(verb: fav.verb!, conjunctions: fav.conjunctions!, tenses: fav.tenses!, explanation: fav.explanation!, examples: fav.examples!)
+                                .navigationBarTitleDisplayMode(.inline)){
+                                    Text(fav .verb!)
+                                }
+                        }
+                    }.onDelete(perform: deleteItem)
+                }
+                .background(Color("Lemon"))
+                .scrollContentBackground(.hidden)
+                .navigationTitle(Text("Favourites"))
+                .listStyle(.automatic)
                 VerbListView(verbs: vm.verbs)
-                    .task {
-                     await vm.populateFavoriteVerbs()
-                    }
+            } .task {
+                await vm.populateFavoriteVerbs()
             }
-            
+
         }
+        
+        
     }
 }
 
