@@ -16,7 +16,7 @@ final class VerbListViewModel: ObservableObject {
     func populateVerbs() async {
         
         do {
-            let verbs = try await WebService().getAllVerbs(url: Constants.Urls.allVerbs)
+            let verbs = try await NetworkHandler().getAllVerbs()
             DispatchQueue.main.async {
                 self.verbs = verbs.map(VerbViewModel.init)
             }
@@ -30,7 +30,7 @@ final class VerbListViewModel: ObservableObject {
     func populateFavoriteVerbs() async {
         
         do {
-            let verbs = try await WebService().getAllVerbs(url: Constants.Urls.allFavoriteVerbs)
+            let verbs = try await NetworkHandler().getAllFavoriteVerbs()
             DispatchQueue.main.async {
                 self.verbs = verbs.map(VerbViewModel.init)
             }
@@ -40,42 +40,90 @@ final class VerbListViewModel: ObservableObject {
             
         }
     }
+    
+    func updateFavoriteStatus(verbVM: VerbViewModel) async {
+        let updatedVerb = Verb(_id: verbVM.id, verb: verbVM.verb, tenses: verbVM.tenses, conjunctions: verbVM.conjunctions, explanation: verbVM.explanation, examples: verbVM.examples, favorite: verbVM.favorite)
+        do {
+            let updatedVerb = try await NetworkHandler().updateVerbById(verb: updatedVerb)
+            if let index = verbs.firstIndex(where: { $0.id == updatedVerb._id }) {
+                verbs[index] = VerbViewModel(verb: updatedVerb)
+            }
+        } catch {
+            print(error)
+        }
+    }
+    
 }
 
-struct VerbViewModel: Identifiable {
+struct VerbViewModel: Identifiable, Codable {
     
-    
-    private let verbModel: Verb
+    private var verbModel: Verb
     
     init(verb: Verb) {
         self.verbModel = verb
     }
     
     var id: String {
-        verbModel._id
+        get{
+            verbModel._id
+        }
     }
     
     var verb: String {
-        verbModel.verb
+        get {
+            verbModel.verb
+        }
+        set {
+            verbModel.verb = newValue
+        }
     }
     
     var tenses: [String] {
-        verbModel.tenses
+        get {
+            verbModel.tenses
+        }
+        set {
+            verbModel.tenses = newValue
+        }
+       
     }
     
     var conjunctions: [String] {
-        verbModel.conjunctions
+        get {
+            verbModel.conjunctions
+        }
+        set {
+            verbModel.conjunctions = newValue
+        }
+       
     }
     
     var explanation: String {
-        verbModel.explanation
+        get {
+            verbModel.explanation
+        }
+        set {
+            verbModel.explanation = newValue
+        }
+        
     }
     
     var examples: [String] {
-        verbModel.examples
+        get {
+            verbModel.examples
+        }
+        set {
+            verbModel.examples = newValue
+        }
+       
     }
     var favorite: Bool {
-        verbModel.favorite 
+        get {
+            verbModel.favorite
+        }
+        set {
+            verbModel.favorite = newValue
+        }
     }
     
     

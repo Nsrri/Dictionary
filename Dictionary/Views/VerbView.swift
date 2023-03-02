@@ -9,7 +9,9 @@ import SwiftUI
 
 @available(iOS 16.0, *)
 struct VerbView: View {
-    var verbVM: VerbViewModel
+    
+    @ObservedObject private var vm = VerbListViewModel()
+   @State var verbVM: VerbViewModel
     init(verbVM: VerbViewModel) {
         self.verbVM = verbVM
     }
@@ -47,6 +49,18 @@ struct VerbView: View {
             .background(Color("Lemon"))
             .scrollContentBackground(.hidden)
             .listStyle(.plain)
+        }.toolbar {
+            SaveButtonView(data: verbVM, action: {
+                if !verbVM.favorite {
+                    verbVM.favorite = true
+                     
+                } else {
+                    verbVM.favorite = false
+
+                }
+            }).task {
+                await vm.updateFavoriteStatus(verbVM: verbVM)
+            }
         }
     }
 }

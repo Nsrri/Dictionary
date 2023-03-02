@@ -10,10 +10,10 @@ import SwiftUI
 
 struct SaveButtonView: View {
     
-    var data: Verbs
+    var data: VerbViewModel
     var action: () -> Void
     
-    init(data: Verbs ,action: @escaping () -> Void) {
+    init(data: VerbViewModel ,action: @escaping () -> Void) {
         self.data = data
         self.action = action
 

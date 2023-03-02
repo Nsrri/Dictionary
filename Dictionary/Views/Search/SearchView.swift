@@ -13,7 +13,7 @@ struct SearchView: View {
 //    @ObservedObject var dataController = DataController()
 //    @FetchRequest(sortDescriptors: [NSSortDescriptor(keyPath: \Verbs.verb, ascending: true)]) var verbs: FetchedResults<Verbs>
     
-    @ObservedObject private var vm = VerbListViewModel()
+    @StateObject private var vm = VerbListViewModel()
     @StateObject var States: searchStates = searchStates()
     
     var body: some View {
@@ -39,8 +39,8 @@ struct SearchView: View {
                     VerbListView(verbs: vm.verbs)
                 }
                 
-            } .task {
-                await vm.populateVerbs()
+            }.task {
+              await vm.populateVerbs()
             }
             .navigationTitle("Verben")
             .background(Color("Lemon"))
