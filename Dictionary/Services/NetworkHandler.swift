@@ -28,7 +28,7 @@ class NetworkHandler: ObservableObject {
         let (data, response) = try await URLSession.shared.data(from: url)
         
         guard let httpResponse = response as? HTTPURLResponse,
-              httpResponse.statusCode == 200 else {
+              (200...290).contains(httpResponse.statusCode) else {
             throw NetworkError.invalidRequest
         }
        
@@ -53,39 +53,43 @@ class NetworkHandler: ObservableObject {
     func updateVerbById(verb: Verb) async throws -> Verb {
         let url = urlProvider.UserEndpoint.appendingPathComponent("update")
         var urlComponents = URLComponents(url: url, resolvingAgainstBaseURL: false)
-        urlComponents?.queryItems = [URLQueryItem(name: "id", value: "\(verb._id)"), URLQueryItem(name: "favorite", value: "\(verb.favorite)")]
-        
+        urlComponents?.queryItems = [URLQueryItem(name: "id", value: "\(verb._id)")]
+
         guard let finalURL = urlComponents?.url else {
             throw NetworkError.badURL
         }
-        
-        
+        print(finalURL)
+              print(verb.verb)
+              print(verb.favorite)
+
         var request = URLRequest(url: finalURL)
         request.httpMethod = "PATCH"
+
         do {
             let encoder = JSONEncoder()
             let data = try encoder.encode(verb)
             request.httpBody = data
+            request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+            print(String(data: data, encoding: .utf8)!)
         }
         catch {
             throw error
         }
-
+        
         let (data, response) = try await URLSession.shared.data(for: request)
+        print(String(data: data, encoding: .utf8)!)
 
         guard let httpResponse = response as? HTTPURLResponse,
-              httpResponse.statusCode == 200 else {
+              (200...290).contains(httpResponse.statusCode) else {
             throw NetworkError.invalidRequest
         }
-
         do {
             let decoder = JSONDecoder()
             let verb = try decoder.decode(Verb.self, from: data)
+            print(verb)
             return verb
         } catch {
             throw error
         }
     }
-
-
 }

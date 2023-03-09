@@ -10,21 +10,22 @@ import SwiftUI
 
 struct SaveButtonView: View {
     
-    var data: VerbViewModel
-    var action: () -> Void
+    @Binding var data: VerbViewModel
+    var action: () async -> Void
     
-    init(data: VerbViewModel ,action: @escaping () -> Void) {
-        self.data = data
+    init(data: Binding<VerbViewModel> ,action: @escaping () async -> Void) {
+        self._data = data
         self.action = action
 
     }
     
     var body: some View {
         Button {
-            action()
+            Task.init(operation: {
+                    await action()
+            })
         }label: {
             data.favorite ?  Image(systemName: "star.fill") : Image(systemName: "star")
         }
     }
-    
 }

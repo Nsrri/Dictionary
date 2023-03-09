@@ -13,7 +13,7 @@ struct SearchView: View {
 //    @ObservedObject var dataController = DataController()
 //    @FetchRequest(sortDescriptors: [NSSortDescriptor(keyPath: \Verbs.verb, ascending: true)]) var verbs: FetchedResults<Verbs>
     
-    @StateObject private var vm = VerbListViewModel()
+    @ObservedObject private var vm = VerbListViewModel()
     @StateObject var States: searchStates = searchStates()
     
     var body: some View {

@@ -42,11 +42,14 @@ final class VerbListViewModel: ObservableObject {
     }
     
     func updateFavoriteStatus(verbVM: VerbViewModel) async {
-        let updatedVerb = Verb(_id: verbVM.id, verb: verbVM.verb, tenses: verbVM.tenses, conjunctions: verbVM.conjunctions, explanation: verbVM.explanation, examples: verbVM.examples, favorite: verbVM.favorite)
+        let verb = Verb(_id: verbVM.id, verb: verbVM.verb, tenses: verbVM.tenses, conjunctions: verbVM.conjunctions, explanation: verbVM.explanation, examples: verbVM.examples, favorite: verbVM.favorite)
+        
         do {
-            let updatedVerb = try await NetworkHandler().updateVerbById(verb: updatedVerb)
-            if let index = verbs.firstIndex(where: { $0.id == updatedVerb._id }) {
-                verbs[index] = VerbViewModel(verb: updatedVerb)
+
+            let returnedVerb = try await NetworkHandler().updateVerbById(verb: verb)
+            if let index = verbs.firstIndex(where: { $0.id == returnedVerb._id }) {
+                verbs[index] = VerbViewModel(verb: returnedVerb)
+        
             }
         } catch {
             print(error)
@@ -57,7 +60,7 @@ final class VerbListViewModel: ObservableObject {
 
 struct VerbViewModel: Identifiable, Codable {
     
-    private var verbModel: Verb
+     var verbModel: Verb
     
     init(verb: Verb) {
         self.verbModel = verb
@@ -125,6 +128,4 @@ struct VerbViewModel: Identifiable, Codable {
             verbModel.favorite = newValue
         }
     }
-    
-    
 }
