@@ -10,94 +10,58 @@ import SwiftUI
 @available(iOS 16.0, *)
 struct SearchView: View {
     
-    @ObservedObject var dataController = DataController()
-    @FetchRequest(sortDescriptors: []) var verbs: FetchedResults<Verbs>
-    @State var searchText: String = ""
-    @State var isSearching: Bool = false
-    @State var saveToFavorites: Bool = true
-    @StateObject var vm = VerbListViewModel()
-    
+    @ObservedObject private var vm = VerbListViewModel()
+    @StateObject var States: searchStates = searchStates()
     
     var body: some View {
-        NavigationView{
-            GeometryReader{ geometry in
-                VStack(alignment: .center, spacing: 0) {
-                    SearchBar(
-                        searchText: $searchText,
-                        isSearching: $isSearching
-                    )
-                    if isAbleToSearch() {
-                        List{
-                            ForEach(verbs, id: \.id) { data in
-                                if(data.verb!.lowercased().hasPrefix(searchText.lowercased())) {
-                                    NavigationLink(
-                                        destination:
-                                            DynamicVerbsView(
-                                                verb: data.verb!,
-                                                conjunctions: data.conjunctions!,
-                                                tenses: data.tenses!,
-                                                explanation: data.explanation!,
-                                                examples: data.examples!
-                                            )
-                                            .navigationTitle(data.verb!)
-                                            .toolbar(content: {
-                                                Button {
-                                                    if (data.favorite == true){
-                                                        data.favorite = false
-                                                        saveToFavorites = false
-                                                    }else{
-                                                        data.favorite = true
-                                                        saveToFavorites = true
-                                                    }
-                                                    dataController.saveContext()
-                                                }label: {
-                                                    listOFFavorites.contains(data) ?
-                                                    Image(systemName: "star.fill") :
-                                                    Image(systemName: "star")
-                                                }
-                                            })
-                                            .navigationBarTitleDisplayMode(.inline)){
-                                                Text(data.verb!)
-                                                
-                                            }
-                                }
+        NavigationView {
+            VStack(alignment: .center, spacing: 0) {
+                SearchBar(
+                    searchText: $States.searchText,
+                    isSearching: $States.isSearching
+                )
+                if canSearch {
+                    List{
+                        ForEach(vm.verbs, id: \.id) { data in
+                            if(data.verb.hasPrefix(States.searchText.lowercased())) {
+                                VerbCellView(verb: data)
                             }
-                            
-                        }.background(Color("Lemon"))
-                            .scrollContentBackground(.hidden)
-                            .listStyle(.automatic)
-                        
-                    }
-                    Divider()
-                    
-                    
-                    VerbListView(verbs: vm.verbs)
-                        .task {
-                            await vm.populateVerbs()
                         }
+                        
+                    }.background(Color("Lemon"))
+                        .scrollContentBackground(.hidden)
+                        .listStyle(.automatic)
                 }
-            } .navigationTitle("Verben")
-                .background(Color("Lemon"))
-            
+                else{
+                    VerbListView(verbs: vm.verbs, isFavoriteView: false)
+                }
+                
+            }.task {
+              await vm.populateVerbs()
+            }
+            .navigationTitle("Verben")
+            .background(Color("Lemon"))
         }
     }
+}
+
+
+@available(iOS 16.0, *)
+
+extension SearchView {
+   private var canSearch: Bool{
+       return !States.searchText.isEmpty
+    }
+}
+
+
+class searchStates: ObservableObject {
+    
+    @Published var searchText: String = ""
+    @Published var isSearching: Bool = false
+    @Published var saveToFavorites: Bool = true
     
 }
 
-@available(iOS 16.0, *)
-extension SearchView{
-    var listOFFavorites : [Verbs] {
-        dataController.getVerbsWith(favorite: true)
-    }
-    func isAbleToSearch() -> Bool{
-        return !searchText.isEmpty && dataController.getAllVerbs().count != 0
-    }
-}
 
-
-
-
-
-
-
-
+// MARK: The plan for this view is if the server in not able to respond or there is internet conncetion problems then user should be able to fetch data from CoreData

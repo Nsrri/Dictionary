@@ -9,19 +9,20 @@ import Foundation
 import SwiftUI
 
 struct SearchBar: View {
+    
     @Binding  var searchText: String
     @Binding  var isSearching: Bool
+    
     var body: some View {
-        HStack(alignment: .center, spacing: 0){
-            
-            ZStack{
+        HStack(alignment: .center, spacing: 0) {
+            ZStack {
                 Rectangle()
                     .foregroundColor(Color("LightGray"))
                     .border(Color("Graye5"))
                     .background(Color("Graye5"))
-                HStack{
+                HStack {
                     Image(systemName: "magnifyingglass")
-                    TextField("Search", text: $searchText){ startedEditing in
+                    TextField("Search", text: $searchText) { startedEditing in
                         if startedEditing {
                             withAnimation {
                                 isSearching = true
@@ -32,8 +33,9 @@ struct SearchBar: View {
                             isSearching = false
                         }
                     }
+                    .disableAutocorrection(true)
                     .foregroundColor(.black)
-                    if !searchText.isEmpty{
+                    if !searchText.isEmpty {
                         Button {
                             self.searchText = ""
                             self.isSearching = false
@@ -42,7 +44,6 @@ struct SearchBar: View {
                         }
                         .foregroundColor(.secondary)
                         .padding(.trailing, 4)
-                        
                     }
                 }
                 .foregroundColor(.gray)
@@ -55,7 +56,7 @@ struct SearchBar: View {
             if isSearching {
                 Button("Cancel") {
                     searchText = ""
-                    withAnimation{
+                    withAnimation {
                         isSearching = false
                         UIApplication.shared.dismissKeyboard()
                     }
@@ -66,14 +67,14 @@ struct SearchBar: View {
         .onTapGesture(count: 1) {
             UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
         }
-        //.background(Color("Lemon"))
     }
-        
-    }
+    
+}
 
 
-extension UIApplication{
-    func dismissKeyboard(){
+
+extension UIApplication {
+    func dismissKeyboard() {
         sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
     }
 }

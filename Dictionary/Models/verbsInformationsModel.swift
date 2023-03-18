@@ -19,4 +19,14 @@ struct Verb : Codable {
     var explanation: String
     var examples: [String]
     var favorite: Bool
+    
+    enum CodingKeys: String, CodingKey {
+        case _id
+        case verb
+        case tenses
+        case conjunctions
+        case explanation
+        case examples
+        case  favorite
+      }
 }

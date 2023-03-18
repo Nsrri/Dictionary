@@ -9,14 +9,14 @@ import Foundation
 import SwiftUI
 
 
-class VerbListViewModel: ObservableObject {
+final class VerbListViewModel: ObservableObject {
     
     @Published var verbs: [VerbViewModel] = []
     
     func populateVerbs() async {
         
         do {
-            let verbs = try await WebService().getAllVerbs(url: Constants.Urls.allVerbs)
+            let verbs = try await NetworkHandler().getAllVerbs()
             DispatchQueue.main.async {
                 self.verbs = verbs.map(VerbViewModel.init)
             }
@@ -30,7 +30,7 @@ class VerbListViewModel: ObservableObject {
     func populateFavoriteVerbs() async {
         
         do {
-            let verbs = try await WebService().getAllVerbs(url: Constants.Urls.allFavoriteVerbs)
+            let verbs = try await NetworkHandler().getAllFavoriteVerbs()
             DispatchQueue.main.async {
                 self.verbs = verbs.map(VerbViewModel.init)
             }
@@ -40,43 +40,110 @@ class VerbListViewModel: ObservableObject {
             
         }
     }
+    
+    func populateFavoriteStatus(verbVM: VerbViewModel) async {
+        let verb = Verb(_id: verbVM.id, verb: verbVM.verb, tenses: verbVM.tenses, conjunctions: verbVM.conjunctions, explanation: verbVM.explanation, examples: verbVM.examples, favorite: verbVM.favorite)
+        
+        do {
+
+            let returnedVerb = try await NetworkHandler().UpdateFavoriteSatatus(verb: verb)
+            if let index = verbs.firstIndex(where: { $0.id == returnedVerb._id }) {
+                verbs[index] = VerbViewModel(verb: returnedVerb)
+        
+            }
+        } catch {
+            print(error)
+        }
+    }
+    
+    func addNewVerb(verbVM: VerbViewModel) async {
+        let verb = Verb(_id: verbVM.id, verb: verbVM.verb, tenses: verbVM.tenses, conjunctions: verbVM.conjunctions, explanation: verbVM.explanation, examples: verbVM.examples, favorite: verbVM.favorite)
+        
+        do {
+               try await NetworkHandler().AddNewVerb(verb: verb)
+        } catch {
+            print(error)
+        }
+    }
+    
+    func deletVerb(id: String) async {
+        do {
+            try await NetworkHandler().DeleteVerbById(id: id )
+        } catch {
+            print(error)
+        }
+    }
+    
 }
 
-struct VerbViewModel: Identifiable {
+struct VerbViewModel: Identifiable, Codable {
     
-    
-    private let verbModel: Verb
+     var verbModel: Verb
     
     init(verb: Verb) {
         self.verbModel = verb
     }
     
     var id: String {
-        verbModel._id
+        get{
+            verbModel._id
+        }
     }
     
     var verb: String {
-        verbModel.verb
+        get {
+            verbModel.verb
+        }
+        set {
+            verbModel.verb = newValue
+        }
     }
     
     var tenses: [String] {
-        verbModel.tenses
+        get {
+            verbModel.tenses
+        }
+        set {
+            verbModel.tenses = newValue
+        }
+       
     }
     
     var conjunctions: [String] {
-        verbModel.conjunctions
+        get {
+            verbModel.conjunctions
+        }
+        set {
+            verbModel.conjunctions = newValue
+        }
+       
     }
     
     var explanation: String {
-        verbModel.explanation
+        get {
+            verbModel.explanation
+        }
+        set {
+            verbModel.explanation = newValue
+        }
+        
     }
     
     var examples: [String] {
-        verbModel.examples
+        get {
+            verbModel.examples
+        }
+        set {
+            verbModel.examples = newValue
+        }
+       
     }
     var favorite: Bool {
-        verbModel.favorite 
+        get {
+            verbModel.favorite
+        }
+        set {
+            verbModel.favorite = newValue
+        }
     }
-    
-    
 }

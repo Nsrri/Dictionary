@@ -11,12 +11,9 @@ import SwiftUI
 @available(iOS 16.0, *)
 struct AddVerbView: View {
     
-    @ObservedObject var dataController = DataController()
-    @FetchRequest(sortDescriptors: []) var verbs: FetchedResults<Verbs>
-    
-    @Environment(\.managedObjectContext) private var moc
     @Environment(\.dismiss) var dismiss
-   
+    @ObservedObject var vm = VerbListViewModel()
+    
     @State var showEror: Bool = false
     @State var verb: String = ""
     @State var conjunctions: [String] = []
@@ -28,12 +25,12 @@ struct AddVerbView: View {
     @State var example: String = ""
     @State var isFavorite: Bool = false
     
+    
     func checkRepetetiveVerbs(verb: String) -> Bool {
-        var result: Bool = false
-        for existedVerb in verbs{
-            result =  existedVerb.verb == verb
+        if vm.verbs.contains(where: {$0.verb == verb.lowercased() }) {
+            return true
         }
-       return result
+        return false
     }
     
     var body: some View {
@@ -62,7 +59,7 @@ struct AddVerbView: View {
                                 HStack{
                                     TextField("Trage die Zeit des Verbes ein", text: $tense)
                                     Button {
-                                        tenses.append(tense)
+                                       tenses.append(tense)
                                         tense = ""
                                         withAnimation{
                                             UIApplication.shared.dismissKeyboard()
@@ -81,7 +78,7 @@ struct AddVerbView: View {
                                 HStack{
                                     TextField("Trage das Beispiel des Verbes ein", text: $example)
                                     Button {
-                                        examples.append(example)
+                                      examples.append(example)
                                         example = ""
                                         withAnimation{
                                             UIApplication.shared.dismissKeyboard()
@@ -96,21 +93,18 @@ struct AddVerbView: View {
                             HStack{
                                 Spacer()
                                 Button {
-                                    if dataController.itemExists(verb){
+                                @State var newVerb = VerbViewModel(verb: Verb(_id: "", verb: verb, tenses: tenses, conjunctions: conjunctions, explanation: explanation, examples: examples, favorite: false))
+                                    if checkRepetetiveVerbs(verb: newVerb.verb) {
                                         showEror = true
-                                        
-                                    } else{
-                                        let newVerb = Verbs(context: moc)
-                                        newVerb.id = UUID()
-                                        newVerb.verb = verb
-                                        newVerb.conjunctions = conjunctions
-                                        newVerb.tenses = tenses
-                                        newVerb.explanation = explanation
-                                        newVerb.examples = examples
-                                        newVerb.favorite = isFavorite
-                                        dataController.saveContext()
+                                        verb = ""
+                                        explanation = ""
+                                    } else {
+                                        Task.init(operation: {
+                                            await vm.addNewVerb(verbVM:newVerb)
+                                        })
                                         dismiss()
                                     }
+                                    
                                 } label: {
                                     Text("Hinzufügen")
                                 } .disabled(verb.isEmpty)
@@ -125,9 +119,10 @@ struct AddVerbView: View {
                         }.scrollContentBackground(.hidden)
                     .navigationTitle("Neues Verb")
                         .background(Color("Lemon"))
+                        .task {
+                            await vm.populateVerbs()
+                        }
                     }
-                 
-            
         }
 
     }
