@@ -10,9 +10,6 @@ import SwiftUI
 @available(iOS 16.0, *)
 struct SearchView: View {
     
-//    @ObservedObject var dataController = DataController()
-//    @FetchRequest(sortDescriptors: [NSSortDescriptor(keyPath: \Verbs.verb, ascending: true)]) var verbs: FetchedResults<Verbs>
-    
     @ObservedObject private var vm = VerbListViewModel()
     @StateObject var States: searchStates = searchStates()
     
@@ -36,7 +33,7 @@ struct SearchView: View {
                         .listStyle(.automatic)
                 }
                 else{
-                    VerbListView(verbs: vm.verbs)
+                    VerbListView(verbs: vm.verbs, isFavoriteView: false)
                 }
                 
             }.task {
@@ -50,11 +47,8 @@ struct SearchView: View {
 
 
 @available(iOS 16.0, *)
-extension SearchView{
-    
-//   private var listOFFavorites : [Verbs] {
-//        dataController.getVerbsWith(favorite: true)
-//    }
+
+extension SearchView {
    private var canSearch: Bool{
        return !States.searchText.isEmpty
     }

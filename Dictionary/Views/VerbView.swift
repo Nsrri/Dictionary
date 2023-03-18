@@ -10,7 +10,7 @@ import SwiftUI
 @available(iOS 16.0, *)
 struct VerbView: View {
     @ObservedObject private var vm = VerbListViewModel()
-   @State var verbVM: VerbViewModel
+    @State var verbVM: VerbViewModel
 
     init(verbVM: VerbViewModel) {
         self.verbVM = verbVM
@@ -56,7 +56,7 @@ struct VerbView: View {
                 } else {
                     verbVM.favorite = true
                 }
-                await vm.updateFavoriteStatus(verbVM: verbVM)
+                await vm.populateFavoriteStatus(verbVM: verbVM)
             })
             
         }

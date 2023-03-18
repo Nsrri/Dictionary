@@ -7,15 +7,8 @@
 import SwiftUI
 
 struct HomeView: View {
-    @Environment(\.managedObjectContext) var moc
-    @ObservedObject var dataController = DataController()
-    @FetchRequest(sortDescriptors: []) var verbs: FetchedResults<Verbs>
-//    @EnvironmentObject var verbViewModel: VerbListViewModel
+    @ObservedObject var vm = VerbListViewModel()
     
-    
-     var verbsCount: Int {
-       return verbs.count
-    }
     var percentageCalculatior =  PercentageCalculatior()
     
     var body: some View {
@@ -28,7 +21,7 @@ struct HomeView: View {
                         createRings()
                         createCurrentValueText(radius: 250.0)
                     }
-                    Text("Du bist deinem Ziel \(String(format: "%.2f", percentageCalculatior.getAddedVerbsPercentage(verbs))) % näher gekommen :)")
+                    Text("Du bist deinem Ziel \(String(format: "%.2f", percentageCalculatior.getAddedVerbsPercentage(vm.verbs))) % näher gekommen :)")
                         .font(Font.system(size: 15.0, weight: .bold, design: .rounded))
                         .padding(3)
                         .background(Color.gray)
@@ -37,13 +30,16 @@ struct HomeView: View {
                 
             }.frame(width: geometry.size.width, height: geometry.size.height)
                 .background(Color("Lemon"))
+                .task {
+                    await vm.populateVerbs()
+                }
             
         }
     }
     
     func createRings() -> some View {
         ZStack{
-            RingView(percentage: percentageCalculatior.getAddedVerbsPercentage(verbs), backgroundColor: Color("Khaki"), startColor: Color("Wisteria"), endColor: Color("RoyalPurple"), thickness: 20)
+            RingView(percentage: percentageCalculatior.getAddedVerbsPercentage(vm.verbs), backgroundColor: Color("Khaki"), startColor: Color("Wisteria"), endColor: Color("RoyalPurple"), thickness: 20)
                 .frame(width: 280, height: 280)
                               .aspectRatio(contentMode: .fit)
         }
@@ -52,7 +48,7 @@ struct HomeView: View {
     private func createCurrentValueText(radius: CGFloat) -> some View {
         let diametr = radius * 2.0 - 44.0 * 2.0 - 16.0
           return Group {
-              Text("\(String(format: "%.2f", percentageCalculatior.getAddedVerbsPercentage(verbs)))")
+              Text("\(String(format: "%.2f", percentageCalculatior.getAddedVerbsPercentage(vm.verbs)))")
                   .font(Font.system(size: 50.0, weight: .bold, design: .rounded))
               +
               Text("%")

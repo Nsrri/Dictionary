@@ -9,7 +9,7 @@ import Foundation
 import SwiftUI
 
 struct PercentageCalculatior {
-    func getAddedVerbsPercentage(_ array: FetchedResults<Verbs>) -> Double {
+    func getAddedVerbsPercentage(_ array: [VerbViewModel]) -> Double {
         return Double(array.count) * 100 / 5000
     }
     

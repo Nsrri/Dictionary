@@ -41,16 +41,34 @@ final class VerbListViewModel: ObservableObject {
         }
     }
     
-    func updateFavoriteStatus(verbVM: VerbViewModel) async {
+    func populateFavoriteStatus(verbVM: VerbViewModel) async {
         let verb = Verb(_id: verbVM.id, verb: verbVM.verb, tenses: verbVM.tenses, conjunctions: verbVM.conjunctions, explanation: verbVM.explanation, examples: verbVM.examples, favorite: verbVM.favorite)
         
         do {
 
-            let returnedVerb = try await NetworkHandler().updateVerbById(verb: verb)
+            let returnedVerb = try await NetworkHandler().UpdateFavoriteSatatus(verb: verb)
             if let index = verbs.firstIndex(where: { $0.id == returnedVerb._id }) {
                 verbs[index] = VerbViewModel(verb: returnedVerb)
         
             }
+        } catch {
+            print(error)
+        }
+    }
+    
+    func addNewVerb(verbVM: VerbViewModel) async {
+        let verb = Verb(_id: verbVM.id, verb: verbVM.verb, tenses: verbVM.tenses, conjunctions: verbVM.conjunctions, explanation: verbVM.explanation, examples: verbVM.examples, favorite: verbVM.favorite)
+        
+        do {
+               try await NetworkHandler().AddNewVerb(verb: verb)
+        } catch {
+            print(error)
+        }
+    }
+    
+    func deletVerb(id: String) async {
+        do {
+            try await NetworkHandler().DeleteVerbById(id: id )
         } catch {
             print(error)
         }
