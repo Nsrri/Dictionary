@@ -18,6 +18,8 @@
 		5037322C2995778400BF74E8 /* EndpointURLProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5037322B2995778400BF74E8 /* EndpointURLProvider.swift */; };
 		506CF42128F70CEB002F7D9B /* Verbs.json in Resources */ = {isa = PBXBuildFile; fileRef = 506CF42028F70CEB002F7D9B /* Verbs.json */; };
 		506F530D29A0F59F0064EEAD /* VerbView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 506F530C29A0F59F0064EEAD /* VerbView.swift */; };
+		507A8C9A29C6F9ED00822A18 /* FilterBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507A8C9929C6F9ED00822A18 /* FilterBarView.swift */; };
+		507A8C9C29C6F9FA00822A18 /* FilterButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507A8C9B29C6F9FA00822A18 /* FilterButton.swift */; };
 		5080006729903C6E00E90AAB /* NetworkHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5080006629903C6E00E90AAB /* NetworkHandler.swift */; };
 		508A420F2973EA34006AC1F3 /* RingBackgroundShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 508A420E2973EA34006AC1F3 /* RingBackgroundShape.swift */; };
 		508A42112973F153006AC1F3 /* RingShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 508A42102973F153006AC1F3 /* RingShape.swift */; };
@@ -47,6 +49,8 @@
 		5037322B2995778400BF74E8 /* EndpointURLProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndpointURLProvider.swift; sourceTree = "<group>"; };
 		506CF42028F70CEB002F7D9B /* Verbs.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Verbs.json; sourceTree = "<group>"; };
 		506F530C29A0F59F0064EEAD /* VerbView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerbView.swift; sourceTree = "<group>"; };
+		507A8C9929C6F9ED00822A18 /* FilterBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterBarView.swift; sourceTree = "<group>"; };
+		507A8C9B29C6F9FA00822A18 /* FilterButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterButton.swift; sourceTree = "<group>"; };
 		5080006629903C6E00E90AAB /* NetworkHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkHandler.swift; sourceTree = "<group>"; };
 		508A420E2973EA34006AC1F3 /* RingBackgroundShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RingBackgroundShape.swift; sourceTree = "<group>"; };
 		508A42102973F153006AC1F3 /* RingShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RingShape.swift; sourceTree = "<group>"; };
@@ -94,12 +98,12 @@
 		502750522868C4A200D91944 /* Dictionary */ = {
 			isa = PBXGroup;
 			children = (
-				50596DD429BF38350001E1EC /* Helper */,
-				5037322A2995776600BF74E8 /* Utils */,
-				502A74392973201800D45D13 /* ViewModels */,
 				502750532868C4A200D91944 /* WorterbuchApp.swift */,
 				502750552868C4A200D91944 /* ContentView.swift */,
 				5620CACF293265AD002287F2 /* Views */,
+				502A74392973201800D45D13 /* ViewModels */,
+				50596DD429BF38350001E1EC /* Helper */,
+				5037322A2995776600BF74E8 /* Utils */,
 				507D46C32994407000D41473 /* Models */,
 				5620CACD2932642D002287F2 /* CoreDataStack */,
 				5080006529903C2200E90AAB /* Services */,
@@ -141,6 +145,15 @@
 				502DD2592998DD08006A9274 /* VerbCellView.swift */,
 			);
 			path = Helper;
+			sourceTree = "<group>";
+		};
+		507A8C9829C6F9C900822A18 /* Filter */ = {
+			isa = PBXGroup;
+			children = (
+				507A8C9929C6F9ED00822A18 /* FilterBarView.swift */,
+				507A8C9B29C6F9FA00822A18 /* FilterButton.swift */,
+			);
+			path = Filter;
 			sourceTree = "<group>";
 		};
 		507D46C32994407000D41473 /* Models */ = {
@@ -200,6 +213,7 @@
 		5620CACF293265AD002287F2 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				507A8C9829C6F9C900822A18 /* Filter */,
 				5620CACA29326367002287F2 /* Search */,
 				508A420D2973EA06006AC1F3 /* RingViews */,
 				563D094728EDB8AE00F336D6 /* FavoriteVerbsView.swift */,
@@ -284,6 +298,7 @@
 				5620CACC29326394002287F2 /* SearchBar.swift in Sources */,
 				508A42112973F153006AC1F3 /* RingShape.swift in Sources */,
 				506F530D29A0F59F0064EEAD /* VerbView.swift in Sources */,
+				507A8C9A29C6F9ED00822A18 /* FilterBarView.swift in Sources */,
 				502750562868C4A200D91944 /* ContentView.swift in Sources */,
 				502750542868C4A200D91944 /* WorterbuchApp.swift in Sources */,
 				502DD2582998DC4C006A9274 /* VerbListView.swift in Sources */,
@@ -296,6 +311,7 @@
 				508A420F2973EA34006AC1F3 /* RingBackgroundShape.swift in Sources */,
 				563D094A28EDB8F800F336D6 /* AddVerbView.swift in Sources */,
 				561704F929100CAB004DE71A /* DataController.swift in Sources */,
+				507A8C9C29C6F9FA00822A18 /* FilterButton.swift in Sources */,
 				5693B02028F19655001189D7 /* SearchView.swift in Sources */,
 				502DD25A2998DD08006A9274 /* VerbCellView.swift in Sources */,
 				508A421B297488D7006AC1F3 /* PercentageCalculation.swift in Sources */,

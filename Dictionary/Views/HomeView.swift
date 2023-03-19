@@ -41,22 +41,22 @@ struct HomeView: View {
         ZStack{
             RingView(percentage: percentageCalculatior.getAddedVerbsPercentage(vm.verbs), backgroundColor: Color("Khaki"), startColor: Color("Wisteria"), endColor: Color("RoyalPurple"), thickness: 20)
                 .frame(width: 280, height: 280)
-                              .aspectRatio(contentMode: .fit)
+                .aspectRatio(contentMode: .fit)
         }
     }
     
     private func createCurrentValueText(radius: CGFloat) -> some View {
         let diametr = radius * 2.0 - 44.0 * 2.0 - 16.0
-          return Group {
-              Text("\(String(format: "%.2f", percentageCalculatior.getAddedVerbsPercentage(vm.verbs)))")
-                  .font(Font.system(size: 50.0, weight: .bold, design: .rounded))
-              +
-              Text("%")
-                  .font(Font.system(size: 30.0, weight: .bold, design: .rounded))
-                  .baselineOffset(15.0)
-          }
-          .frame(width: diametr, height: 75.0, alignment: .center)
-          .minimumScaleFactor(0.5)
-      }
+        return Group {
+            Text("\(String(format: "%.2f", percentageCalculatior.getAddedVerbsPercentage(vm.verbs)))")
+                .font(Font.system(size: 50.0, weight: .bold, design: .rounded))
+            +
+            Text("%")
+                .font(Font.system(size: 30.0, weight: .bold, design: .rounded))
+                .baselineOffset(15.0)
+        }
+        .frame(width: diametr, height: 75.0, alignment: .center)
+        .minimumScaleFactor(0.5)
+    }
 }
 

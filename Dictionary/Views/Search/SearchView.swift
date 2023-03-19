@@ -12,6 +12,7 @@ struct SearchView: View {
     
     @ObservedObject private var vm = VerbListViewModel()
     @StateObject var States: searchStates = searchStates()
+    var ListOfButton: [FilterButton] = [FilterButton(title: "All", action: {}),FilterButton(title: "Regelmässig", action: {}),FilterButton(title: "Unregelmässig", action: {}),FilterButton(title: "Trennbar", action: {}),FilterButton(title: "Reflexive", action: {}),FilterButton(title: "Modalverben", action: {})]
     
     var body: some View {
         NavigationView {
@@ -20,6 +21,8 @@ struct SearchView: View {
                     searchText: $States.searchText,
                     isSearching: $States.isSearching
                 )
+                FilterbarView(Buttons: ListOfButton)
+                    .padding(10)
                 if canSearch {
                     List{
                         ForEach(vm.verbs, id: \.id) { data in
@@ -37,7 +40,7 @@ struct SearchView: View {
                 }
                 
             }.task {
-              await vm.populateVerbs()
+                await vm.populateVerbs()
             }
             .navigationTitle("Verben")
             .background(Color("Lemon"))
@@ -63,5 +66,3 @@ class searchStates: ObservableObject {
     
 }
 
-
-// MARK: The plan for this view is if the server in not able to respond or there is internet conncetion problems then user should be able to fetch data from CoreData
