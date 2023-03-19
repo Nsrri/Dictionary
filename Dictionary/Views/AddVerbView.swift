@@ -24,6 +24,7 @@ struct AddVerbView: View {
     @State var examples: [String] = []
     @State var example: String = ""
     @State var isFavorite: Bool = false
+    @State var category: String = ""
     
     
     func checkRepetetiveVerbs(verb: String) -> Bool {
@@ -78,7 +79,7 @@ struct AddVerbView: View {
                                 HStack{
                                     TextField("Trage das Beispiel des Verbes ein", text: $example)
                                     Button {
-                                      examples.append(example)
+                                        examples.append(example)
                                         example = ""
                                         withAnimation{
                                             UIApplication.shared.dismissKeyboard()
@@ -89,11 +90,16 @@ struct AddVerbView: View {
                                     
                                 }
                             }
+                                
+                                Section(header: Text("Die Kategorie")){
+                                    TextField("Die Kategorie", text: $category )
+                                }
+                            
                             
                             HStack{
                                 Spacer()
                                 Button {
-                                @State var newVerb = VerbViewModel(verb: Verb(_id: "", verb: verb, tenses: tenses, conjunctions: conjunctions, explanation: explanation, examples: examples, favorite: false))
+                                @State var newVerb = VerbViewModel(verb: Verb(_id: "", verb: verb, tenses: tenses, conjunctions: conjunctions, explanation: explanation, examples: examples, favorite: false, category: category))
                                     if checkRepetetiveVerbs(verb: newVerb.verb) {
                                         showEror = true
                                         verb = ""
@@ -102,6 +108,12 @@ struct AddVerbView: View {
                                         Task.init(operation: {
                                             await vm.addNewVerb(verbVM:newVerb)
                                         })
+                                        verb = ""
+                                        conjunction = ""
+                                        tense = ""
+                                        explanation = ""
+                                        example = ""
+                                        category = ""
                                         dismiss()
                                     }
                                     

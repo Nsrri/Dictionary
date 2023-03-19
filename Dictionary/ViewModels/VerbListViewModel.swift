@@ -42,7 +42,7 @@ final class VerbListViewModel: ObservableObject {
     }
     
     func populateFavoriteStatus(verbVM: VerbViewModel) async {
-        let verb = Verb(_id: verbVM.id, verb: verbVM.verb, tenses: verbVM.tenses, conjunctions: verbVM.conjunctions, explanation: verbVM.explanation, examples: verbVM.examples, favorite: verbVM.favorite)
+        let verb = Verb(_id: verbVM.id, verb: verbVM.verb, tenses: verbVM.tenses, conjunctions: verbVM.conjunctions, explanation: verbVM.explanation, examples: verbVM.examples, favorite: verbVM.favorite, category: verbVM.category)
         
         do {
 
@@ -57,7 +57,7 @@ final class VerbListViewModel: ObservableObject {
     }
     
     func addNewVerb(verbVM: VerbViewModel) async {
-        let verb = Verb(_id: verbVM.id, verb: verbVM.verb, tenses: verbVM.tenses, conjunctions: verbVM.conjunctions, explanation: verbVM.explanation, examples: verbVM.examples, favorite: verbVM.favorite)
+        let verb = Verb(_id: verbVM.id, verb: verbVM.verb, tenses: verbVM.tenses, conjunctions: verbVM.conjunctions, explanation: verbVM.explanation, examples: verbVM.examples, favorite: verbVM.favorite, category: verbVM.category)
         
         do {
                try await NetworkHandler().AddNewVerb(verb: verb)
@@ -144,6 +144,14 @@ struct VerbViewModel: Identifiable, Codable {
         }
         set {
             verbModel.favorite = newValue
+        }
+    }
+    var category: String {
+        get {
+            verbModel.category
+        }
+        set {
+            verbModel.category = newValue
         }
     }
 }

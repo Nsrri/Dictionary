@@ -44,6 +44,10 @@ struct VerbView: View {
                             .listRowBackground(Color("Lemon"))
                     }
                 }
+                Section("Die Kategorie"){
+                    Text(verbVM.category)
+                        .listRowBackground(Color("Lemon"))
+                }
                 
             }
             .background(Color("Lemon"))
