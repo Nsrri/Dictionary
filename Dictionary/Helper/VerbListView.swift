@@ -10,28 +10,13 @@ import SwiftUI
 @available(iOS 16.0, *)
 struct VerbListView: View {
     
-    let verbs: [VerbViewModel]
+    var verbs: [VerbViewModel]
     @StateObject var vm: VerbListViewModel = VerbListViewModel()
     @State var isFavoriteView: Bool
+    var onDelete: ((IndexSet) -> Void)? = nil
     
     func deleteItem(offsets: IndexSet) {
-        for offset in offsets {
-            var verb = verbs[offset]
-            if isFavoriteView {
-                if verb.favorite {
-                    verb.favorite = false
-                    Task {
-                        await vm.populateFavoriteStatus(verbVM:verb)
-                    }
-                    
-                }
-            } else {
-                Task{
-                    await vm.deletVerb(id:verb.id)
-                }
-            }
-            
-        }
+        onDelete?(offsets)
     }
                 
     var body: some View {
@@ -48,9 +33,3 @@ struct VerbListView: View {
     }
 }
 
-@available(iOS 16.0, *)
-struct VerbListView_Previews: PreviewProvider {
-    static var previews: some View {
-        VerbListView(verbs: [], isFavoriteView: false)
-    }
-}

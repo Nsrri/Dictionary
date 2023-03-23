@@ -7,13 +7,13 @@
 import SwiftUI
 
 struct HomeView: View {
-    @ObservedObject var vm = VerbListViewModel()
     
+    @ObservedObject var vm = VerbListViewModel()
     var percentageCalculatior =  PercentageCalculatior()
     
     var body: some View {
         GeometryReader { geometry in
-            VStack(alignment: .center){
+            VStack(alignment: .center) {
                 VStack{
                     Text("Wörterbuch").bold()
                         .padding(.top, 40)
@@ -33,7 +33,6 @@ struct HomeView: View {
                 .task {
                     await vm.populateVerbs()
                 }
-            
         }
     }
     

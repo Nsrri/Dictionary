@@ -12,12 +12,10 @@ struct FilterButton: Equatable {
     }
     
     var title: String
-    var action: () async -> Void
     var id: UUID
     
-    init(title: String, action: @escaping  () async -> Void, id: UUID = UUID()) {
+    init(title: String, id: UUID = UUID()) {
         self.title = title
-        self.action = action
         self.id = id
     }
 }

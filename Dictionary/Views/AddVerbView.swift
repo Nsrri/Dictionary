@@ -28,7 +28,7 @@ struct AddVerbView: View {
     
     
     func checkRepetetiveVerbs(verb: String) -> Bool {
-        if vm.verbs.contains(where: {$0.verb == verb.lowercased() }) {
+        if vm.verbs.contains(where: {$0.verb.lowercased() == verb.lowercased()}) {
             return true
         }
         return false
@@ -131,9 +131,6 @@ struct AddVerbView: View {
                 }.scrollContentBackground(.hidden)
                     .navigationTitle("Neues Verb")
                     .background(Color("Lemon"))
-                    .task {
-                        await vm.populateVerbs()
-                    }
             }
         }
         
