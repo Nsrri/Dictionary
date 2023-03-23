@@ -23,7 +23,7 @@ struct SearchView: View {
                 if canSearch {
                     List{
                         ForEach(vm.verbs, id: \.id) { data in
-                            if(data.verb.hasPrefix(States.searchText.lowercased())) {
+                            if(data.verb.lowercased().hasPrefix(States.searchText.lowercased())) {
                                 VerbCellView(verb: data)
                             }
                         }
@@ -33,11 +33,9 @@ struct SearchView: View {
                         .listStyle(.automatic)
                 }
                 else{
-                    VerbListView(verbs: vm.verbs, isFavoriteView: false)
+                    FilterbarView(Buttons: ListOfButton)
                 }
                 
-            }.task {
-              await vm.populateVerbs()
             }
             .navigationTitle("Verben")
             .background(Color("Lemon"))
@@ -52,6 +50,14 @@ extension SearchView {
    private var canSearch: Bool{
        return !States.searchText.isEmpty
     }
+    var ListOfButton: [FilterButton] { [
+        FilterButton(title: "All"),
+        FilterButton(title: "Regelmässig"),
+        FilterButton(title: "Unregelmässig"),
+        FilterButton(title: "Trennbar"),
+        FilterButton(title: "Reflexive"),
+        FilterButton(title: "Modalverb")
+    ]}
 }
 
 
@@ -63,5 +69,3 @@ class searchStates: ObservableObject {
     
 }
 
-
-// MARK: The plan for this view is if the server in not able to respond or there is internet conncetion problems then user should be able to fetch data from CoreData

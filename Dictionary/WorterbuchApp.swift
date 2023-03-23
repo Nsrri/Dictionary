@@ -16,4 +16,3 @@ struct Worterbuch: App {
     }
 }
 
-// MARK: I need to find out, if I need to do the same for CRUDL like fetching data from CoreData, If I need to use environmentObject

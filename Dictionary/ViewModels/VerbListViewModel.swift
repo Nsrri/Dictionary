@@ -12,6 +12,11 @@ import SwiftUI
 final class VerbListViewModel: ObservableObject {
     
     @Published var verbs: [VerbViewModel] = []
+    init() {
+            Task{
+                await self.populateVerbs()
+            }
+    }
     
     func populateVerbs() async {
         
@@ -26,6 +31,19 @@ final class VerbListViewModel: ObservableObject {
             
         }
     }
+//    func populateVerbsByCategory() async {
+//        
+//        do {
+//            let verbs = try await NetworkHandler().getAllVerbs()
+//            DispatchQueue.main.async {
+//                self.verbs = verbs.map(VerbViewModel.init)
+//            }
+//             
+//        } catch {
+//            print(error)
+//            
+//        }
+//    }
     
     func populateFavoriteVerbs() async {
         
@@ -47,9 +65,11 @@ final class VerbListViewModel: ObservableObject {
         do {
 
             let returnedVerb = try await NetworkHandler().UpdateFavoriteSatatus(verb: verb)
-            if let index = verbs.firstIndex(where: { $0.id == returnedVerb._id }) {
-                verbs[index] = VerbViewModel(verb: returnedVerb)
-        
+            DispatchQueue.main.async {
+                if let index = self.verbs.firstIndex(where: { $0.id == returnedVerb._id }) {
+                    self.verbs[index] = VerbViewModel(verb: returnedVerb)
+                    
+                }
             }
         } catch {
             print(error)

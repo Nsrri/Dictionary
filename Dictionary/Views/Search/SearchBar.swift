@@ -10,8 +10,8 @@ import SwiftUI
 
 struct SearchBar: View {
     
-    @Binding  var searchText: String
-    @Binding  var isSearching: Bool
+    @Binding var searchText: String
+    @Binding var isSearching: Bool
     
     var body: some View {
         HStack(alignment: .center, spacing: 0) {
