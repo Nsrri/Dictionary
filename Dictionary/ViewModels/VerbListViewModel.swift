@@ -31,19 +31,6 @@ final class VerbListViewModel: ObservableObject {
             
         }
     }
-//    func populateVerbsByCategory() async {
-//        
-//        do {
-//            let verbs = try await NetworkHandler().getAllVerbs()
-//            DispatchQueue.main.async {
-//                self.verbs = verbs.map(VerbViewModel.init)
-//            }
-//             
-//        } catch {
-//            print(error)
-//            
-//        }
-//    }
     
     func populateFavoriteVerbs() async {
         

@@ -35,7 +35,7 @@ struct FilterbarView: View {
                                 .padding(10)
                                 .background(
                                     RoundedRectangle(cornerRadius: 16)
-                                        .strokeBorder(buttonSelected == button.title ? .white : .black, lineWidth: 1.5)
+                                        .strokeBorder(buttonSelected == button.title ? Color("Celadon") : .black, lineWidth: 1.5)
                                 )
                         }
                     }
