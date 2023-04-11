@@ -36,6 +36,8 @@ struct SearchView: View {
                     FilterbarView(Buttons: ListOfButton)
                 }
                 
+            }.task {
+                await vm.populateVerbs()
             }
             .navigationTitle("Verben")
             .background(Color("Lemon"))
