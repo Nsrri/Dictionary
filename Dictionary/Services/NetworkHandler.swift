@@ -36,26 +36,6 @@ class NetworkHandler: ObservableObject {
             return verbs ?? []
     
         }
-//    func getAllVerbsByCategoty(category: String) async throws -> [Verb] {
-//        let url = urlProvider.UserEndpoint.appendingPathComponent("/search/by")
-//        var urlComponents = URLComponents(url: url, resolvingAgainstBaseURL: false)
-//        urlComponents?.queryItems = [URLQueryItem(name: "category", value: category)]
-//        
-//        guard let finalURL = urlComponents?.url else {
-//            throw NetworkError.badURL
-//        }
-//        
-//        let (data, response) = try await URLSession.shared.data(from: finalURL)
-//
-//        guard let httpResponse = response as? HTTPURLResponse,
-//              (200...290).contains(httpResponse.statusCode) else {
-//            throw NetworkError.invalidRequest
-//        }
-//
-//        let verbs = try? JSONDecoder().decode([Verb].self, from: data)
-//        return verbs ?? []
-//
-//    }
     
     func getAllFavoriteVerbs() async throws -> [Verb] {
         let url = urlProvider.UserEndpoint.appendingPathComponent("/favorite")

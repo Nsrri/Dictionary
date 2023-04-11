@@ -13,6 +13,7 @@ struct AddVerbView: View {
     
     @Environment(\.dismiss) var dismiss
     @ObservedObject var vm = VerbListViewModel()
+  
     
     @State var showEror: Bool = false
     @State var verb: String = ""
@@ -92,7 +93,7 @@ struct AddVerbView: View {
                     }
                     
                     Section(header: Text("Die Kategorie")){
-                        TextField("Die Kategorie", text: $category )
+                        SelectionView(selectedOption: $category).padding(.top, 10)
                     }
                     
                     
