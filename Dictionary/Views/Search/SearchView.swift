@@ -52,13 +52,13 @@ extension SearchView {
    private var canSearch: Bool{
        return !States.searchText.isEmpty
     }
-    var ListOfButton: [FilterButton] { [
-        FilterButton(title: "All"),
-        FilterButton(title: "Regelmässig"),
-        FilterButton(title: "Unregelmässig"),
-        FilterButton(title: "Trennbar"),
-        FilterButton(title: "Reflexive"),
-        FilterButton(title: "Modalverb")
+    var ListOfButton: [Option] { [
+        Option(title: "All"),
+        Option(title: "Regelmässig"),
+        Option(title: "Unregelmässig"),
+        Option(title: "Trennbar"),
+        Option(title: "Reflexive"),
+        Option(title: "Modalverb")
     ]}
 }
 

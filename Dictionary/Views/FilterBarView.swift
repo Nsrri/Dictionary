@@ -13,9 +13,9 @@ struct FilterbarView: View {
     @ObservedObject private var vm = VerbListViewModel()
     @State var buttonSelected: String = "All"
     @State var selectedVerbsByCategory: [VerbViewModel] = []
-    var Buttons: [FilterButton]
+    var Buttons: [Option]
     
-    init(Buttons: [FilterButton]) {
+    init(Buttons: [Option]) {
         self.Buttons = Buttons
     }
     

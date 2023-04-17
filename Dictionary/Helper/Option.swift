@@ -6,8 +6,8 @@
 
 import Foundation
 
-struct FilterButton: Equatable {
-    static func == (lhs: FilterButton, rhs: FilterButton) -> Bool {
+struct Option: Equatable {
+    static func == (lhs: Option, rhs: Option) -> Bool {
         return lhs.id == rhs.id
     }
     

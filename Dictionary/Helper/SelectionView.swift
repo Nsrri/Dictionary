@@ -9,17 +9,12 @@ import Foundation
 import SwiftUI
 
 struct SelectionView: View {
-    var categories: [FilterButton]  {[
-        FilterButton(title: "Regelmässig"),
-        FilterButton(title: "Unregelmässig"),
-        FilterButton(title: "Trennbar"),
-        FilterButton(title: "Reflexive"),
-        FilterButton(title: "Modalverb")
-    ]}
+    var categories: [Option]
     @Binding var selectedOption: String
     
-    init( selectedOption: Binding<String>) {
+    init( selectedOption: Binding<String>, categories: [Option]) {
         self._selectedOption = selectedOption
+        self.categories = categories
     }
     
     var body: some View {

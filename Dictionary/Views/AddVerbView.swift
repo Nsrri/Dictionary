@@ -26,6 +26,13 @@ struct AddVerbView: View {
     @State var example: String = ""
     @State var isFavorite: Bool = false
     @State var category: String = ""
+    var categories: [Option]  { [
+        Option(title: "Regelmässig"),
+        Option(title: "Unregelmässig"),
+        Option(title: "Trennbar"),
+        Option(title: "Reflexive"),
+        Option(title: "Modalverb")
+    ]}
     
     
     func checkRepetetiveVerbs(verb: String) -> Bool {
@@ -93,7 +100,7 @@ struct AddVerbView: View {
                     }
                     
                     Section(header: Text("Die Kategorie")){
-                        SelectionView(selectedOption: $category).padding(.top, 10)
+                        SelectionView(selectedOption: $category, categories: categories).padding(.top, 10)
                     }
                     
                     
