@@ -51,7 +51,7 @@ class NetworkHandler: ObservableObject {
     }
     
     func UpdateFavoriteSatatus(verb: Verb) async throws -> Verb {
-        let url = urlProvider.UserEndpoint.appendingPathComponent("update")
+        let url = urlProvider.UserEndpoint.appendingPathComponent("/updateFavorite")
         var urlComponents = URLComponents(url: url, resolvingAgainstBaseURL: false)
         urlComponents?.queryItems = [URLQueryItem(name: "id", value: "\(verb._id)")]
         
@@ -127,5 +127,89 @@ class NetworkHandler: ObservableObject {
               (200...290).contains(httpResponse.statusCode) else {
             throw NetworkError.invalidRequest
         }
+    }
+    
+    // Network Handling of Questions
+    
+    func getAllQuestions() async throws -> [Question] {
+        let url = urlProvider.UserEndpoint.appendingPathComponent("/allQuestions")
+        let (data, response) = try await URLSession.shared.data(from: url)
+        
+       guard let httpResponse = response as? HTTPURLResponse,
+        (200...290).contains(httpResponse.statusCode) else {
+            throw NetworkError.invalidRequest
+        }
+        
+        let questions = try? JSONDecoder().decode([Question].self, from: data)
+        return questions ?? []
+    }
+    
+
+    
+    func UpdateUserAnswer(question: Question) async throws -> Question {
+        let url = urlProvider.UserEndpoint.appendingPathComponent("/updateUserAnswer")
+        var urlComponents = URLComponents(url: url, resolvingAgainstBaseURL: false)
+        urlComponents?.queryItems = [URLQueryItem(name: "id", value: "\(question._id)")]
+        
+        guard let finalURL = urlComponents?.url else {
+            throw NetworkError.badURL
+        }
+        
+        var request = URLRequest(url: finalURL)
+        request.httpMethod = "PATCH"
+        
+        do {
+            let encoder = JSONEncoder()
+            let data = try encoder.encode(question)
+            request.httpBody = data
+            request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        }
+        catch {
+            throw error
+        }
+        
+        let (data, response) = try await URLSession.shared.data(for: request)
+        
+        guard let httpResponse = response as? HTTPURLResponse,
+              (200...290).contains(httpResponse.statusCode) else {
+            throw NetworkError.invalidRequest
+        }
+        let decoder = JSONDecoder()
+        let question = try decoder.decode(Question.self, from: data)
+        return question
+   
+    }
+    
+    func UpdatePoint(question: Question) async throws -> Question {
+        let url = urlProvider.UserEndpoint.appendingPathComponent("/updatePoint")
+        var urlComponents = URLComponents(url: url, resolvingAgainstBaseURL: false)
+        urlComponents?.queryItems = [URLQueryItem(name: "id", value: "\(question._id)")]
+        
+        guard let finalURL = urlComponents?.url else {
+            throw NetworkError.badURL
+        }
+        
+        var request = URLRequest(url: finalURL)
+        request.httpMethod = "PATCH"
+        
+        do {
+            let encoder = JSONEncoder()
+            let data = try encoder.encode(question)
+            request.httpBody = data
+            request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        }
+        catch {
+            throw error
+        }
+        
+        let (data, response) = try await URLSession.shared.data(for: request)
+        
+        guard let httpResponse = response as? HTTPURLResponse,
+              (200...290).contains(httpResponse.statusCode) else {
+            throw NetworkError.invalidRequest
+        }
+        let decoder = JSONDecoder()
+        let question = try decoder.decode(Question.self, from: data)
+        return question
     }
 }

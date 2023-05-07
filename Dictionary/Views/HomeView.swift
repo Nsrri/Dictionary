@@ -10,6 +10,7 @@ import SwiftUI
 struct HomeView: View {
     
     @ObservedObject var vm = VerbListViewModel()
+    @ObservedObject var quizvm = QuestionListViewModel()
     @State var StartQuiz: Bool = false
     var percentageCalculatior =  PercentageCalculatior()
     
@@ -30,7 +31,7 @@ struct HomeView: View {
                             .padding(3)
                             .background(Color.gray)
                     }
-                    QuizIntro(name: "Start Quiz", action: {StartQuiz = true}, showView: $StartQuiz, navigateTo: QuestionView(question: "", options: [], points: 0))
+                    QuizIntro(name: "Start", action: {StartQuiz = true}, showView: $StartQuiz, navigateTo: QuestionListView())
                         .padding(.top, 40)
                     Spacer()
                     

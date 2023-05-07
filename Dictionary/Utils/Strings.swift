@@ -8,5 +8,5 @@
 import Foundation
 
 struct Strings {
-    static var quizDescription: String = "Before starting to use the app we recommend you to take an exam and check your level"
+    static var quizDescription: String = "Wir empfehlen Ihnen, vor der Nutzung dieser App ein Einstufungstest abzulegen."
 }
