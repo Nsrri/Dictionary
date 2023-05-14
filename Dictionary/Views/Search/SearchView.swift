@@ -53,6 +53,7 @@ struct SearchView: View {
                     title: Text("Error"),
                     message: Text("""
                                 appError.errorString
+                                Please try again later!
                                 """),
                     dismissButton: .default(Text("OK"))
                 )
