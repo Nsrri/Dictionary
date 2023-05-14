@@ -39,7 +39,8 @@ struct QuestionListView: View {
                                 QuestionView(questionVM: que, isSubmitted: $isSubmitted)
                                 
                             }
-                            submitButton()
+                        submitButton().disabled(isSubmitted)
+                        
                         }
                     }
                    
@@ -61,9 +62,6 @@ extension QuestionListView {
     func submitButton() -> some View {
         Button {
             isSubmitted = true
-            Task{
-                await vm.getAllQuestions()
-            }
         } label: {
             Text("Absenden")
         }.buttonStyle(.borderedProminent)
@@ -79,6 +77,7 @@ struct QuestionView: View {
     @State var questionVM: QuestionViewModel
     @State var selectedOption = ""
     @Binding var isSubmitted: Bool
+    @State var count = 0
     
     init( questionVM: QuestionViewModel, isSubmitted: Binding<Bool>) {
         self.questionVM = questionVM
@@ -99,10 +98,12 @@ struct QuestionView: View {
             Divider()
             SelectionView(selectedOption: $selectedOption, options: questionVM.options, action: {
                 isSubmitted = false
+                count += 1
                 questionVM.userAnswer = selectedOption
                 selectedOption = questionVM.userAnswer
                 if (questionVM.userAnswer == questionVM.answer){
                     questionVM.point = 1
+                    
                     
                 }else {
                     questionVM.point = 0
