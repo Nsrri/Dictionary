@@ -8,10 +8,11 @@
 import Foundation
 import SwiftUI
 
-
+@MainActor
 final class VerbListViewModel: ObservableObject {
     
     @Published var verbs: [VerbViewModel] = []
+    var apperror: AppError? = nil
     init() {
             Task{
                 await self.populateVerbs()
@@ -22,13 +23,12 @@ final class VerbListViewModel: ObservableObject {
         
         do {
             let verbs = try await NetworkHandler().getAllVerbs()
-            DispatchQueue.main.async {
                 self.verbs = verbs.map(VerbViewModel.init)
-            }
              
         } catch {
+            self.apperror = AppError(errorString: error.localizedDescription)
             print(error)
-            
+            verbs = []
         }
     }
     
@@ -36,12 +36,12 @@ final class VerbListViewModel: ObservableObject {
         
         do {
             let verbs = try await NetworkHandler().getAllFavoriteVerbs()
-            DispatchQueue.main.async {
                 self.verbs = verbs.map(VerbViewModel.init)
-            }
              
         } catch {
+            self.apperror = AppError(errorString: error.localizedDescription)
             print(error)
+            verbs = []
             
         }
     }
@@ -52,14 +52,13 @@ final class VerbListViewModel: ObservableObject {
         do {
 
             let returnedVerb = try await NetworkHandler().UpdateFavoriteSatatus(verb: verb)
-            DispatchQueue.main.async {
                 if let index = self.verbs.firstIndex(where: { $0.id == returnedVerb._id }) {
                     self.verbs[index] = VerbViewModel(verb: returnedVerb)
-                    
-                }
             }
         } catch {
+            self.apperror = AppError(errorString: error.localizedDescription)
             print(error)
+            verbs = []
         }
     }
     
@@ -69,7 +68,9 @@ final class VerbListViewModel: ObservableObject {
         do {
                try await NetworkHandler().AddNewVerb(verb: verb)
         } catch {
+            self.apperror = AppError(errorString: error.localizedDescription)
             print(error)
+            verbs = []
         }
     }
     
@@ -77,7 +78,9 @@ final class VerbListViewModel: ObservableObject {
         do {
             try await NetworkHandler().DeleteVerbById(id: id )
         } catch {
+            self.apperror = AppError(errorString: error.localizedDescription)
             print(error)
+            verbs = []
         }
     }
     

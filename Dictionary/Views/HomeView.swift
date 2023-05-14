@@ -6,33 +6,41 @@
 
 import SwiftUI
 
+@available(iOS 16.0, *)
 struct HomeView: View {
     
     @ObservedObject var vm = VerbListViewModel()
+    @ObservedObject var quizvm = QuestionListViewModel()
+    @State var StartQuiz: Bool = false
     var percentageCalculatior =  PercentageCalculatior()
+    
     
     var body: some View {
         GeometryReader { geometry in
-            VStack(alignment: .center) {
-                VStack{
-                    Text("Wörterbuch").bold()
-                        .padding(.top, 40)
-                    ZStack{
-                        createRings()
-                        createCurrentValueText(radius: 250.0)
+            NavigationView {
+                VStack(alignment: .center) {
+                    VStack{
+                        Text("Wörterbuch").bold()
+                            .padding(.top, 40)
+                        ZStack{
+                            createRings()
+                            createCurrentValueText(radius: 250.0)
+                        }
+                        Text("Du bist deinem Ziel \(String(format: "%.2f", percentageCalculatior.getAddedVerbsPercentage(vm.verbs))) % näher gekommen :)")
+                            .font(Font.system(size: 15.0, weight: .bold, design: .rounded))
+                            .padding(3)
+                            .background(Color.gray)
                     }
-                    Text("Du bist deinem Ziel \(String(format: "%.2f", percentageCalculatior.getAddedVerbsPercentage(vm.verbs))) % näher gekommen :)")
-                        .font(Font.system(size: 15.0, weight: .bold, design: .rounded))
-                        .padding(3)
-                        .background(Color.gray)
-                }
-                Spacer()
-                
-            }.frame(width: geometry.size.width, height: geometry.size.height)
-                .background(Color("Lemon"))
-                .task {
-                    await vm.populateVerbs()
-                }
+                    QuizIntro(name: "Start", action: {StartQuiz = true}, showView: $StartQuiz, navigateTo: QuestionListView())
+                        .padding(.top, 40)
+                    Spacer()
+                    
+                }.frame(width: geometry.size.width, height: geometry.size.height)
+                    .background(Color("Lemon"))
+                    .task {
+                        await vm.populateVerbs()
+                    }
+            }
         }
     }
     

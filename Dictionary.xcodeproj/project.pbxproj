@@ -3,30 +3,37 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 55;
+	objectVersion = 56;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		502750542868C4A200D91944 /* WorterbuchApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 502750532868C4A200D91944 /* WorterbuchApp.swift */; };
 		502750562868C4A200D91944 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 502750552868C4A200D91944 /* ContentView.swift */; };
-		502750642868D24500D91944 /* verbsInformationsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 502750632868D24500D91944 /* verbsInformationsModel.swift */; };
+		502750642868D24500D91944 /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 502750632868D24500D91944 /* DataModel.swift */; };
 		502750662868D71500D91944 /* Bundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 502750652868D71500D91944 /* Bundle.swift */; };
 		502DD2582998DC4C006A9274 /* VerbListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 502DD2572998DC4B006A9274 /* VerbListView.swift */; };
 		502DD25A2998DD08006A9274 /* VerbCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 502DD2592998DD08006A9274 /* VerbCellView.swift */; };
 		502DD25C2998FC30006A9274 /* SaveButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 502DD25B2998FC30006A9274 /* SaveButtonView.swift */; };
 		503732292995760B00BF74E8 /* VerbListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 503732282995760B00BF74E8 /* VerbListViewModel.swift */; };
 		5037322C2995778400BF74E8 /* EndpointURLProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5037322B2995778400BF74E8 /* EndpointURLProvider.swift */; };
+		50614B9F29ED2CF400966CDD /* QuizIntro.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50614B9E29ED2CF400966CDD /* QuizIntro.swift */; };
+		50614BA129ED31DE00966CDD /* QuestionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50614BA029ED31DE00966CDD /* QuestionView.swift */; };
+		50614BA329ED36C300966CDD /* NavigationButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50614BA229ED36C300966CDD /* NavigationButton.swift */; };
+		506611FF29F102CA005A53E5 /* QuestionListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 506611FE29F102CA005A53E5 /* QuestionListViewModel.swift */; };
 		506CF42128F70CEB002F7D9B /* Verbs.json in Resources */ = {isa = PBXBuildFile; fileRef = 506CF42028F70CEB002F7D9B /* Verbs.json */; };
 		506F530D29A0F59F0064EEAD /* VerbView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 506F530C29A0F59F0064EEAD /* VerbView.swift */; };
 		5076CD8A29CC9EBD0026BC71 /* SelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5076CD8929CC9EBD0026BC71 /* SelectionView.swift */; };
 		507A8C9A29C6F9ED00822A18 /* FilterBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507A8C9929C6F9ED00822A18 /* FilterBarView.swift */; };
-		507A8C9C29C6F9FA00822A18 /* FilterButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507A8C9B29C6F9FA00822A18 /* FilterButton.swift */; };
+		507A8C9C29C6F9FA00822A18 /* Option.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507A8C9B29C6F9FA00822A18 /* Option.swift */; };
 		5080006729903C6E00E90AAB /* NetworkHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5080006629903C6E00E90AAB /* NetworkHandler.swift */; };
+		5082D52D29EC07FC0022DB1C /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5082D52C29EC07FC0022DB1C /* Strings.swift */; };
 		508A420F2973EA34006AC1F3 /* RingBackgroundShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 508A420E2973EA34006AC1F3 /* RingBackgroundShape.swift */; };
 		508A42112973F153006AC1F3 /* RingShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 508A42102973F153006AC1F3 /* RingShape.swift */; };
 		508A42132973F605006AC1F3 /* RingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 508A42122973F605006AC1F3 /* RingView.swift */; };
 		508A42152973F67B006AC1F3 /* RingTipShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 508A42142973F67B006AC1F3 /* RingTipShape.swift */; };
 		508A421B297488D7006AC1F3 /* PercentageCalculation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 508A421A297488D7006AC1F3 /* PercentageCalculation.swift */; };
+		50DCB5CD2A11288700A5ED46 /* AppError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50DCB5CC2A11288700A5ED46 /* AppError.swift */; };
+		50DCB5CF2A115D0700A5ED46 /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50DCB5CE2A115D0700A5ED46 /* ErrorView.swift */; };
 		56068E0E2944B53F009000EF /* newVerbs.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 56068E0C2944B53F009000EF /* newVerbs.xcdatamodeld */; };
 		561704F929100CAB004DE71A /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 561704F829100CAB004DE71A /* DataController.swift */; };
 		5620CACC29326394002287F2 /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5620CACB29326394002287F2 /* SearchBar.swift */; };
@@ -41,24 +48,31 @@
 		502750502868C4A200D91944 /* Dictionary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Dictionary.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		502750532868C4A200D91944 /* WorterbuchApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorterbuchApp.swift; sourceTree = "<group>"; };
 		502750552868C4A200D91944 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		502750632868D24500D91944 /* verbsInformationsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = verbsInformationsModel.swift; sourceTree = "<group>"; };
+		502750632868D24500D91944 /* DataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
 		502750652868D71500D91944 /* Bundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bundle.swift; sourceTree = "<group>"; };
 		502DD2572998DC4B006A9274 /* VerbListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerbListView.swift; sourceTree = "<group>"; };
 		502DD2592998DD08006A9274 /* VerbCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerbCellView.swift; sourceTree = "<group>"; };
 		502DD25B2998FC30006A9274 /* SaveButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveButtonView.swift; sourceTree = "<group>"; };
 		503732282995760B00BF74E8 /* VerbListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerbListViewModel.swift; sourceTree = "<group>"; };
 		5037322B2995778400BF74E8 /* EndpointURLProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndpointURLProvider.swift; sourceTree = "<group>"; };
+		50614B9E29ED2CF400966CDD /* QuizIntro.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizIntro.swift; sourceTree = "<group>"; };
+		50614BA029ED31DE00966CDD /* QuestionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionView.swift; sourceTree = "<group>"; };
+		50614BA229ED36C300966CDD /* NavigationButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationButton.swift; sourceTree = "<group>"; };
+		506611FE29F102CA005A53E5 /* QuestionListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionListViewModel.swift; sourceTree = "<group>"; };
 		506CF42028F70CEB002F7D9B /* Verbs.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Verbs.json; sourceTree = "<group>"; };
 		506F530C29A0F59F0064EEAD /* VerbView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerbView.swift; sourceTree = "<group>"; };
 		5076CD8929CC9EBD0026BC71 /* SelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionView.swift; sourceTree = "<group>"; };
 		507A8C9929C6F9ED00822A18 /* FilterBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterBarView.swift; sourceTree = "<group>"; };
-		507A8C9B29C6F9FA00822A18 /* FilterButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterButton.swift; sourceTree = "<group>"; };
+		507A8C9B29C6F9FA00822A18 /* Option.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Option.swift; sourceTree = "<group>"; };
 		5080006629903C6E00E90AAB /* NetworkHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkHandler.swift; sourceTree = "<group>"; };
+		5082D52C29EC07FC0022DB1C /* Strings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
 		508A420E2973EA34006AC1F3 /* RingBackgroundShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RingBackgroundShape.swift; sourceTree = "<group>"; };
 		508A42102973F153006AC1F3 /* RingShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RingShape.swift; sourceTree = "<group>"; };
 		508A42122973F605006AC1F3 /* RingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RingView.swift; sourceTree = "<group>"; };
 		508A42142973F67B006AC1F3 /* RingTipShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RingTipShape.swift; sourceTree = "<group>"; };
 		508A421A297488D7006AC1F3 /* PercentageCalculation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PercentageCalculation.swift; sourceTree = "<group>"; };
+		50DCB5CC2A11288700A5ED46 /* AppError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppError.swift; sourceTree = "<group>"; };
+		50DCB5CE2A115D0700A5ED46 /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
 		56068E0D2944B53F009000EF /* newVerbs.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = newVerbs.xcdatamodel; sourceTree = "<group>"; };
 		561704F829100CAB004DE71A /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
 		5620CACB29326394002287F2 /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
@@ -100,6 +114,7 @@
 		502750522868C4A200D91944 /* Dictionary */ = {
 			isa = PBXGroup;
 			children = (
+				50DCB5CB2A11287200A5ED46 /* Error */,
 				502750532868C4A200D91944 /* WorterbuchApp.swift */,
 				502750552868C4A200D91944 /* ContentView.swift */,
 				5620CACF293265AD002287F2 /* Views */,
@@ -127,6 +142,7 @@
 			children = (
 				508A421A297488D7006AC1F3 /* PercentageCalculation.swift */,
 				503732282995760B00BF74E8 /* VerbListViewModel.swift */,
+				506611FE29F102CA005A53E5 /* QuestionListViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -135,6 +151,7 @@
 			isa = PBXGroup;
 			children = (
 				5037322B2995778400BF74E8 /* EndpointURLProvider.swift */,
+				5082D52C29EC07FC0022DB1C /* Strings.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -142,35 +159,21 @@
 		50596DD429BF38350001E1EC /* Helper */ = {
 			isa = PBXGroup;
 			children = (
+				507A8C9B29C6F9FA00822A18 /* Option.swift */,
+				5076CD8929CC9EBD0026BC71 /* SelectionView.swift */,
 				502DD25B2998FC30006A9274 /* SaveButtonView.swift */,
 				502DD2572998DC4B006A9274 /* VerbListView.swift */,
 				502DD2592998DD08006A9274 /* VerbCellView.swift */,
+				50614BA229ED36C300966CDD /* NavigationButton.swift */,
+				50DCB5CE2A115D0700A5ED46 /* ErrorView.swift */,
 			);
 			path = Helper;
-			sourceTree = "<group>";
-		};
-		5076CD8829CC9E9B0026BC71 /* AddVerb */ = {
-			isa = PBXGroup;
-			children = (
-				563D094928EDB8F800F336D6 /* AddVerbView.swift */,
-				5076CD8929CC9EBD0026BC71 /* SelectionView.swift */,
-			);
-			path = AddVerb;
-			sourceTree = "<group>";
-		};
-		507A8C9829C6F9C900822A18 /* Filter */ = {
-			isa = PBXGroup;
-			children = (
-				507A8C9929C6F9ED00822A18 /* FilterBarView.swift */,
-				507A8C9B29C6F9FA00822A18 /* FilterButton.swift */,
-			);
-			path = Filter;
 			sourceTree = "<group>";
 		};
 		507D46C32994407000D41473 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				502750632868D24500D91944 /* verbsInformationsModel.swift */,
+				502750632868D24500D91944 /* DataModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -183,6 +186,15 @@
 			path = Services;
 			sourceTree = "<group>";
 		};
+		5082D52B29EC06600022DB1C /* Quiz */ = {
+			isa = PBXGroup;
+			children = (
+				50614B9E29ED2CF400966CDD /* QuizIntro.swift */,
+				50614BA029ED31DE00966CDD /* QuestionView.swift */,
+			);
+			path = Quiz;
+			sourceTree = "<group>";
+		};
 		508A420D2973EA06006AC1F3 /* RingViews */ = {
 			isa = PBXGroup;
 			children = (
@@ -192,6 +204,14 @@
 				508A42142973F67B006AC1F3 /* RingTipShape.swift */,
 			);
 			path = RingViews;
+			sourceTree = "<group>";
+		};
+		50DCB5CB2A11287200A5ED46 /* Error */ = {
+			isa = PBXGroup;
+			children = (
+				50DCB5CC2A11288700A5ED46 /* AppError.swift */,
+			);
+			path = Error;
 			sourceTree = "<group>";
 		};
 		5620CACA29326367002287F2 /* Search */ = {
@@ -224,10 +244,11 @@
 		5620CACF293265AD002287F2 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				5076CD8829CC9E9B0026BC71 /* AddVerb */,
-				507A8C9829C6F9C900822A18 /* Filter */,
-				5620CACA29326367002287F2 /* Search */,
 				508A420D2973EA06006AC1F3 /* RingViews */,
+				5620CACA29326367002287F2 /* Search */,
+				5082D52B29EC06600022DB1C /* Quiz */,
+				507A8C9929C6F9ED00822A18 /* FilterBarView.swift */,
+				563D094928EDB8F800F336D6 /* AddVerbView.swift */,
 				563D094728EDB8AE00F336D6 /* FavoriteVerbsView.swift */,
 				563D094B28EDBE0300F336D6 /* HomeView.swift */,
 				506F530C29A0F59F0064EEAD /* VerbView.swift */,
@@ -271,7 +292,7 @@
 				};
 			};
 			buildConfigurationList = 5027504B2868C4A200D91944 /* Build configuration list for PBXProject "Dictionary" */;
-			compatibilityVersion = "Xcode 13.0";
+			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -309,12 +330,15 @@
 				5620CACC29326394002287F2 /* SearchBar.swift in Sources */,
 				508A42112973F153006AC1F3 /* RingShape.swift in Sources */,
 				506F530D29A0F59F0064EEAD /* VerbView.swift in Sources */,
+				50614BA129ED31DE00966CDD /* QuestionView.swift in Sources */,
 				507A8C9A29C6F9ED00822A18 /* FilterBarView.swift in Sources */,
 				502750562868C4A200D91944 /* ContentView.swift in Sources */,
 				502750542868C4A200D91944 /* WorterbuchApp.swift in Sources */,
 				502DD2582998DC4C006A9274 /* VerbListView.swift in Sources */,
 				508A42152973F67B006AC1F3 /* RingTipShape.swift in Sources */,
+				50DCB5CF2A115D0700A5ED46 /* ErrorView.swift in Sources */,
 				508A42132973F605006AC1F3 /* RingView.swift in Sources */,
+				5082D52D29EC07FC0022DB1C /* Strings.swift in Sources */,
 				502750662868D71500D91944 /* Bundle.swift in Sources */,
 				5080006729903C6E00E90AAB /* NetworkHandler.swift in Sources */,
 				502DD25C2998FC30006A9274 /* SaveButtonView.swift in Sources */,
@@ -323,13 +347,17 @@
 				5076CD8A29CC9EBD0026BC71 /* SelectionView.swift in Sources */,
 				563D094A28EDB8F800F336D6 /* AddVerbView.swift in Sources */,
 				561704F929100CAB004DE71A /* DataController.swift in Sources */,
-				507A8C9C29C6F9FA00822A18 /* FilterButton.swift in Sources */,
+				50DCB5CD2A11288700A5ED46 /* AppError.swift in Sources */,
+				507A8C9C29C6F9FA00822A18 /* Option.swift in Sources */,
 				5693B02028F19655001189D7 /* SearchView.swift in Sources */,
+				50614B9F29ED2CF400966CDD /* QuizIntro.swift in Sources */,
+				50614BA329ED36C300966CDD /* NavigationButton.swift in Sources */,
+				506611FF29F102CA005A53E5 /* QuestionListViewModel.swift in Sources */,
 				502DD25A2998DD08006A9274 /* VerbCellView.swift in Sources */,
 				508A421B297488D7006AC1F3 /* PercentageCalculation.swift in Sources */,
 				5037322C2995778400BF74E8 /* EndpointURLProvider.swift in Sources */,
 				563D094828EDB8AE00F336D6 /* FavoriteVerbsView.swift in Sources */,
-				502750642868D24500D91944 /* verbsInformationsModel.swift in Sources */,
+				502750642868D24500D91944 /* DataModel.swift in Sources */,
 				563D094C28EDBE0300F336D6 /* HomeView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -468,6 +496,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -499,6 +528,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
