@@ -20,24 +20,37 @@ struct QuestionListView: View {
     init( next: Bool = false, back: Bool = false ) {
         self.next = next
         self.back  = back
-
+        
     }
-
+    
     var body: some View {
         NavigationView {
             GeometryReader { geomerty in
-                ScrollView {
-                    ForEach(vm.questions, id: \.id) { que in
-                        QuestionView(questionVM: que, isSubmitted: $isSubmitted)
-                        
+                VStack{
+                    if vm.questions.isEmpty {
+                        Spacer()
+                        ErrorViewMessage()
+                        Spacer()
                     }
-                    submitButton()
-                }
-                .task {
+                    else {  ScrollView {
+                    
+                  
+                            ForEach(vm.questions, id: \.id) { que in
+                                QuestionView(questionVM: que, isSubmitted: $isSubmitted)
+                                
+                            }
+                            submitButton()
+                        }
+                    }
+                   
+                } .task {
                     await vm.getAllQuestions()
                 }
+                .frame(width: geomerty.size.width)
+
             }
             .navigationBarTitle("Fragen")
+            .background(Color("Lemon"))
         }
         
     }
@@ -55,7 +68,7 @@ extension QuestionListView {
             Text("Absenden")
         }.buttonStyle(.borderedProminent)
     }
-
+    
 }
 
 
@@ -79,7 +92,7 @@ struct QuestionView: View {
                 Text(questionVM.question)
                     .font(.headline)
                 Spacer()
-              if  isSubmitted {
+                if  isSubmitted {
                     Text("point \(questionVM.point)/1")
                 }
             }
@@ -107,6 +120,6 @@ struct QuestionView: View {
         .padding(.horizontal, 20)
         .padding(.vertical, 10)
     }
-        
-    }
     
+}
+

@@ -8,11 +8,12 @@
 import Foundation
 import SwiftUI
 
-
+@MainActor
 final class QuestionListViewModel: ObservableObject {
  
     
     @Published var questions: [QuestionViewModel] = []
+    var apperror: AppError? = nil
     
     init() {
         Task {
@@ -26,11 +27,12 @@ final class QuestionListViewModel: ObservableObject {
         
         do{
             let questions = try await NetworkHandler().getAllQuestions()
-            DispatchQueue.main.async {
                 self.questions = questions.map(QuestionViewModel.init)
-            }
          
         } catch {
+            self.apperror = AppError(errorString: error.localizedDescription)
+            print(error)
+            questions = []
             
         }
         
@@ -42,15 +44,14 @@ final class QuestionListViewModel: ObservableObject {
         let updatedQuestion = Question(_id: questionVM.id, question: questionVM.question, options: questionVM.options, answer: questionVM.answer, userAnswer: questionVM.userAnswer, point: questionVM.point)
         do {
             let returnedQuestion = try await NetworkHandler().UpdateUserAnswer(question: updatedQuestion)
-            DispatchQueue.main.async {
                 if let index = self.questions.firstIndex(where: { $0.id == returnedQuestion._id }) {
                     self.questions[index] = QuestionViewModel(question: returnedQuestion)
-                    
-                }
             }
             
         } catch {
+            self.apperror = AppError(errorString: error.localizedDescription)
             print(error)
+            questions = []
         }
     }
     
@@ -58,15 +59,14 @@ final class QuestionListViewModel: ObservableObject {
         let updatedQuestion = Question(_id: question.id, question: question.question, options: question.options, answer: question.answer, userAnswer: question.userAnswer, point: question.point)
         do {
             let returnedQuestion = try await NetworkHandler().UpdatePoint(question: updatedQuestion)
-            DispatchQueue.main.async {
                 if let index = self.questions.firstIndex(where: { $0.id == returnedQuestion._id }) {
                     self.questions[index] = QuestionViewModel(question: returnedQuestion)
-                    
-                }
             }
             
         } catch {
+            self.apperror = AppError(errorString: error.localizedDescription)
             print(error)
+            questions = []
         }
     }
 
